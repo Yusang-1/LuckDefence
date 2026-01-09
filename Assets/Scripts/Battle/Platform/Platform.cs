@@ -10,7 +10,7 @@ public class Platform : MonoBehaviour
     {
         //if (entityCount >= platformPosData.PlatformPosDict[rank].RoomArea) return null;
 
-        Vector3 pos = platformPosData.PlatformPosDict[rank].Pos[entityCount];
+        Vector3 pos = platformPosData.PlatformPosDict[rank].Pos[entityCount] + transform.position;
         entityCount++;
 
         return pos;
