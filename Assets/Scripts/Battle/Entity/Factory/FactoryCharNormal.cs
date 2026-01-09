@@ -1,9 +1,19 @@
 ﻿using UnityEngine;
 
-public class FactoryCharNormal : AbstractFactory
+public class FactoryCharNormal : FactoryChar
 {
-    public override void GetChar()
+    public override void Initialize(Entity[] entities)
     {
-        base.GetChar();
+        base.Initialize(entities);
+    }
+
+    public override void ActiveEntity(Entity entity, Platform platform)
+    {
+        base.ActiveEntity(entity, platform);
+    }
+
+    public override void DeactiveEntity(int index)
+    {
+        base.DeactiveEntity(index);
     }
 }

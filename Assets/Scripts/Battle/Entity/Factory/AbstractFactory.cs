@@ -2,13 +2,21 @@
 
 public abstract class AbstractFactory : MonoBehaviour
 {
-    [SerializeField] protected Entity[] Entities;
-    [SerializeField] private int pooledNum;
+    [SerializeField] protected int pooledNum;
+    protected Entity[] Entities;
 
-    public virtual void GetChar()
+    public virtual void Initialize(Entity[] entities)
     {
-        int index = Random.Range(0, Entities.Length-1);
 
-        Instantiate(Entities[index].gameObject); 
     }
+
+    public virtual void ActiveEntity(Entity entity, Platform platform)
+    {
+                
+    }
+
+    public virtual void DeactiveEntity(int index)
+    {
+
+    }    
 }
