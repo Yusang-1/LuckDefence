@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class FactoryCharNormal : FactoryChar
+public class FactoryCharUnique : FactoryChar
 {
     public override void Initialize(Entity[] entities)
     {
