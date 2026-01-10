@@ -1,15 +1,16 @@
 ﻿using UnityEngine;
+using System.Collections.Generic;
 
 public class FactoryCharRare : FactoryChar
 {
-    public override void Initialize(Entity[] entities)
+    public override void Initialize(Dictionary<int, Entity> entityDict)
     {
-        base.Initialize(entities);
+        base.Initialize(entityDict);
     }
 
-    public override void ActiveEntity(Entity entity, Platform platform)
+    public override void ActiveEntity(int code, Platform platform)
     {
-        base.ActiveEntity(entity, platform);
+        base.ActiveEntity(code, platform);
     }
 
     public override void DeactiveEntity(int index)

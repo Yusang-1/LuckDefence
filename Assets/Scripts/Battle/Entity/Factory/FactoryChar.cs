@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEngine;
 
 public class FactoryChar : AbstractFactory
 {
@@ -9,33 +11,37 @@ public class FactoryChar : AbstractFactory
 
     public CharRank Rank => rank;
 
-    public override void Initialize(Entity[] entities)
+    public override void Initialize(Dictionary<int, Entity> entityDict)
     {
-        base.Entities = entities;
+        base.EntityDict = entityDict;
+        int count = EntityDict.Count;
 
-        pooledCharacters = new GameObject[Entities.Length, pooledNum];
-        pooledCount = new int[Entities.Length];
+        pooledCharacters = new GameObject[count, pooledNum];
+        pooledCount = new int[count];
 
         GameObject go;
-        for(int i = 0; i < Entities.Length; i++)
+        int num;
+        for(int i = 0; i < count; i++)
         {
+            num = 0;
             pooledCount[i] = 0;
 
-            for(int j = 0; j < pooledNum; j++)
+            foreach(var item in EntityDict)
             {
-                go = Instantiate(Entities[i].gameObject);
+                go = Instantiate(EntityDict[item.Key].gameObject);
                 go.SetActive(false);
-                pooledCharacters[i, j] = go;
+                pooledCharacters[i, num] = go;
+                num++;
             }
         }
     }
 
-    public override void ActiveEntity(Entity entity, Platform platform)
+    public override void ActiveEntity(int code, Platform platform)
     {
         int index;
         do
         {
-            index = Random.Range(0, Entities.Length);
+            index = Random.Range(0, EntityDict.Count);
         } while (pooledCount[index] >= pooledNum);
         
         GameObject go = pooledCharacters[index, pooledCount[index]];

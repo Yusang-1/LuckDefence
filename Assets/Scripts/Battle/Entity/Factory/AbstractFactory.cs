@@ -1,16 +1,18 @@
 ﻿using UnityEngine;
+using System.Collections.Generic;
 
 public abstract class AbstractFactory : MonoBehaviour
 {
     [SerializeField] protected int pooledNum;
-    protected Entity[] Entities;
+    //protected Entity[] Entities;
+    protected Dictionary<int, Entity> EntityDict;
 
-    public virtual void Initialize(Entity[] entities)
+    public virtual void Initialize(Dictionary<int, Entity> entityDict)
     {
 
     }
 
-    public virtual void ActiveEntity(Entity entity, Platform platform)
+    public virtual void ActiveEntity(int code, Platform platform)
     {
                 
     }

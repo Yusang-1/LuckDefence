@@ -3,7 +3,7 @@
 public class Platform : MonoBehaviour
 {
     [SerializeField] private PlatformPositionSO platformPosData;
-    [SerializeField] private Entity currentEntity; //코드로 바꾸기
+    [SerializeField] private int currentEntityCode; //코드로 바꾸기
     private int entityCount;
 
     private const int maxAvailableEntityCount = 3;
@@ -27,9 +27,9 @@ public class Platform : MonoBehaviour
         entityCount = 0;
     }
 
-    public bool CheckEntityAvailable(Entity entity)
+    public bool CheckEntityAvailable(int code)
     {
-        return (entityCount == 0 || (currentEntity == entity && entityCount < maxAvailableEntityCount));
+        return (entityCount == 0 || (currentEntityCode == code && entityCount < maxAvailableEntityCount));
     }
 
     public void EntitySpawned(Entity entity)
@@ -42,7 +42,7 @@ public class Platform : MonoBehaviour
         else
             entityCount++;
 
-        currentEntity = entity;
+        currentEntityCode = ch.Data.Code;
         entities[entityCount] = entity;
     }
 }
