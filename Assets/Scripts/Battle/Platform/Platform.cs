@@ -12,6 +12,7 @@ public class Platform : MonoBehaviour
     public void Start()
     {
         entities = new Entity[maxAvailableEntityCount];
+        platformPosData.Initialize();
     }
 
     public Vector3 GetPosition(CharRank rank)
@@ -41,6 +42,7 @@ public class Platform : MonoBehaviour
         else
             entityCount++;
 
+        currentEntity = entity;
         entities[entityCount] = entity;
     }
 }

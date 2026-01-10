@@ -38,19 +38,25 @@ public class CharacterSpawner : MonoBehaviour
         }
     }
 
-    public void SpawnEntity()
+    public void OnSpawnEntity()
     {
-        CharRank rank = (CharRank)Random.Range(0, (int)CharRank.legendary);
+        CharRank rank = (CharRank)Random.Range(0, (int)CharRank.legendary + 1);
 
         Entity entity = DetermineEntity(rank);
         Platform platform = SearchPlatform(entity);
-        
+
         factoryDict[rank].ActiveEntity(entity, platform);
     }
 
     private Entity DetermineEntity(CharRank rank)
     {
-        return new Entity(); //수정
+        int rankCount = System.Enum.GetValues(typeof(CharRank)).Length;
+        int rankIndex = Random.Range(0, rankCount);        
+
+        int entityCount = charListAsRankDict[(CharRank)rankIndex].Entities.Length;
+        int entityIndex = Random.Range(0, entityCount);
+
+        return charListAsRankDict[(CharRank)rankIndex].Entities[entityIndex]; //수정
     }
 
     private Platform SearchPlatform(Entity entity)
@@ -65,7 +71,7 @@ public class CharacterSpawner : MonoBehaviour
             }
         }
 
-        int index = Random.Range(0, availablePlatforms.Count-1);
+        int index = Random.Range(0, availablePlatforms.Count);
         
         return availablePlatforms[index];
     }

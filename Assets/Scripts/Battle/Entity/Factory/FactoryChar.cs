@@ -35,8 +35,8 @@ public class FactoryChar : AbstractFactory
         int index;
         do
         {
-            index = Random.Range(0, Entities.Length - 1);
-        } while (pooledCount[index] < pooledNum);        
+            index = Random.Range(0, Entities.Length);
+        } while (pooledCount[index] >= pooledNum);
         
         GameObject go = pooledCharacters[index, pooledCount[index]];
         go.SetActive(true);

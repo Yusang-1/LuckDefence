@@ -10,7 +10,7 @@ public class PlatformPositionSO : ScriptableObject
 
     public Dictionary<CharRank, PlatformPosition> PlatformPosDict => platformPosDict;
 
-    private void Awake()
+    public void Initialize()
     {
         platformPosDict = new Dictionary<CharRank, PlatformPosition>();
         foreach (var pp in platformPosition)
