@@ -3,15 +3,20 @@
 public class Platform : MonoBehaviour
 {
     [SerializeField] private PlatformPositionSO platformPosData;
-    [SerializeField] private Entity currentEntity;
+    [SerializeField] private Entity currentEntity; //코드로 바꾸기
     private int entityCount;
+
+    private const int maxAvailableEntityCount = 3;
+    private Entity[] entities;
+
+    public void Start()
+    {
+        entities = new Entity[maxAvailableEntityCount];
+    }
 
     public Vector3 GetPosition(CharRank rank)
     {
-        //if (entityCount >= platformPosData.PlatformPosDict[rank].RoomArea) return null;
-
         Vector3 pos = platformPosData.PlatformPosDict[rank].Pos[entityCount] + transform.position;
-        entityCount++;
 
         return pos;
     }
@@ -23,6 +28,19 @@ public class Platform : MonoBehaviour
 
     public bool CheckEntityAvailable(Entity entity)
     {
-        return (entityCount == 0 || currentEntity == entity);
+        return (entityCount == 0 || (currentEntity == entity && entityCount < maxAvailableEntityCount));
+    }
+
+    public void EntitySpawned(Entity entity)
+    {
+        Character ch = entity as Character;
+        if(ch.Data.Rank >= CharRank.legendary)
+        {
+            entityCount = maxAvailableEntityCount;
+        }
+        else
+            entityCount++;
+
+        entities[entityCount] = entity;
     }
 }
