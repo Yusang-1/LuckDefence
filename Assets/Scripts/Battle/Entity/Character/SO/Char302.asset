@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19e5ccec9a0c0934aa8a6813349ba38d, type: 3}
   m_Name: Char302
   m_EditorClassIdentifier: 
-  Code: 100
-  CharacterName: char1
+  Code: 302
+  CharacterName: char302
   Rank: 2
   MaxMp: 100
   AttackSpeed: 2.5

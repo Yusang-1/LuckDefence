@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19e5ccec9a0c0934aa8a6813349ba38d, type: 3}
   m_Name: Char101
   m_EditorClassIdentifier: 
-  Code: 100
-  CharacterName: char1
+  Code: 101
+  CharacterName: char101
+  Rank: 0
   MaxMp: 100
   AttackSpeed: 2.5
   MoveSpeed: 2.5
