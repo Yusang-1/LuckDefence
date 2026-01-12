@@ -730,7 +730,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   platformPosData: {fileID: 11400000, guid: b18ad2792ff425249bcdb0f6da11b2f6, type: 2}
-  currentEntity: {fileID: 0}
+  currentEntityCode: 0
 --- !u!1 &155905247
 GameObject:
   m_ObjectHideFlags: 0
@@ -941,7 +941,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   platformPosData: {fileID: 11400000, guid: b18ad2792ff425249bcdb0f6da11b2f6, type: 2}
-  currentEntity: {fileID: 0}
+  currentEntityCode: 0
 --- !u!1 &200394166
 GameObject:
   m_ObjectHideFlags: 0
@@ -1043,7 +1043,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   platformPosData: {fileID: 11400000, guid: b18ad2792ff425249bcdb0f6da11b2f6, type: 2}
-  currentEntity: {fileID: 0}
+  currentEntityCode: 0
 --- !u!1 &202733271
 GameObject:
   m_ObjectHideFlags: 0
@@ -2587,7 +2587,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   platformPosData: {fileID: 11400000, guid: b18ad2792ff425249bcdb0f6da11b2f6, type: 2}
-  currentEntity: {fileID: 0}
+  currentEntityCode: 0
 --- !u!1 &477850101
 GameObject:
   m_ObjectHideFlags: 0
@@ -2597,6 +2597,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 477850102}
+  - component: {fileID: 477850103}
   m_Layer: 0
   m_Name: Container_Platform
   m_TagString: Untagged
@@ -2621,6 +2622,40 @@ Transform:
   - {fileID: 57280144}
   m_Father: {fileID: 300630673}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &477850103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 477850101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a45586b7818b9f14d857ea3be37f3a70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  platformList:
+  - {fileID: 907380011}
+  - {fileID: 788897519}
+  - {fileID: 1589239069}
+  - {fileID: 474270256}
+  - {fileID: 493915958}
+  - {fileID: 1424274743}
+  - {fileID: 1583582103}
+  - {fileID: 2054126422}
+  - {fileID: 2142686569}
+  - {fileID: 1456179399}
+  - {fileID: 827502416}
+  - {fileID: 200394169}
+  - {fileID: 1963695075}
+  - {fileID: 1845571567}
+  - {fileID: 1816844906}
+  - {fileID: 1415928886}
+  - {fileID: 198318199}
+  - {fileID: 125872438}
+  - {fileID: 1410171718}
+  - {fileID: 1585462531}
+  - {fileID: 698662731}
 --- !u!1 &493915955
 GameObject:
   m_ObjectHideFlags: 0
@@ -2722,7 +2757,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   platformPosData: {fileID: 11400000, guid: b18ad2792ff425249bcdb0f6da11b2f6, type: 2}
-  currentEntity: {fileID: 0}
+  currentEntityCode: 0
 --- !u!1 &500833774
 GameObject:
   m_ObjectHideFlags: 0
@@ -3413,7 +3448,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   platformPosData: {fileID: 11400000, guid: b18ad2792ff425249bcdb0f6da11b2f6, type: 2}
-  currentEntity: {fileID: 0}
+  currentEntityCode: 0
 --- !u!1 &709664556
 GameObject:
   m_ObjectHideFlags: 0
@@ -3460,6 +3495,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pooledNum: 7
   rank: 2
+  platforms: {fileID: 477850103}
 --- !u!1 &712898720
 GameObject:
   m_ObjectHideFlags: 0
@@ -3682,7 +3718,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   platformPosData: {fileID: 11400000, guid: b18ad2792ff425249bcdb0f6da11b2f6, type: 2}
-  currentEntity: {fileID: 0}
+  currentEntityCode: 0
 --- !u!1 &827502413
 GameObject:
   m_ObjectHideFlags: 0
@@ -3784,7 +3820,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   platformPosData: {fileID: 11400000, guid: b18ad2792ff425249bcdb0f6da11b2f6, type: 2}
-  currentEntity: {fileID: 0}
+  currentEntityCode: 0
 --- !u!1 &829268669
 GameObject:
   m_ObjectHideFlags: 0
@@ -4360,7 +4396,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   platformPosData: {fileID: 11400000, guid: b18ad2792ff425249bcdb0f6da11b2f6, type: 2}
-  currentEntity: {fileID: 0}
+  currentEntityCode: 0
 --- !u!1 &918921484
 GameObject:
   m_ObjectHideFlags: 0
@@ -4407,6 +4443,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pooledNum: 6
   rank: 3
+  platforms: {fileID: 477850103}
 --- !u!1 &943732199
 GameObject:
   m_ObjectHideFlags: 0
@@ -5233,6 +5270,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pooledNum: 7
   rank: 1
+  platforms: {fileID: 477850103}
 --- !u!1 &1294984194
 GameObject:
   m_ObjectHideFlags: 0
@@ -5702,7 +5740,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   platformPosData: {fileID: 11400000, guid: b18ad2792ff425249bcdb0f6da11b2f6, type: 2}
-  currentEntity: {fileID: 0}
+  currentEntityCode: 0
 --- !u!1 &1415928883
 GameObject:
   m_ObjectHideFlags: 0
@@ -5804,7 +5842,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   platformPosData: {fileID: 11400000, guid: b18ad2792ff425249bcdb0f6da11b2f6, type: 2}
-  currentEntity: {fileID: 0}
+  currentEntityCode: 0
 --- !u!1 &1424274740
 GameObject:
   m_ObjectHideFlags: 0
@@ -5906,7 +5944,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   platformPosData: {fileID: 11400000, guid: b18ad2792ff425249bcdb0f6da11b2f6, type: 2}
-  currentEntity: {fileID: 0}
+  currentEntityCode: 0
 --- !u!1 &1439692135
 GameObject:
   m_ObjectHideFlags: 0
@@ -6025,6 +6063,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pooledNum: 4
   rank: 4
+  platforms: {fileID: 477850103}
 --- !u!4 &1449028896
 Transform:
   m_ObjectHideFlags: 0
@@ -6141,7 +6180,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   platformPosData: {fileID: 11400000, guid: b18ad2792ff425249bcdb0f6da11b2f6, type: 2}
-  currentEntity: {fileID: 0}
+  currentEntityCode: 0
 --- !u!1 &1483213224
 GameObject:
   m_ObjectHideFlags: 0
@@ -6736,7 +6775,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   platformPosData: {fileID: 11400000, guid: b18ad2792ff425249bcdb0f6da11b2f6, type: 2}
-  currentEntity: {fileID: 0}
+  currentEntityCode: 0
 --- !u!1 &1585462528
 GameObject:
   m_ObjectHideFlags: 0
@@ -6838,7 +6877,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   platformPosData: {fileID: 11400000, guid: b18ad2792ff425249bcdb0f6da11b2f6, type: 2}
-  currentEntity: {fileID: 0}
+  currentEntityCode: 0
 --- !u!1 &1589239066
 GameObject:
   m_ObjectHideFlags: 0
@@ -6940,7 +6979,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   platformPosData: {fileID: 11400000, guid: b18ad2792ff425249bcdb0f6da11b2f6, type: 2}
-  currentEntity: {fileID: 0}
+  currentEntityCode: 0
 --- !u!1 &1596631286
 GameObject:
   m_ObjectHideFlags: 0
@@ -7503,6 +7542,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pooledNum: 10
   rank: 0
+  platforms: {fileID: 477850103}
 --- !u!1 &1808026633
 GameObject:
   m_ObjectHideFlags: 0
@@ -7691,7 +7731,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   platformPosData: {fileID: 11400000, guid: b18ad2792ff425249bcdb0f6da11b2f6, type: 2}
-  currentEntity: {fileID: 0}
+  currentEntityCode: 0
 --- !u!1 &1845571564
 GameObject:
   m_ObjectHideFlags: 0
@@ -7793,7 +7833,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   platformPosData: {fileID: 11400000, guid: b18ad2792ff425249bcdb0f6da11b2f6, type: 2}
-  currentEntity: {fileID: 0}
+  currentEntityCode: 0
 --- !u!1 &1871417224
 GameObject:
   m_ObjectHideFlags: 0
@@ -8308,7 +8348,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   platformPosData: {fileID: 11400000, guid: b18ad2792ff425249bcdb0f6da11b2f6, type: 2}
-  currentEntity: {fileID: 0}
+  currentEntityCode: 0
 --- !u!1 &1970354683
 GameObject:
   m_ObjectHideFlags: 0
@@ -8883,7 +8923,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   platformPosData: {fileID: 11400000, guid: b18ad2792ff425249bcdb0f6da11b2f6, type: 2}
-  currentEntity: {fileID: 0}
+  currentEntityCode: 0
 --- !u!1 &2084021350
 GameObject:
   m_ObjectHideFlags: 0
@@ -9295,7 +9335,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   platformPosData: {fileID: 11400000, guid: b18ad2792ff425249bcdb0f6da11b2f6, type: 2}
-  currentEntity: {fileID: 0}
+  currentEntityCode: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

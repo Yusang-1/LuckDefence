@@ -1,64 +1,108 @@
-﻿using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEngine;
+﻿using UnityEngine;
+using System.Collections.Generic;
 
 public class FactoryChar : AbstractFactory
 {
-    [SerializeField] private CharRank rank;
+    [SerializeField] private CharRank rank;    
 
-    private GameObject[,] pooledCharacters;
-    private int[] pooledCount;
+    protected PooledEntity pooledEntity;
+    protected Dictionary<int, PooledEntity> pooledEntityDict;
+    protected List<int> availableCodeList;
+
+    [SerializeField] private Platforms platforms;
+    protected Dictionary<int, CharRank> RankByCharCodeDict;
 
     public CharRank Rank => rank;
 
+
     public override void Initialize(Dictionary<int, Entity> entityDict)
     {
-        base.EntityDict = entityDict;
-        int count = EntityDict.Count;
+        pooledEntityDict = new Dictionary<int, PooledEntity>();
+        availableCodeList = new List<int>();
+        RankByCharCodeDict = new Dictionary<int, CharRank>();
 
-        pooledCharacters = new GameObject[count, pooledNum];
-        pooledCount = new int[count];
-
+        EntityDict = entityDict;
+        PooledEntity pooledEntity;
+        GameObject[] gameObjects;
         GameObject go;
-        int num;
-        for(int i = 0; i < count; i++)
-        {
-            num = 0;
-            pooledCount[i] = 0;
+        int poolNum;
 
-            foreach(var item in EntityDict)
+        foreach(var item in entityDict)
+        {
+            poolNum = (item.Value as Character).Data.poolNum;
+            gameObjects = new GameObject[poolNum];
+
+            for(int i = 0; i < poolNum; i++)
             {
-                go = Instantiate(EntityDict[item.Key].gameObject);
+                go = Instantiate(item.Value.gameObject);
                 go.SetActive(false);
-                pooledCharacters[i, num] = go;
-                num++;
-            }
+                gameObjects[i] = go;
+            }                        
+
+            pooledEntity = new PooledEntity(gameObjects, (item.Value as Character).Data.poolNum);
+            pooledEntityDict.Add(item.Key, pooledEntity);
+            availableCodeList.Add(item.Key);
+            RankByCharCodeDict.Add(item.Key, rank);
         }
     }
 
-    public override void ActiveEntity(int code, Platform platform)
+    public override void ActiveEntity()
     {
-        int index;
-        do
+        int code = DetermineEntityCode();
+
+        Platform platform = SearchPlatform(code);
+        Vector3 position = platform.GetPosition(RankByCharCodeDict[code]);
+
+        bool isPoolFull = pooledEntityDict[code].ActiveEntity(position);
+
+        if (isPoolFull && availableCodeList.Contains(code))
         {
-            index = Random.Range(0, EntityDict.Count);
-        } while (pooledCount[index] >= pooledNum);
-        
-        GameObject go = pooledCharacters[index, pooledCount[index]];
-        go.SetActive(true);
+            availableCodeList.Remove(code);
+        }
 
-        Vector3 pos = platform.GetPosition(rank);
-        go.transform.position = pos;
-        
-        pooledCount[index]++;
-
-        platform.EntitySpawned(go);
+        platform.EntitySpawned(pooledEntityDict[code].GetLastActivatedEntity());
     }
 
-    public override void DeactiveEntity(int index)
+    public override void DeactiveEntity(int code)
     {
-        GameObject go = pooledCharacters[index, pooledCount[index]];
-        go.SetActive(false);
-        pooledCount[index]--;
+        pooledEntityDict[code].DeactiveEntity();
+
+        if (availableCodeList.Contains(code) == false)
+        {
+            availableCodeList.Add(code);
+        }
+    }
+
+    public virtual Platform SearchPlatform(int code)
+    {
+        List<int> availablePlatformsCode = new List<int>();
+
+        int num = 0;
+        foreach(Platform platform in platforms.PlatformList)
+        {
+            if(platform.CheckEntityAvailable(code))
+            {
+                availablePlatformsCode.Add(num);
+            }
+            num++;
+        }
+        
+        num = Random.Range(0, availablePlatformsCode.Count);
+        return platforms.PlatformList[availablePlatformsCode[num]];
+    }
+
+    public virtual int DetermineEntityCode()
+    {
+        int randNum = Random.Range(0, availableCodeList.Count);
+
+        try
+        {
+            return availableCodeList[randNum];
+        }
+        catch
+        {
+            Debug.LogError($"{gameObject.name}, {availableCodeList}");
+        }
+        return availableCodeList[randNum];
     }
 }

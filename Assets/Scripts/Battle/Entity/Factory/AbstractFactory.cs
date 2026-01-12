@@ -17,6 +17,11 @@ public abstract class AbstractFactory : MonoBehaviour
                 
     }
 
+    public virtual void ActiveEntity()
+    {
+
+    }
+
     public virtual void DeactiveEntity(int index)
     {
 

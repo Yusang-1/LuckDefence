@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
+using static UnityEngine.EventSystems.EventTrigger;
 
 public class Platform : MonoBehaviour
 {
     [SerializeField] private PlatformPositionSO platformPosData;
     [SerializeField] private int currentEntityCode; //코드로 바꾸기
-    private int entityCount;
+    [SerializeField] private int entityCount;
 
     private const int maxAvailableEntityCount = 3;
     private GameObject[] entities;
@@ -30,6 +31,14 @@ public class Platform : MonoBehaviour
 
     public bool CheckEntityAvailable(int code)
     {
+        //if (entityCount == 0) return true;
+        //else if(currentEntityCode == code)
+        //{
+        //    if (entityCount < maxAvailableEntityCount) return true;
+        //    else return false;
+        //}
+        //return false;
+        //Debug.Log($"{gameObject.name}\ncurrentCode : {currentEntityCode}\nspawnCode : {code}\nentityCount : {entityCount}\nmaxCount : {maxAvailableEntityCount}\n{(entityCount == 0 || (currentEntityCode == code && entityCount != maxAvailableEntityCount))}");
         return (entityCount == 0 || (currentEntityCode == code && entityCount != maxAvailableEntityCount));
     }
 
