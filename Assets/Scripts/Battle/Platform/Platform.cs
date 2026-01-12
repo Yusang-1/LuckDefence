@@ -7,11 +7,11 @@ public class Platform : MonoBehaviour
     private int entityCount;
 
     private const int maxAvailableEntityCount = 3;
-    private Entity[] entities;
+    private GameObject[] entities;
 
     public void Start()
     {
-        entities = new Entity[maxAvailableEntityCount];
+        entities = new GameObject[maxAvailableEntityCount];
         platformPosData.Initialize();
     }
 
@@ -32,9 +32,9 @@ public class Platform : MonoBehaviour
         return (entityCount == 0 || (currentEntityCode == code && entityCount < maxAvailableEntityCount));
     }
 
-    public void EntitySpawned(Entity entity)
+    public void EntitySpawned(GameObject spawnedObject)
     {
-        Character ch = entity as Character;
+        Character ch = spawnedObject.GetComponent<Entity>() as Character;
         if(ch.Data.Rank >= CharRank.legendary)
         {
             entityCount = maxAvailableEntityCount;
@@ -43,6 +43,6 @@ public class Platform : MonoBehaviour
             entityCount++;
 
         currentEntityCode = ch.Data.Code;
-        entities[entityCount] = entity;
+        entities[entityCount] = spawnedObject;
     }
 }

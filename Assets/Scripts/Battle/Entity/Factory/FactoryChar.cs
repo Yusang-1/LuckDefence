@@ -51,6 +51,8 @@ public class FactoryChar : AbstractFactory
         go.transform.position = pos;
         
         pooledCount[index]++;
+
+        platform.EntitySpawned(go);
     }
 
     public override void DeactiveEntity(int index)
