@@ -12,6 +12,7 @@ public class Platform : MonoBehaviour
     public void Start()
     {
         entities = new GameObject[maxAvailableEntityCount];
+        entityCount = 0;
         platformPosData.Initialize();
     }
 
@@ -29,20 +30,16 @@ public class Platform : MonoBehaviour
 
     public bool CheckEntityAvailable(int code)
     {
-        return (entityCount == 0 || (currentEntityCode == code && entityCount < maxAvailableEntityCount));
+        return (entityCount == 0 || (currentEntityCode == code && entityCount != maxAvailableEntityCount));
     }
 
     public void EntitySpawned(GameObject spawnedObject)
     {
-        Character ch = spawnedObject.GetComponent<Entity>() as Character;
-        if(ch.Data.Rank >= CharRank.legendary)
-        {
-            entityCount = maxAvailableEntityCount;
-        }
-        else
-            entityCount++;
+        Character ch = spawnedObject.GetComponent<Entity>() as Character;        
 
         currentEntityCode = ch.Data.Code;
         entities[entityCount] = spawnedObject;
+
+        entityCount += ch.Data.Weight;
     }
 }

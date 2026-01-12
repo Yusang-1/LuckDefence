@@ -10,4 +10,5 @@ public class CharacterSO : ScriptableObject
     public float AttackSpeed;
     public float MoveSpeed;
     public GameObject Prefab;
+    public int Weight;
 }
