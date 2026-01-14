@@ -5,10 +5,10 @@ public class CharacterSpawner : MonoBehaviour
 {
     [SerializeField] private AbstractFactory[] factories;
     [SerializeField] private CharListAsRank[] charListAsRanks;
+    [SerializeField] private RankProbabilitySO probabilityData;
 
     private Dictionary<CharRank, AbstractFactory> factoryDict;
-
-    private Dictionary<int, Entity> entityAsCodeDict;
+    private Dictionary<int, Entity> entityAsCodeDict;    
 
     private void Start()
     {
@@ -45,6 +45,7 @@ public class CharacterSpawner : MonoBehaviour
             factoryDict.Add(fc.Rank, factory);
 
             factory.Initialize(entityAsCodeDict);
+            probabilityData.Initialize();
         }
     }
 
@@ -52,6 +53,18 @@ public class CharacterSpawner : MonoBehaviour
     {
         CharRank rank = (CharRank)Random.Range(0, (int)CharRank.legendary + 1);
 
-        factoryDict[rank].ActiveEntity();
+        float randNum = Random.Range(0, 100);
+
+        float temp = 0;
+        foreach(var item in probabilityData.ProbabilityDict)
+        {
+            temp += item.Value;
+            if(randNum <= temp)
+            {
+                Debug.Log($"randNum : {randNum}, SpawnRank : {item.Key}");
+                factoryDict[item.Key].ActiveEntity();
+                break;
+            }
+        }        
     }
 }

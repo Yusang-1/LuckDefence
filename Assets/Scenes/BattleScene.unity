@@ -731,6 +731,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   platformPosData: {fileID: 11400000, guid: b18ad2792ff425249bcdb0f6da11b2f6, type: 2}
   currentEntityCode: 0
+  entityCount: 0
 --- !u!1 &155905247
 GameObject:
   m_ObjectHideFlags: 0
@@ -942,6 +943,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   platformPosData: {fileID: 11400000, guid: b18ad2792ff425249bcdb0f6da11b2f6, type: 2}
   currentEntityCode: 0
+  entityCount: 0
 --- !u!1 &200394166
 GameObject:
   m_ObjectHideFlags: 0
@@ -1044,6 +1046,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   platformPosData: {fileID: 11400000, guid: b18ad2792ff425249bcdb0f6da11b2f6, type: 2}
   currentEntityCode: 0
+  entityCount: 0
 --- !u!1 &202733271
 GameObject:
   m_ObjectHideFlags: 0
@@ -2588,6 +2591,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   platformPosData: {fileID: 11400000, guid: b18ad2792ff425249bcdb0f6da11b2f6, type: 2}
   currentEntityCode: 0
+  entityCount: 0
 --- !u!1 &477850101
 GameObject:
   m_ObjectHideFlags: 0
@@ -2758,6 +2762,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   platformPosData: {fileID: 11400000, guid: b18ad2792ff425249bcdb0f6da11b2f6, type: 2}
   currentEntityCode: 0
+  entityCount: 0
 --- !u!1 &500833774
 GameObject:
   m_ObjectHideFlags: 0
@@ -3449,6 +3454,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   platformPosData: {fileID: 11400000, guid: b18ad2792ff425249bcdb0f6da11b2f6, type: 2}
   currentEntityCode: 0
+  entityCount: 0
 --- !u!1 &709664556
 GameObject:
   m_ObjectHideFlags: 0
@@ -3719,6 +3725,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   platformPosData: {fileID: 11400000, guid: b18ad2792ff425249bcdb0f6da11b2f6, type: 2}
   currentEntityCode: 0
+  entityCount: 0
 --- !u!1 &827502413
 GameObject:
   m_ObjectHideFlags: 0
@@ -3821,6 +3828,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   platformPosData: {fileID: 11400000, guid: b18ad2792ff425249bcdb0f6da11b2f6, type: 2}
   currentEntityCode: 0
+  entityCount: 0
 --- !u!1 &829268669
 GameObject:
   m_ObjectHideFlags: 0
@@ -4397,6 +4405,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   platformPosData: {fileID: 11400000, guid: b18ad2792ff425249bcdb0f6da11b2f6, type: 2}
   currentEntityCode: 0
+  entityCount: 0
 --- !u!1 &918921484
 GameObject:
   m_ObjectHideFlags: 0
@@ -5741,6 +5750,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   platformPosData: {fileID: 11400000, guid: b18ad2792ff425249bcdb0f6da11b2f6, type: 2}
   currentEntityCode: 0
+  entityCount: 0
 --- !u!1 &1415928883
 GameObject:
   m_ObjectHideFlags: 0
@@ -5843,6 +5853,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   platformPosData: {fileID: 11400000, guid: b18ad2792ff425249bcdb0f6da11b2f6, type: 2}
   currentEntityCode: 0
+  entityCount: 0
 --- !u!1 &1424274740
 GameObject:
   m_ObjectHideFlags: 0
@@ -5945,6 +5956,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   platformPosData: {fileID: 11400000, guid: b18ad2792ff425249bcdb0f6da11b2f6, type: 2}
   currentEntityCode: 0
+  entityCount: 0
 --- !u!1 &1439692135
 GameObject:
   m_ObjectHideFlags: 0
@@ -6181,6 +6193,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   platformPosData: {fileID: 11400000, guid: b18ad2792ff425249bcdb0f6da11b2f6, type: 2}
   currentEntityCode: 0
+  entityCount: 0
 --- !u!1 &1483213224
 GameObject:
   m_ObjectHideFlags: 0
@@ -6776,6 +6789,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   platformPosData: {fileID: 11400000, guid: b18ad2792ff425249bcdb0f6da11b2f6, type: 2}
   currentEntityCode: 0
+  entityCount: 0
 --- !u!1 &1585462528
 GameObject:
   m_ObjectHideFlags: 0
@@ -6878,6 +6892,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   platformPosData: {fileID: 11400000, guid: b18ad2792ff425249bcdb0f6da11b2f6, type: 2}
   currentEntityCode: 0
+  entityCount: 0
 --- !u!1 &1589239066
 GameObject:
   m_ObjectHideFlags: 0
@@ -6980,6 +6995,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   platformPosData: {fileID: 11400000, guid: b18ad2792ff425249bcdb0f6da11b2f6, type: 2}
   currentEntityCode: 0
+  entityCount: 0
 --- !u!1 &1596631286
 GameObject:
   m_ObjectHideFlags: 0
@@ -7102,34 +7118,13 @@ MonoBehaviour:
   - {fileID: 709664558}
   - {fileID: 918921486}
   - {fileID: 1449028895}
-  platforms:
-  - {fileID: 907380011}
-  - {fileID: 788897519}
-  - {fileID: 1589239069}
-  - {fileID: 474270256}
-  - {fileID: 493915958}
-  - {fileID: 1424274743}
-  - {fileID: 1583582103}
-  - {fileID: 2054126422}
-  - {fileID: 2142686569}
-  - {fileID: 1456179399}
-  - {fileID: 827502416}
-  - {fileID: 200394169}
-  - {fileID: 1963695075}
-  - {fileID: 1845571567}
-  - {fileID: 1816844906}
-  - {fileID: 1415928886}
-  - {fileID: 198318199}
-  - {fileID: 125872438}
-  - {fileID: 1410171718}
-  - {fileID: 1585462531}
-  - {fileID: 698662731}
   charListAsRanks:
   - {fileID: 11400000, guid: bbb68e8a0194c8b4e94a5e6c98827328, type: 2}
   - {fileID: 11400000, guid: 2351ceffa2121394a9a97f06de6ae54f, type: 2}
   - {fileID: 11400000, guid: b98f8be4de875a34b94416b2356efcd1, type: 2}
   - {fileID: 11400000, guid: 6cf9965ae02939240ba2108c78b8e951, type: 2}
   - {fileID: 11400000, guid: 1f1a9345a2cfe09458ea286a719b3f85, type: 2}
+  probabilityData: {fileID: 11400000, guid: d8cdd720bab9a6f4891fc8b83e4b3f87, type: 2}
 --- !u!4 &1642509420
 Transform:
   m_ObjectHideFlags: 0
@@ -7732,6 +7727,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   platformPosData: {fileID: 11400000, guid: b18ad2792ff425249bcdb0f6da11b2f6, type: 2}
   currentEntityCode: 0
+  entityCount: 0
 --- !u!1 &1845571564
 GameObject:
   m_ObjectHideFlags: 0
@@ -7834,6 +7830,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   platformPosData: {fileID: 11400000, guid: b18ad2792ff425249bcdb0f6da11b2f6, type: 2}
   currentEntityCode: 0
+  entityCount: 0
 --- !u!1 &1871417224
 GameObject:
   m_ObjectHideFlags: 0
@@ -8349,6 +8346,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   platformPosData: {fileID: 11400000, guid: b18ad2792ff425249bcdb0f6da11b2f6, type: 2}
   currentEntityCode: 0
+  entityCount: 0
 --- !u!1 &1970354683
 GameObject:
   m_ObjectHideFlags: 0
@@ -8924,6 +8922,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   platformPosData: {fileID: 11400000, guid: b18ad2792ff425249bcdb0f6da11b2f6, type: 2}
   currentEntityCode: 0
+  entityCount: 0
 --- !u!1 &2084021350
 GameObject:
   m_ObjectHideFlags: 0
@@ -9336,6 +9335,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   platformPosData: {fileID: 11400000, guid: b18ad2792ff425249bcdb0f6da11b2f6, type: 2}
   currentEntityCode: 0
+  entityCount: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
