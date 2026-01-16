@@ -5,20 +5,22 @@ using System;
 public class StageSO : ScriptableObject
 {
     [SerializeField] private int stageNum;
-    [SerializeField] private RoundData roundData;
+    [SerializeField] private RoundData[] roundData;
 
     public int StageNum => stageNum;
-    public RoundData RoundData => roundData;
+    public RoundData[] RoundData => roundData;
 }
 
 [Serializable]
 public struct RoundData
 {
-    [SerializeField] private int enemyCode;
+    [SerializeField] private Entity enemy;
     [SerializeField] private int enemyCount;
-    [SerializeField] private int time;
+    [SerializeField] private int additionalTime;
+    [SerializeField] private float spawnDelay;
 
-    public int EnemyCode => enemyCode;
+    public Entity Enemy => enemy;
     public int EnemyCount => enemyCount;
-    public int Time => time;
+    public int AdditionalTime => additionalTime;
+    public float SpawnDelay => spawnDelay;
 }
