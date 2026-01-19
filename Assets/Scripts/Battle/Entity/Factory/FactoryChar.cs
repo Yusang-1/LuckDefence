@@ -29,7 +29,7 @@ public class FactoryChar : AbstractFactory
 
         foreach(var item in entityDict)
         {
-            poolNum = (item.Value as Character).Data.poolNum;
+            poolNum = (item.Value.Data as CharacterSO).poolNum;
             gameObjects = new GameObject[poolNum];
 
             for(int i = 0; i < poolNum; i++)
@@ -39,7 +39,7 @@ public class FactoryChar : AbstractFactory
                 gameObjects[i] = go;
             }                        
 
-            pooledEntity = new PooledEntity(gameObjects, (item.Value as Character).Data.poolNum);
+            pooledEntity = new PooledEntity(gameObjects, (item.Value.Data as CharacterSO).poolNum);
             pooledEntityDict.Add(item.Key, pooledEntity);
             availableCodeList.Add(item.Key);
             RankByCharCodeDict.Add(item.Key, rank);

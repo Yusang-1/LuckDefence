@@ -2,7 +2,7 @@
 
 public class Enemy : Entity, ISkillusable
 {
-    [SerializeField] private EnemySO data;
+    //[SerializeField] private EnemySO data;
     private int currentHP;
     private int currentMP;
 
@@ -10,7 +10,7 @@ public class Enemy : Entity, ISkillusable
     {
         base.EntityActivated();
 
-        currentHP = data.MaxHp;
+        currentHP = Data.MaxHp;
         Debug.Log("enemy activated");
     }
 
