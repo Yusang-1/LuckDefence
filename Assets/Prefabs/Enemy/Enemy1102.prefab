@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4341326910313996593}
   - component: {fileID: 8302958274872657630}
   - component: {fileID: 4314358501371899066}
-  - component: {fileID: -1360554400425842225}
+  - component: {fileID: 3278138133363215254}
   m_Layer: 0
   m_Name: Enemy1102
   m_TagString: Untagged
@@ -102,8 +102,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: 9b48bb2615d82d644804cd2a1433003e, type: 2}
-  mover: {fileID: -1360554400425842225}
---- !u!114 &-1360554400425842225
+  mover: {fileID: 3278138133363215254}
+--- !u!114 &3278138133363215254
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -112,6 +112,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 7964986942513546205}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 07d5ccd0ed95d434eb6097fcbfe49317, type: 3}
+  m_Script: {fileID: 11500000, guid: c1f8dd577520607469dabdfbdfe15894, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
