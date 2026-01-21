@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
-using static UnityEngine.EventSystems.EventTrigger;
 
-public class Platform : MonoBehaviour
+public class Platform : MonoBehaviour, ISelectableObject
 {
     [SerializeField] private PlatformPositionSO platformPosData;
-    [SerializeField] private int currentEntityCode; //코드로 바꾸기
+    [SerializeField] private int currentEntityCode;
     [SerializeField] private int entityCount;
+    [SerializeField] private CharRank rank;
 
     private const int maxAvailableEntityCount = 3;
     private GameObject[] entities;
@@ -44,11 +44,28 @@ public class Platform : MonoBehaviour
 
     public void EntitySpawned(GameObject spawnedObject)
     {
-        Character ch = spawnedObject.GetComponent<Entity>() as Character;        
+        Entity entity = spawnedObject.GetComponent<Entity>();        
 
-        currentEntityCode = ch.Data.Code;
+        currentEntityCode = entity.Data.Code;
         entities[entityCount] = spawnedObject;
 
-        entityCount += ch.Data.Weight;
+        CharacterSO charSO = entity.Data as CharacterSO;
+        entityCount += charSO.Weight;
+
+        rank = charSO.Rank;
+    }
+
+    public void Selected()
+    {
+        Debug.Log($"Selected : {name}");
+        CheckIsPromotionable();
+    }
+
+    private void CheckIsPromotionable()
+    {
+        if(entityCount == maxAvailableEntityCount && rank < CharRank.legendary)
+        {
+
+        }
     }
 }

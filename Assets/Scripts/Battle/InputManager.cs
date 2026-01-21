@@ -1,0 +1,35 @@
+﻿using UnityEngine;
+using UnityEngine.InputSystem;
+
+public class InputManager : MonoBehaviour
+{
+    private Vector3 mousePosition;
+
+    public void OnSelect(InputAction.CallbackContext context)
+    {
+
+        if(context.performed)
+        {
+            mousePosition = context.ReadValue<Vector2>();
+        }
+
+        if (context.canceled)
+        {
+            Vector3 vec = Camera.main.ScreenToWorldPoint(new Vector3(mousePosition.x, mousePosition.y, 10));
+
+            //Debug.DrawRay(vec - Vector3.forward * 10, Vector3.forward * float.MaxValue, Color.red, 3f);
+            RaycastHit2D hit2D = Physics2D.Raycast(vec, Vector3.forward, float.MaxValue);
+
+            if (hit2D.collider.gameObject.TryGetComponent<ISelectableObject>(out ISelectableObject selectable))
+            {
+                selectable.Selected();                
+            }
+        }
+    }
+
+    public void OnHold(InputAction.CallbackContext context)
+    {
+        if(context.performed)
+            Debug.Log($"{context.GetType().Name} Holded");
+    }
+}
