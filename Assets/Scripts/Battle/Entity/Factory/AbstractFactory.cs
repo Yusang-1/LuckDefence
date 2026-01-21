@@ -14,10 +14,14 @@ public abstract class AbstractFactory : MonoBehaviour
 
     public virtual void ActiveEntity(int code, Platform platform)
     {
-                
-    }
+
+    }    
 
     public virtual void ActiveEntity()
+    {
+
+    }
+    public virtual void ActiveEntity(Platform platform)
     {
 
     }

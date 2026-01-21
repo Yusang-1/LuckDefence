@@ -748,6 +748,7 @@ MonoBehaviour:
   currentEntityCode: 0
   entityCount: 0
   rank: 0
+  promotion: {fileID: 1324123001}
 --- !u!61 &125872439
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -946,7 +947,7 @@ MonoBehaviour:
     m_ActionName: 'Player/New action[/Mouse/press,/Mouse/leftButton]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard&Mouse
-  m_DefaultActionMap: Player
+  m_DefaultActionMap: 
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 330585545}
 --- !u!4 &155917430
@@ -1159,6 +1160,7 @@ MonoBehaviour:
   currentEntityCode: 0
   entityCount: 0
   rank: 0
+  promotion: {fileID: 1324123001}
 --- !u!61 &198318200
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1310,6 +1312,7 @@ MonoBehaviour:
   currentEntityCode: 0
   entityCount: 0
   rank: 0
+  promotion: {fileID: 1324123001}
 --- !u!61 &200394170
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2931,6 +2934,7 @@ MonoBehaviour:
   currentEntityCode: 0
   entityCount: 0
   rank: 0
+  promotion: {fileID: 1324123001}
 --- !u!61 &474270257
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3150,6 +3154,7 @@ MonoBehaviour:
   currentEntityCode: 0
   entityCount: 0
   rank: 0
+  promotion: {fileID: 1324123001}
 --- !u!61 &493915959
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3890,6 +3895,7 @@ MonoBehaviour:
   currentEntityCode: 0
   entityCount: 0
   rank: 0
+  promotion: {fileID: 1324123001}
 --- !u!61 &698662732
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4209,6 +4215,7 @@ MonoBehaviour:
   currentEntityCode: 0
   entityCount: 0
   rank: 0
+  promotion: {fileID: 1324123001}
 --- !u!61 &788897520
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4360,6 +4367,7 @@ MonoBehaviour:
   currentEntityCode: 0
   entityCount: 0
   rank: 0
+  promotion: {fileID: 1324123001}
 --- !u!61 &827502417
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4683,7 +4691,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -4986,6 +4994,7 @@ MonoBehaviour:
   currentEntityCode: 0
   entityCount: 0
   rank: 0
+  promotion: {fileID: 1324123001}
 --- !u!61 &907380012
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6066,6 +6075,7 @@ GameObject:
   - component: {fileID: 1324122999}
   - component: {fileID: 1324122998}
   - component: {fileID: 1324122997}
+  - component: {fileID: 1324123001}
   m_Layer: 0
   m_Name: Btn_Promotion
   m_TagString: Untagged
@@ -6105,6 +6115,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09f16f8d19eee8e4e8dfa7020897fac8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  button: {fileID: 1324122998}
+  promotion: {fileID: 1324123001}
 --- !u!114 &1324122998
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6148,7 +6160,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1324122999}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1324122997}
+        m_TargetAssemblyTypeName: PromotionUI, Assembly-CSharp
+        m_MethodName: OnPromotion
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1324122999
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6187,6 +6211,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1324122995}
   m_CullTransparentMesh: 1
+--- !u!114 &1324123001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1324122995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32e3031724d32e6419c37c30974c04bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawner: {fileID: 1642509419}
 --- !u!1 &1328914122
 GameObject:
   m_ObjectHideFlags: 0
@@ -6590,6 +6627,7 @@ MonoBehaviour:
   currentEntityCode: 0
   entityCount: 0
   rank: 0
+  promotion: {fileID: 1324123001}
 --- !u!61 &1410171719
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6741,6 +6779,7 @@ MonoBehaviour:
   currentEntityCode: 0
   entityCount: 0
   rank: 0
+  promotion: {fileID: 1324123001}
 --- !u!61 &1415928887
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6892,6 +6931,7 @@ MonoBehaviour:
   currentEntityCode: 0
   entityCount: 0
   rank: 0
+  promotion: {fileID: 1324123001}
 --- !u!61 &1424274744
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7177,6 +7217,7 @@ MonoBehaviour:
   currentEntityCode: 0
   entityCount: 0
   rank: 0
+  promotion: {fileID: 1324123001}
 --- !u!61 &1456179400
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7638,7 +7679,7 @@ MonoBehaviour:
   m_MoveAction: {fileID: 1826060037}
   m_SubmitAction: {fileID: 57985685}
   m_CancelAction: {fileID: 1963688802}
-  m_LeftClickAction: {fileID: -3855619548621895455, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  m_LeftClickAction: {fileID: 3001919216989983466, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_MiddleClickAction: {fileID: 283683788}
   m_RightClickAction: {fileID: 1258588431}
   m_ScrollWheelAction: {fileID: 444440200}
@@ -7957,6 +7998,7 @@ MonoBehaviour:
   currentEntityCode: 0
   entityCount: 0
   rank: 0
+  promotion: {fileID: 1324123001}
 --- !u!61 &1583582104
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8108,6 +8150,7 @@ MonoBehaviour:
   currentEntityCode: 0
   entityCount: 0
   rank: 0
+  promotion: {fileID: 1324123001}
 --- !u!61 &1585462532
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8259,6 +8302,7 @@ MonoBehaviour:
   currentEntityCode: 0
   entityCount: 0
   rank: 0
+  promotion: {fileID: 1324123001}
 --- !u!61 &1589239070
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8713,7 +8757,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -8790,7 +8834,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 0.2}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -9053,6 +9097,7 @@ MonoBehaviour:
   currentEntityCode: 0
   entityCount: 0
   rank: 0
+  promotion: {fileID: 1324123001}
 --- !u!61 &1816844907
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9218,6 +9263,7 @@ MonoBehaviour:
   currentEntityCode: 0
   entityCount: 0
   rank: 0
+  promotion: {fileID: 1324123001}
 --- !u!61 &1845571568
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9810,6 +9856,7 @@ MonoBehaviour:
   currentEntityCode: 0
   entityCount: 0
   rank: 0
+  promotion: {fileID: 1324123001}
 --- !u!61 &1963695076
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9995,7 +10042,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -10434,6 +10481,7 @@ MonoBehaviour:
   currentEntityCode: 0
   entityCount: 0
   rank: 0
+  promotion: {fileID: 1324123001}
 --- !u!61 &2054126423
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10895,6 +10943,7 @@ MonoBehaviour:
   currentEntityCode: 0
   entityCount: 0
   rank: 0
+  promotion: {fileID: 1324123001}
 --- !u!61 &2142686570
 BoxCollider2D:
   m_ObjectHideFlags: 0

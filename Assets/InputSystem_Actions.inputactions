@@ -210,6 +210,39 @@
                     "action": "New action",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "One Modifier",
+                    "id": "3ef778b4-377d-420f-b3e2-d0c774251eb9",
+                    "path": "OneModifier",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "New action",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier",
+                    "id": "dd9a18ca-b705-4a2d-95d8-f878612cadcd",
+                    "path": "<Touchscreen>/Press",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Touch",
+                    "action": "New action",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "0b64b15e-f5c9-4b6c-a445-d51dc13abe1b",
+                    "path": "<Touchscreen>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Touch",
+                    "action": "New action",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 }
             ]
         },
@@ -635,6 +668,17 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
+                    "action": "Click",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "73a966ba-2e46-4b63-ad8f-602cc7d471dd",
+                    "path": "<Touchscreen>/Press",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Touch",
                     "action": "Click",
                     "isComposite": false,
                     "isPartOfComposite": false

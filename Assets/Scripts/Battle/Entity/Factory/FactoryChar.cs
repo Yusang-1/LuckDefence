@@ -1,5 +1,6 @@
-﻿using UnityEngine;
+﻿using Mono.Cecil.Cil;
 using System.Collections.Generic;
+using UnityEngine;
 
 public class FactoryChar : AbstractFactory
 {
@@ -51,6 +52,22 @@ public class FactoryChar : AbstractFactory
         int code = DetermineEntityCode();
 
         Platform platform = SearchPlatform(code);
+        Vector3 position = platform.GetPosition(RankByCharCodeDict[code]);
+
+        bool isPoolFull = pooledEntityDict[code].ActiveEntity(position);
+
+        if (isPoolFull && availableCodeList.Contains(code))
+        {
+            availableCodeList.Remove(code);
+        }
+
+        platform.EntitySpawned(pooledEntityDict[code].GetLastActivatedEntity());
+    }
+
+    public override void ActiveEntity(Platform platform) //인덱스로 추후 수정
+    {
+        int code = DetermineEntityCode();
+
         Vector3 position = platform.GetPosition(RankByCharCodeDict[code]);
 
         bool isPoolFull = pooledEntityDict[code].ActiveEntity(position);

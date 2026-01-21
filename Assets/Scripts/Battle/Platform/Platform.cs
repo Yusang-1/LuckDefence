@@ -9,12 +9,21 @@ public class Platform : MonoBehaviour, ISelectableObject
 
     private const int maxAvailableEntityCount = 3;
     private GameObject[] entities;
+    private int index;
+    [SerializeField] private Promotion promotion;
+
+    public CharRank Rank => rank;
 
     public void Start()
     {
         entities = new GameObject[maxAvailableEntityCount];
         entityCount = 0;
         platformPosData.Initialize();
+    }
+
+    public void GetIndex(int index)
+    {
+        this.index = index;
     }
 
     public Vector3 GetPosition(CharRank rank)
@@ -27,18 +36,15 @@ public class Platform : MonoBehaviour, ISelectableObject
     public void ResetPlatform()
     {
         entityCount = 0;
+        currentEntityCode = 0;
+        foreach (var entity in entities)
+        {
+            entity.SetActive(false);
+        }
     }
 
     public bool CheckEntityAvailable(int code)
-    {
-        //if (entityCount == 0) return true;
-        //else if(currentEntityCode == code)
-        //{
-        //    if (entityCount < maxAvailableEntityCount) return true;
-        //    else return false;
-        //}
-        //return false;
-        //Debug.Log($"{gameObject.name}\ncurrentCode : {currentEntityCode}\nspawnCode : {code}\nentityCount : {entityCount}\nmaxCount : {maxAvailableEntityCount}\n{(entityCount == 0 || (currentEntityCode == code && entityCount != maxAvailableEntityCount))}");
+    {        
         return (entityCount == 0 || (currentEntityCode == code && entityCount != maxAvailableEntityCount));
     }
 
@@ -58,14 +64,30 @@ public class Platform : MonoBehaviour, ISelectableObject
     public void Selected()
     {
         Debug.Log($"Selected : {name}");
-        CheckIsPromotionable();
+        
+        bool value = CheckIsPromotionable();
+        promotion.IsPromotionable = value;
+
+        if(value)
+        {
+            promotion.GetPlatform(this);
+        }
     }
 
-    private void CheckIsPromotionable()
+    public void SelectedEnd()
+    {
+        promotion.IsPromotionable = false;
+    }
+
+    private bool CheckIsPromotionable()
     {
         if(entityCount == maxAvailableEntityCount && rank < CharRank.legendary)
         {
-
+            return true;
+        }
+        else
+        {
+            return false;
         }
     }
 }

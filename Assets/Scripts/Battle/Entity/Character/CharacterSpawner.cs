@@ -8,11 +8,11 @@ public class CharacterSpawner : MonoBehaviour
     [SerializeField] private RankProbabilitySO probabilityData;
 
     private Dictionary<CharRank, AbstractFactory> factoryDict;
-    private Dictionary<int, Entity> entityAsCodeDict;    
+    private Dictionary<int, Entity> entityAsCodeDict;
 
     private void Start()
     {
-        factoryDict         = new Dictionary<CharRank, AbstractFactory>();
+        factoryDict = new Dictionary<CharRank, AbstractFactory>();
 
         Initialize();
     }
@@ -66,5 +66,11 @@ public class CharacterSpawner : MonoBehaviour
                 break;
             }
         }        
+    }
+
+    public void PromotionEntity(Platform platform) //플렛폼도 인덱스로 할지 고민
+    {
+        platform.ResetPlatform();
+        factoryDict[platform.Rank].ActiveEntity(platform);
     }
 }

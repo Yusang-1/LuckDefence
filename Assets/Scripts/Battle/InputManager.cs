@@ -20,9 +20,9 @@ public class InputManager : MonoBehaviour
             //Debug.DrawRay(vec - Vector3.forward * 10, Vector3.forward * float.MaxValue, Color.red, 3f);
             RaycastHit2D hit2D = Physics2D.Raycast(vec, Vector3.forward, float.MaxValue);
 
-            if (hit2D.collider.gameObject.TryGetComponent<ISelectableObject>(out ISelectableObject selectable))
+            if (hit2D && hit2D.collider.gameObject.TryGetComponent<ISelectableObject>(out ISelectableObject selectable))
             {
-                selectable.Selected();                
+                selectable.Selected();
             }
         }
     }
