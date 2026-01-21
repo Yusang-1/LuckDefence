@@ -9,7 +9,7 @@ public class Entity : MonoBehaviour
 
     private void Start()
     {
-        mover.Initialize(this);
+        mover?.Initialize(this);
     }
     
     public virtual void EntityActivated()

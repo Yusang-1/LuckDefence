@@ -20,7 +20,6 @@ public class EnemySpawner : MonoBehaviour
             go = Instantiate(roundData.Enemy.gameObject, spawnArea.position, Quaternion.identity);
             go.SetActive(false);
             entities[i] = go.GetComponent<Entity>();
-            //entities[i] = roundData.Enemy; //이게 같은건가
         }
 
         StartCoroutine(ActiveEnemyCoroutine(entities, roundData.SpawnDelay));
@@ -28,7 +27,7 @@ public class EnemySpawner : MonoBehaviour
 
     private IEnumerator ActiveEnemyCoroutine(Entity[] entities, float spawnDelay)
     {
-        WaitForSecondsRealtime waitSpawnDelay = new WaitForSecondsRealtime(spawnDelay);
+        WaitForSeconds waitSpawnDelay = new WaitForSeconds(spawnDelay);
         for(int i = 0; i < entities.Length; i++)
         {
             entities[i].gameObject.SetActive(true);

@@ -22,7 +22,7 @@ public class BattleTimer : MonoBehaviour
     private IEnumerator TimeIsTicking()
     {
         timer.richText = true;
-        WaitForSecondsRealtime waitOneSecond = new WaitForSecondsRealtime(0.01f);
+        WaitForSeconds waitOneSecond = new WaitForSeconds(0.01f);
         while(true)
         {
             yield return waitOneSecond;

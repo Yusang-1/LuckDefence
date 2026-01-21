@@ -10,8 +10,7 @@ public class Enemy : Entity, ISkillusable
     {
         base.EntityActivated();
 
-        currentHP = Data.MaxHp;
-        Debug.Log("enemy activated");
+        currentHP = Data.MaxHp;        
     }
 
     public void GetMP(int amount)
