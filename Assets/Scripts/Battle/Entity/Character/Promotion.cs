@@ -27,6 +27,6 @@ public class Promotion : MonoBehaviour
 
     public void OnPromotion()
     {
-        spawner.PromotionEntity(platform);
+        spawner.PromotionEntity();
     }
 }

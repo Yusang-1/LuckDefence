@@ -23,26 +23,26 @@ public class FactoryCharRare : FactoryChar
 
     public override void Initialize(Dictionary<int, Entity> entityDict)
     {        
-        base.Initialize(entityDict);        
+        base.Initialize(entityDict);
     }
 
-    public override void ActiveEntity()
-    {
-        base.ActiveEntity();        
-    }
+    //public override void ActiveEntity()
+    //{
+    //    base.ActiveEntity();        
+    //}
 
     public override void DeactiveEntity(int code)
     {
         base.DeactiveEntity(code);
     }
 
-    public override int DetermineEntityCode()
-    {
-        return base.DetermineEntityCode();        
-    }
+    //public override int DetermineEntityCode()
+    //{
+    //    return base.DetermineEntityCode();        
+    //}
 
-    public override Platform SearchPlatform(int code)
-    {
-        return base.SearchPlatform(code);
-    }
+    //public override Platform SearchPlatform(int code)
+    //{
+    //    return base.SearchPlatform(code);
+    //}
 }

@@ -8,10 +8,6 @@ public class FactoryCharUnique : FactoryChar
         base.Initialize(entityDict);
     }
 
-    public override void ActiveEntity(int code, Platform platform)
-    {
-        base.ActiveEntity(code, platform);
-    }
 
     public override void DeactiveEntity(int index)
     {

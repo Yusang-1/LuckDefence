@@ -1,7 +1,10 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class PooledEntity
 {
+    public event Action<int, GameObject> CharacterSpawned;
+
     private GameObject[] pooledEntities;
     private int nowPooledCount;
     private int maxPooledCount;
@@ -17,11 +20,14 @@ public class PooledEntity
         return pooledEntities[nowPooledCount - 1];
     }
 
-    public bool ActiveEntity(Vector3 position)
+    public bool ActiveEntity(SummonData data)
     {
-        pooledEntities[nowPooledCount].gameObject.SetActive(true);
-        pooledEntities[nowPooledCount].transform.position = position;
+        GameObject go = pooledEntities[nowPooledCount].gameObject;
+        go.SetActive(true);
+        pooledEntities[nowPooledCount].transform.position = data.Position;
         nowPooledCount++;
+
+        CharacterSpawned?.Invoke(data.PlatformIndex, go);
 
         if(nowPooledCount == maxPooledCount)
         {

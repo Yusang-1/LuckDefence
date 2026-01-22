@@ -748,7 +748,6 @@ MonoBehaviour:
   currentEntityCode: 0
   entityCount: 0
   rank: 0
-  promotion: {fileID: 1324123001}
 --- !u!61 &125872439
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1160,7 +1159,6 @@ MonoBehaviour:
   currentEntityCode: 0
   entityCount: 0
   rank: 0
-  promotion: {fileID: 1324123001}
 --- !u!61 &198318200
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1312,7 +1310,6 @@ MonoBehaviour:
   currentEntityCode: 0
   entityCount: 0
   rank: 0
-  promotion: {fileID: 1324123001}
 --- !u!61 &200394170
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2708,6 +2705,7 @@ GameObject:
   - component: {fileID: 465025359}
   - component: {fileID: 465025358}
   - component: {fileID: 465025357}
+  - component: {fileID: 465025360}
   m_Layer: 0
   m_Name: Btn_Summon
   m_TagString: Untagged
@@ -2779,9 +2777,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1642509419}
-        m_TargetAssemblyTypeName: CharacterSpawner, Assembly-CSharp
-        m_MethodName: OnSpawnEntity
+      - m_Target: {fileID: 465025360}
+        m_TargetAssemblyTypeName: SummonUI, Assembly-CSharp
+        m_MethodName: OnSummon
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2829,6 +2827,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 465025355}
   m_CullTransparentMesh: 1
+--- !u!114 &465025360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 465025355}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d99a329a9d128349bae417435c8c1d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 465025357}
+  spawner: {fileID: 1642509419}
 --- !u!1 &474270253
 GameObject:
   m_ObjectHideFlags: 0
@@ -2934,7 +2946,6 @@ MonoBehaviour:
   currentEntityCode: 0
   entityCount: 0
   rank: 0
-  promotion: {fileID: 1324123001}
 --- !u!61 &474270257
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3154,7 +3165,6 @@ MonoBehaviour:
   currentEntityCode: 0
   entityCount: 0
   rank: 0
-  promotion: {fileID: 1324123001}
 --- !u!61 &493915959
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3895,7 +3905,6 @@ MonoBehaviour:
   currentEntityCode: 0
   entityCount: 0
   rank: 0
-  promotion: {fileID: 1324123001}
 --- !u!61 &698662732
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3988,7 +3997,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pooledNum: 7
   rank: 2
-  platforms: {fileID: 477850103}
 --- !u!1 &712898720
 GameObject:
   m_ObjectHideFlags: 0
@@ -4215,7 +4223,6 @@ MonoBehaviour:
   currentEntityCode: 0
   entityCount: 0
   rank: 0
-  promotion: {fileID: 1324123001}
 --- !u!61 &788897520
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4367,7 +4374,6 @@ MonoBehaviour:
   currentEntityCode: 0
   entityCount: 0
   rank: 0
-  promotion: {fileID: 1324123001}
 --- !u!61 &827502417
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4994,7 +5000,6 @@ MonoBehaviour:
   currentEntityCode: 0
   entityCount: 0
   rank: 0
-  promotion: {fileID: 1324123001}
 --- !u!61 &907380012
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5087,7 +5092,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pooledNum: 6
   rank: 3
-  platforms: {fileID: 477850103}
 --- !u!1 &943732199
 GameObject:
   m_ObjectHideFlags: 0
@@ -5974,7 +5978,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pooledNum: 7
   rank: 1
-  platforms: {fileID: 477850103}
 --- !u!1 &1294984194
 GameObject:
   m_ObjectHideFlags: 0
@@ -6116,7 +6119,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   button: {fileID: 1324122998}
-  promotion: {fileID: 1324123001}
+  spawner: {fileID: 1642509419}
 --- !u!114 &1324122998
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6627,7 +6630,6 @@ MonoBehaviour:
   currentEntityCode: 0
   entityCount: 0
   rank: 0
-  promotion: {fileID: 1324123001}
 --- !u!61 &1410171719
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6779,7 +6781,6 @@ MonoBehaviour:
   currentEntityCode: 0
   entityCount: 0
   rank: 0
-  promotion: {fileID: 1324123001}
 --- !u!61 &1415928887
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6931,7 +6932,6 @@ MonoBehaviour:
   currentEntityCode: 0
   entityCount: 0
   rank: 0
-  promotion: {fileID: 1324123001}
 --- !u!61 &1424274744
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7096,7 +7096,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pooledNum: 4
   rank: 4
-  platforms: {fileID: 477850103}
 --- !u!4 &1449028896
 Transform:
   m_ObjectHideFlags: 0
@@ -7217,7 +7216,6 @@ MonoBehaviour:
   currentEntityCode: 0
   entityCount: 0
   rank: 0
-  promotion: {fileID: 1324123001}
 --- !u!61 &1456179400
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7998,7 +7996,6 @@ MonoBehaviour:
   currentEntityCode: 0
   entityCount: 0
   rank: 0
-  promotion: {fileID: 1324123001}
 --- !u!61 &1583582104
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8150,7 +8147,6 @@ MonoBehaviour:
   currentEntityCode: 0
   entityCount: 0
   rank: 0
-  promotion: {fileID: 1324123001}
 --- !u!61 &1585462532
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8302,7 +8298,6 @@ MonoBehaviour:
   currentEntityCode: 0
   entityCount: 0
   rank: 0
-  promotion: {fileID: 1324123001}
 --- !u!61 &1589239070
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8472,13 +8467,14 @@ MonoBehaviour:
   - {fileID: 709664558}
   - {fileID: 918921486}
   - {fileID: 1449028895}
+  probabilityData: {fileID: 11400000, guid: d8cdd720bab9a6f4891fc8b83e4b3f87, type: 2}
   charListAsRanks:
   - {fileID: 11400000, guid: bbb68e8a0194c8b4e94a5e6c98827328, type: 2}
   - {fileID: 11400000, guid: 2351ceffa2121394a9a97f06de6ae54f, type: 2}
   - {fileID: 11400000, guid: b98f8be4de875a34b94416b2356efcd1, type: 2}
   - {fileID: 11400000, guid: 6cf9965ae02939240ba2108c78b8e951, type: 2}
   - {fileID: 11400000, guid: 1f1a9345a2cfe09458ea286a719b3f85, type: 2}
-  probabilityData: {fileID: 11400000, guid: d8cdd720bab9a6f4891fc8b83e4b3f87, type: 2}
+  platforms: {fileID: 477850103}
 --- !u!4 &1642509420
 Transform:
   m_ObjectHideFlags: 0
@@ -8904,7 +8900,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pooledNum: 10
   rank: 0
-  platforms: {fileID: 477850103}
 --- !u!1 &1808026633
 GameObject:
   m_ObjectHideFlags: 0
@@ -9097,7 +9092,6 @@ MonoBehaviour:
   currentEntityCode: 0
   entityCount: 0
   rank: 0
-  promotion: {fileID: 1324123001}
 --- !u!61 &1816844907
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9263,7 +9257,6 @@ MonoBehaviour:
   currentEntityCode: 0
   entityCount: 0
   rank: 0
-  promotion: {fileID: 1324123001}
 --- !u!61 &1845571568
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9856,7 +9849,6 @@ MonoBehaviour:
   currentEntityCode: 0
   entityCount: 0
   rank: 0
-  promotion: {fileID: 1324123001}
 --- !u!61 &1963695076
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10481,7 +10473,6 @@ MonoBehaviour:
   currentEntityCode: 0
   entityCount: 0
   rank: 0
-  promotion: {fileID: 1324123001}
 --- !u!61 &2054126423
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10943,7 +10934,6 @@ MonoBehaviour:
   currentEntityCode: 0
   entityCount: 0
   rank: 0
-  promotion: {fileID: 1324123001}
 --- !u!61 &2142686570
 BoxCollider2D:
   m_ObjectHideFlags: 0

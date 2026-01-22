@@ -34,7 +34,8 @@ public struct PlatformPosition
 
 public enum CharRank
 {
-    common,
+    none = -1,
+    common = 0,
     rare,
     epic,
     unique,

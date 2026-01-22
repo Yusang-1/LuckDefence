@@ -1,7 +1,10 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class Platform : MonoBehaviour, ISelectableObject
 {
+    public event Action<bool> PromotionableChanged;
+
     [SerializeField] private PlatformPositionSO platformPosData;
     [SerializeField] private int currentEntityCode;
     [SerializeField] private int entityCount;
@@ -10,8 +13,20 @@ public class Platform : MonoBehaviour, ISelectableObject
     private const int maxAvailableEntityCount = 3;
     private GameObject[] entities;
     private int index;
-    [SerializeField] private Promotion promotion;
+    //[SerializeField] private Promotion promotion;
+    private bool isPromotionable;
 
+    public bool IsPromotionable
+    {
+        get => isPromotionable;
+        set
+        {
+            isPromotionable = value;
+            PromotionableChanged?.Invoke(isPromotionable);
+        }
+    }
+
+    public int Index => index;
     public CharRank Rank => rank;
 
     public void Start()
@@ -19,6 +34,7 @@ public class Platform : MonoBehaviour, ISelectableObject
         entities = new GameObject[maxAvailableEntityCount];
         entityCount = 0;
         platformPosData.Initialize();
+        rank = CharRank.none;
     }
 
     public void GetIndex(int index)
@@ -37,6 +53,7 @@ public class Platform : MonoBehaviour, ISelectableObject
     {
         entityCount = 0;
         currentEntityCode = 0;
+        rank = CharRank.none;
         foreach (var entity in entities)
         {
             entity.SetActive(false);
@@ -66,17 +83,12 @@ public class Platform : MonoBehaviour, ISelectableObject
         Debug.Log($"Selected : {name}");
         
         bool value = CheckIsPromotionable();
-        promotion.IsPromotionable = value;
-
-        if(value)
-        {
-            promotion.GetPlatform(this);
-        }
+        IsPromotionable = value;
     }
 
     public void SelectedEnd()
     {
-        promotion.IsPromotionable = false;
+        IsPromotionable = false;
     }
 
     private bool CheckIsPromotionable()
@@ -89,5 +101,15 @@ public class Platform : MonoBehaviour, ISelectableObject
         {
             return false;
         }
+    }
+
+    public bool CheckIsRankSummonable(CharRank rank)
+    {
+        if(this.rank == CharRank.none || this.rank == rank)
+        {
+            return true;
+        }
+        else
+            return false;
     }
 }
