@@ -4,10 +4,11 @@ using System;
 public class Promotion : MonoBehaviour
 {
     public event Action<bool> PromotionableChanged;
-
-    private Platform platform;
+    
+    [SerializeField] private Platforms platforms;
     [SerializeField] private CharacterSpawner spawner;
 
+    private PlatformData platformData;
     private bool isPromotionable;
 
     public bool IsPromotionable
@@ -20,13 +21,14 @@ public class Promotion : MonoBehaviour
         }
     }
 
-    public void GetPlatform(Platform platform)
+    public void GetPlatformData(PlatformData data, bool isPormotionable)
     {
-        this.platform = platform;
+        platformData = data;
+        IsPromotionable = isPormotionable;
     }
 
     public void OnPromotion()
     {
-        spawner.PromotionEntity();
+        spawner.PromotionEntity(platformData);
     }
 }

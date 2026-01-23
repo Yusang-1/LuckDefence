@@ -1,10 +1,7 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Platform : MonoBehaviour, ISelectableObject
-{
-    public event Action<bool> PromotionableChanged;
-
+{    
     [SerializeField] private PlatformPositionSO platformPosData;
     [SerializeField] private int currentEntityCode;
     [SerializeField] private int entityCount;
@@ -13,18 +10,7 @@ public class Platform : MonoBehaviour, ISelectableObject
     private const int maxAvailableEntityCount = 3;
     private GameObject[] entities;
     private int index;
-    //[SerializeField] private Promotion promotion;
-    private bool isPromotionable;
-
-    public bool IsPromotionable
-    {
-        get => isPromotionable;
-        set
-        {
-            isPromotionable = value;
-            PromotionableChanged?.Invoke(isPromotionable);
-        }
-    }
+    [SerializeField] private Promotion promotion;    
 
     public int Index => index;
     public CharRank Rank => rank;
@@ -83,12 +69,12 @@ public class Platform : MonoBehaviour, ISelectableObject
         Debug.Log($"Selected : {name}");
         
         bool value = CheckIsPromotionable();
-        IsPromotionable = value;
+        promotion.GetPlatformData(new PlatformData(index, rank), value);
     }
 
     public void SelectedEnd()
     {
-        IsPromotionable = false;
+        //IsPromotionable = false;
     }
 
     private bool CheckIsPromotionable()
@@ -111,5 +97,19 @@ public class Platform : MonoBehaviour, ISelectableObject
         }
         else
             return false;
+    }
+}
+
+public struct PlatformData
+{
+    private int index;
+    private CharRank rank;
+
+    public int Index => index;
+    public CharRank Rank => rank;
+
+    public PlatformData(int index, CharRank rank)
+    {
+        this.index = index; this.rank = rank;
     }
 }

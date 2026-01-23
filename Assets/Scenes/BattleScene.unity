@@ -748,6 +748,7 @@ MonoBehaviour:
   currentEntityCode: 0
   entityCount: 0
   rank: 0
+  promotion: {fileID: 1324123001}
 --- !u!61 &125872439
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1159,6 +1160,7 @@ MonoBehaviour:
   currentEntityCode: 0
   entityCount: 0
   rank: 0
+  promotion: {fileID: 1324123001}
 --- !u!61 &198318200
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1310,6 +1312,7 @@ MonoBehaviour:
   currentEntityCode: 0
   entityCount: 0
   rank: 0
+  promotion: {fileID: 1324123001}
 --- !u!61 &200394170
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2946,6 +2949,7 @@ MonoBehaviour:
   currentEntityCode: 0
   entityCount: 0
   rank: 0
+  promotion: {fileID: 1324123001}
 --- !u!61 &474270257
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3165,6 +3169,7 @@ MonoBehaviour:
   currentEntityCode: 0
   entityCount: 0
   rank: 0
+  promotion: {fileID: 1324123001}
 --- !u!61 &493915959
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3905,6 +3910,7 @@ MonoBehaviour:
   currentEntityCode: 0
   entityCount: 0
   rank: 0
+  promotion: {fileID: 1324123001}
 --- !u!61 &698662732
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4223,6 +4229,7 @@ MonoBehaviour:
   currentEntityCode: 0
   entityCount: 0
   rank: 0
+  promotion: {fileID: 1324123001}
 --- !u!61 &788897520
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4374,6 +4381,7 @@ MonoBehaviour:
   currentEntityCode: 0
   entityCount: 0
   rank: 0
+  promotion: {fileID: 1324123001}
 --- !u!61 &827502417
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5000,6 +5008,7 @@ MonoBehaviour:
   currentEntityCode: 0
   entityCount: 0
   rank: 0
+  promotion: {fileID: 1324123001}
 --- !u!61 &907380012
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6119,7 +6128,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   button: {fileID: 1324122998}
-  spawner: {fileID: 1642509419}
+  promotion: {fileID: 1324123001}
 --- !u!114 &1324122998
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6226,6 +6235,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32e3031724d32e6419c37c30974c04bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  platforms: {fileID: 477850103}
   spawner: {fileID: 1642509419}
 --- !u!1 &1328914122
 GameObject:
@@ -6630,6 +6640,7 @@ MonoBehaviour:
   currentEntityCode: 0
   entityCount: 0
   rank: 0
+  promotion: {fileID: 1324123001}
 --- !u!61 &1410171719
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6781,6 +6792,7 @@ MonoBehaviour:
   currentEntityCode: 0
   entityCount: 0
   rank: 0
+  promotion: {fileID: 1324123001}
 --- !u!61 &1415928887
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6932,6 +6944,7 @@ MonoBehaviour:
   currentEntityCode: 0
   entityCount: 0
   rank: 0
+  promotion: {fileID: 1324123001}
 --- !u!61 &1424274744
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7216,6 +7229,7 @@ MonoBehaviour:
   currentEntityCode: 0
   entityCount: 0
   rank: 0
+  promotion: {fileID: 1324123001}
 --- !u!61 &1456179400
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7996,6 +8010,7 @@ MonoBehaviour:
   currentEntityCode: 0
   entityCount: 0
   rank: 0
+  promotion: {fileID: 1324123001}
 --- !u!61 &1583582104
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8147,6 +8162,7 @@ MonoBehaviour:
   currentEntityCode: 0
   entityCount: 0
   rank: 0
+  promotion: {fileID: 1324123001}
 --- !u!61 &1585462532
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8298,6 +8314,7 @@ MonoBehaviour:
   currentEntityCode: 0
   entityCount: 0
   rank: 0
+  promotion: {fileID: 1324123001}
 --- !u!61 &1589239070
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9092,6 +9109,7 @@ MonoBehaviour:
   currentEntityCode: 0
   entityCount: 0
   rank: 0
+  promotion: {fileID: 1324123001}
 --- !u!61 &1816844907
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9257,6 +9275,7 @@ MonoBehaviour:
   currentEntityCode: 0
   entityCount: 0
   rank: 0
+  promotion: {fileID: 1324123001}
 --- !u!61 &1845571568
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9849,6 +9868,7 @@ MonoBehaviour:
   currentEntityCode: 0
   entityCount: 0
   rank: 0
+  promotion: {fileID: 1324123001}
 --- !u!61 &1963695076
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10473,6 +10493,7 @@ MonoBehaviour:
   currentEntityCode: 0
   entityCount: 0
   rank: 0
+  promotion: {fileID: 1324123001}
 --- !u!61 &2054126423
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10934,6 +10955,7 @@ MonoBehaviour:
   currentEntityCode: 0
   entityCount: 0
   rank: 0
+  promotion: {fileID: 1324123001}
 --- !u!61 &2142686570
 BoxCollider2D:
   m_ObjectHideFlags: 0

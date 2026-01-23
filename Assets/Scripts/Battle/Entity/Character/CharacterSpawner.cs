@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using Unity.Android.Gradle.Manifest;
 
 public class CharacterSpawner : MonoBehaviour
 {
@@ -199,9 +200,19 @@ public class CharacterSpawner : MonoBehaviour
     //    factoryDict[platform.Rank].ActiveEntity(platform);
     //}
 
-    public void PromotionEntity()
+    public void PromotionEntity(PlatformData data)
     {
+        platforms.PlatformList[data.Index].ResetPlatform();
 
+        CharRank rank = data.Rank + 1;
+        int charCode = CheckSummonableCharacterInRank(rank);
+        int platformIndex = data.Index;
+        Vector3 position = GetSummonPosition(platformIndex, rank);
+
+        SummonData summonData = new SummonData((int)rank, charCode, platformIndex, position);
+
+        //Debug.Log($"{rank}, {charCode} Summon");
+        factoryDict[(CharRank)summonData.CharRank].ActiveEntity(summonData);
     }
 }
 
