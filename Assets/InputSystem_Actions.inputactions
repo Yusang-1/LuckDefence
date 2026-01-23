@@ -17,12 +17,12 @@
                 },
                 {
                     "name": "ClickHold",
-                    "type": "Button",
+                    "type": "Value",
                     "id": "c8a59071-9f54-4b27-8c21-14076a76581f",
-                    "expectedControlType": "",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 },
                 {
                     "name": "New action",
@@ -168,15 +168,70 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "",
-                    "id": "15c5697b-d1d2-496b-97ff-ce7f05055803",
-                    "path": "<Mouse>/press",
-                    "interactions": "Hold",
+                    "name": "One Modifier",
+                    "id": "40a11d83-a79e-409a-934b-4a676e08df90",
+                    "path": "OneModifier",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ClickHold",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier",
+                    "id": "c14975c1-079c-407f-9919-1a3964c0b8b7",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
                     "action": "ClickHold",
                     "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "4a2e53b9-baf0-452e-bb39-2b13b9374d86",
+                    "path": "<Mouse>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ClickHold",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "One Modifier",
+                    "id": "58c05d5b-9b70-4409-b6c0-3bf932a7310f",
+                    "path": "OneModifier",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ClickHold",
+                    "isComposite": true,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier",
+                    "id": "8e754417-84e2-4469-b5c8-5be9d2854a7e",
+                    "path": "<Touchscreen>/Press",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ClickHold",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "549efaf2-80fa-4ddb-824b-f461adf3a4ce",
+                    "path": "<Touchscreen>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ClickHold",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 },
                 {
                     "name": "One Modifier",

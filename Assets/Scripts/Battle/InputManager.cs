@@ -4,9 +4,22 @@ using UnityEngine.InputSystem;
 public class InputManager : MonoBehaviour
 {
     private Vector3 mousePosition;
+    private ISelectableObject m_ISelectable;
 
     public void OnSelect(InputAction.CallbackContext context)
     {
+        if(context.started)
+        {
+            mousePosition = context.ReadValue<Vector2>();
+
+            Vector3 vec = Camera.main.ScreenToWorldPoint(new Vector3(mousePosition.x, mousePosition.y, 10));
+            RaycastHit2D hit2D = Physics2D.Raycast(vec, Vector3.forward, float.MaxValue);
+
+            if (hit2D && hit2D.collider.gameObject.TryGetComponent<ISelectableObject>(out ISelectableObject selectable))
+            {
+                m_ISelectable = selectable;
+            }
+        }
 
         if(context.performed)
         {
@@ -30,6 +43,18 @@ public class InputManager : MonoBehaviour
     public void OnHold(InputAction.CallbackContext context)
     {
         if(context.performed)
-            Debug.Log($"{context.GetType().Name} Holded");
+        {
+            Vector3 vec = Camera.main.ScreenToWorldPoint(new Vector3(mousePosition.x, mousePosition.y, 10));
+            
+            RaycastHit2D hit2D = Physics2D.Raycast(vec, Vector3.forward, float.MaxValue);
+
+            if (hit2D && hit2D.collider.gameObject.TryGetComponent<ISelectableObject>(out ISelectableObject selectable))
+            {
+                if(selectable == m_ISelectable)
+                {                    
+                    selectable.Holded();
+                }
+            }
+        }            
     }
 }

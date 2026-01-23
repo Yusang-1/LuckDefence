@@ -77,6 +77,11 @@ public class Platform : MonoBehaviour, ISelectableObject
         //IsPromotionable = false;
     }
 
+    public void Holded()
+    {
+        Debug.Log($"Holded : {name}");
+    }
+
     private bool CheckIsPromotionable()
     {
         if(entityCount == maxAvailableEntityCount && rank < CharRank.legendary)

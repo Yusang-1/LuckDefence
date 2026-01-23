@@ -30,5 +30,6 @@ public class Promotion : MonoBehaviour
     public void OnPromotion()
     {
         spawner.PromotionEntity(platformData);
+        IsPromotionable = false;
     }
 }
