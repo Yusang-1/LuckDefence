@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class Platform : MonoBehaviour, ISelectableObject
+public class Platform : MonoBehaviour, ISelectableObject, IHoldableObject
 {    
     [SerializeField] private PlatformPositionSO platformPosData;
     [SerializeField] private int currentEntityCode;
@@ -10,7 +10,7 @@ public class Platform : MonoBehaviour, ISelectableObject
     private const int maxAvailableEntityCount = 3;
     private GameObject[] entities;
     private int index;
-    [SerializeField] private Promotion promotion;    
+    [SerializeField] private Promotion promotion;
 
     public int Index => index;
     public CharRank Rank => rank;
@@ -51,6 +51,28 @@ public class Platform : MonoBehaviour, ISelectableObject
         return (entityCount == 0 || (currentEntityCode == code && entityCount != maxAvailableEntityCount));
     }
 
+    private bool CheckIsPromotionable()
+    {
+        if (entityCount == maxAvailableEntityCount && rank < CharRank.legendary)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public bool CheckIsRankSummonable(CharRank rank)
+    {
+        if (this.rank == CharRank.none || this.rank == rank)
+        {
+            return true;
+        }
+        else
+            return false;
+    }
+
     public void EntitySpawned(GameObject spawnedObject)
     {
         Entity entity = spawnedObject.GetComponent<Entity>();        
@@ -87,29 +109,7 @@ public class Platform : MonoBehaviour, ISelectableObject
     public void HoldReleased()
     {
         Debug.Log($"HoldReleased : {name}");
-    }
-
-    private bool CheckIsPromotionable()
-    {
-        if(entityCount == maxAvailableEntityCount && rank < CharRank.legendary)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
-
-    public bool CheckIsRankSummonable(CharRank rank)
-    {
-        if(this.rank == CharRank.none || this.rank == rank)
-        {
-            return true;
-        }
-        else
-            return false;
-    }
+    }    
 }
 
 public struct PlatformData
