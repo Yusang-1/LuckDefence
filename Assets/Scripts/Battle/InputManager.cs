@@ -54,24 +54,23 @@ public class InputManager : MonoBehaviour
             Vector3 vec = Camera.main.ScreenToWorldPoint(new Vector3(mousePosition.x, mousePosition.y, 10));
             RaycastHit2D hit2D = Physics2D.Raycast(vec, Vector3.forward, float.MaxValue);
 
-            if (hit2D && hit2D.collider.gameObject.TryGetComponent<ISelectableObject>(out ISelectableObject selectable))
+            if (hit2D && hit2D.collider.gameObject.TryGetComponent<IHoldableObject>(out IHoldableObject holdable))
             {
-                if (selectable == m_ISelectable)
+                if (holdable == m_ISelectable)
                 {
-                    m_ISelectable.Holded();
+                    holdable.Holded();
                 }
             }
         }
 
         if (context.canceled && isHold)
         {
-            Debug.Log(2);
             Vector3 vec = Camera.main.ScreenToWorldPoint(new Vector3(mousePosition.x, mousePosition.y, 10));
             RaycastHit2D hit2D = Physics2D.Raycast(vec, Vector3.forward, float.MaxValue);
 
-            if (hit2D && hit2D.collider.gameObject.TryGetComponent<ISelectableObject>(out ISelectableObject selectable))
+            if (hit2D && hit2D.collider.gameObject.TryGetComponent<IHoldableObject>(out IHoldableObject holdable))
             {
-                selectable.HoldReleased();
+                holdable.HoldReleased();
             }
             isHold = false;
         }
