@@ -16,21 +16,21 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "ClickHold",
+                    "name": "Click",
                     "type": "Value",
-                    "id": "c8a59071-9f54-4b27-8c21-14076a76581f",
+                    "id": "6b6b33c7-292f-44ec-96e6-b4bf1ab3181a",
                     "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
                 },
                 {
-                    "name": "New action",
-                    "type": "Value",
-                    "id": "6b6b33c7-292f-44ec-96e6-b4bf1ab3181a",
-                    "expectedControlType": "Vector2",
+                    "name": "ClickHold",
+                    "type": "Button",
+                    "id": "7d5954cc-e754-4fe9-b10f-9790ed6a1d15",
+                    "expectedControlType": "",
                     "processors": "",
-                    "interactions": "",
+                    "interactions": "Hold",
                     "initialStateCheck": true
                 }
             ],
@@ -168,79 +168,13 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "One Modifier",
-                    "id": "40a11d83-a79e-409a-934b-4a676e08df90",
-                    "path": "OneModifier",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "ClickHold",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "modifier",
-                    "id": "c14975c1-079c-407f-9919-1a3964c0b8b7",
-                    "path": "<Mouse>/leftButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Keyboard&Mouse",
-                    "action": "ClickHold",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "binding",
-                    "id": "4a2e53b9-baf0-452e-bb39-2b13b9374d86",
-                    "path": "<Mouse>/position",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "ClickHold",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "One Modifier",
-                    "id": "58c05d5b-9b70-4409-b6c0-3bf932a7310f",
-                    "path": "OneModifier",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "ClickHold",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "modifier",
-                    "id": "8e754417-84e2-4469-b5c8-5be9d2854a7e",
-                    "path": "<Touchscreen>/Press",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "ClickHold",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "binding",
-                    "id": "549efaf2-80fa-4ddb-824b-f461adf3a4ce",
-                    "path": "<Touchscreen>/position",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "ClickHold",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "One Modifier",
+                    "name": "Click",
                     "id": "bb78ebfa-f195-499d-96d0-526e77b3661f",
                     "path": "OneModifier",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "New action",
+                    "action": "Click",
                     "isComposite": true,
                     "isPartOfComposite": false
                 },
@@ -251,7 +185,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
-                    "action": "New action",
+                    "action": "Click",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -262,7 +196,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
-                    "action": "New action",
+                    "action": "Click",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -273,7 +207,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "New action",
+                    "action": "Click",
                     "isComposite": true,
                     "isPartOfComposite": false
                 },
@@ -284,7 +218,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Touch",
-                    "action": "New action",
+                    "action": "Click",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -295,7 +229,73 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Touch",
-                    "action": "New action",
+                    "action": "Click",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "One Modifier",
+                    "id": "8980d94b-af6d-4de9-910b-db72fe9502b7",
+                    "path": "OneModifier",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ClickHold",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier",
+                    "id": "efd238a9-5953-43be-af86-6f752e48135d",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "ClickHold",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "7252fe2e-a84c-4d05-b96a-65278559f885",
+                    "path": "<Mouse>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "ClickHold",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "One Modifier",
+                    "id": "30577883-41af-4ee9-85af-3b52ebc77209",
+                    "path": "OneModifier",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ClickHold",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier",
+                    "id": "8c682c7c-3cff-4b26-8855-3c86773540d8",
+                    "path": "<Touchscreen>/Press",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Touch",
+                    "action": "ClickHold",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "b3bfdbdb-b9f9-4d99-bf1e-4f8267756d00",
+                    "path": "<Touchscreen>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Touch",
+                    "action": "ClickHold",
                     "isComposite": false,
                     "isPartOfComposite": true
                 }

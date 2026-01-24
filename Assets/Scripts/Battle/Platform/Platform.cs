@@ -80,6 +80,13 @@ public class Platform : MonoBehaviour, ISelectableObject
     public void Holded()
     {
         Debug.Log($"Holded : {name}");
+
+
+    }
+
+    public void HoldReleased()
+    {
+        Debug.Log($"HoldReleased : {name}");
     }
 
     private bool CheckIsPromotionable()

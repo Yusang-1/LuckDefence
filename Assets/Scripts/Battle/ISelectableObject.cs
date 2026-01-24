@@ -7,4 +7,6 @@ public interface ISelectableObject
     public void SelectedEnd();
 
     public void Holded();
+
+    public void HoldReleased();
 }
