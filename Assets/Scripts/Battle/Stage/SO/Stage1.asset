@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a7251c3c3892bb4b8fb1cca8d12499f, type: 3}
   m_Name: Stage1
   m_EditorClassIdentifier: 
-  stageNum: 0
+  stageNum: 1
+  maxEnemyCount: 50
   roundData:
   - enemy: {fileID: 4314358501371899066, guid: a505bf8bbc3a6c547a01a0ea2bec2578, type: 3}
     enemyCount: 10

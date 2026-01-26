@@ -5,9 +5,11 @@ using System;
 public class StageSO : ScriptableObject
 {
     [SerializeField] private int stageNum;
+    [SerializeField] private int maxEnemyCount;
     [SerializeField] private RoundData[] roundData;
 
     public int StageNum => stageNum;
+    public int MaxEnemyCount => maxEnemyCount;
     public RoundData[] RoundData => roundData;
 }
 
