@@ -13,12 +13,12 @@ public class EnemyMover : EntityMover
     {
         base.Initialize(entity);
 
-        directionVector = GetDestinationVector();
+        directionVector = GetDestinationVector(transform.position);
     }
 
-    protected override Vector3 GetDestinationVector()
+    public override Vector3 GetDestinationVector(Vector3 position)
     {
-        transform.position = BeaconContainer.s_Beacons[currentBeaconIndex].position;
+        position = BeaconContainer.s_Beacons[currentBeaconIndex].position;
 
         currentBeaconIndex++;
         if (currentBeaconIndex >= BeaconContainer.s_Beacons.Length)
@@ -26,16 +26,17 @@ public class EnemyMover : EntityMover
             currentBeaconIndex = 0;
         }
 
-        return (BeaconContainer.s_Beacons[currentBeaconIndex].position - transform.position).normalized;
+        return (BeaconContainer.s_Beacons[currentBeaconIndex].position - position).normalized;
     }
 
-    protected override void Move()
+    public override void Move()
     {
-        transform.position += directionVector * entity.Data.MoveSpeed * Time.deltaTime;
+        Vector3 moveSpeed = directionVector * entity.Data.MoveSpeed * Time.deltaTime;
+        transform.position += moveSpeed;
 
-        if (Vector3.Distance(transform.position, BeaconContainer.s_Beacons[currentBeaconIndex].position) <= Vector3.Distance(transform.position, transform.position + directionVector * entity.Data.MoveSpeed * Time.deltaTime))
+        if (Vector3.Distance(transform.position, BeaconContainer.s_Beacons[currentBeaconIndex].position) <= Vector3.Distance(transform.position, transform.position + moveSpeed))
         {
-            directionVector = GetDestinationVector();
+            directionVector = GetDestinationVector(transform.position);
         }
     }
 }

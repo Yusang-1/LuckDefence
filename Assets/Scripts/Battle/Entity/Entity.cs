@@ -6,6 +6,7 @@ public class Entity : MonoBehaviour
     [SerializeField] private EntityMover mover;
 
     public EntitySO Data => data;
+    public EntityMover Mover => mover;
 
     private void Start()
     {

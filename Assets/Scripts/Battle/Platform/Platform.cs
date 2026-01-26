@@ -3,17 +3,20 @@
 public class Platform : MonoBehaviour, ISelectableObject, IHoldableObject
 {    
     [SerializeField] private PlatformPositionSO platformPosData;
+    [SerializeField] private PlatformHoldSelector holdSelector;
+    [SerializeField] private Promotion promotion;
+
     [SerializeField] private int currentEntityCode;
     [SerializeField] private int entityCount;
     [SerializeField] private CharRank rank;
 
-    private const int maxAvailableEntityCount = 3;
     private GameObject[] entities;
+    private const int maxAvailableEntityCount = 3;
     private int index;
-    [SerializeField] private Promotion promotion;
 
     public int Index => index;
     public CharRank Rank => rank;
+    public GameObject[] Entities => entities;
 
     public void Start()
     {
@@ -42,8 +45,18 @@ public class Platform : MonoBehaviour, ISelectableObject, IHoldableObject
         rank = CharRank.none;
         foreach (var entity in entities)
         {
-            entity.SetActive(false);
+            if(entity != null)
+            {
+                entity.SetActive(false);
+            }
         }
+    }
+
+    public void Migration()
+    {
+        entityCount = 0;
+        currentEntityCode = 0;
+        rank = CharRank.none;
     }
 
     public bool CheckEntityAvailable(int code)
@@ -103,13 +116,15 @@ public class Platform : MonoBehaviour, ISelectableObject, IHoldableObject
     {
         Debug.Log($"Holded : {name}");
 
-
+        holdSelector.Holded(index);
     }
 
     public void HoldReleased()
     {
         Debug.Log($"HoldReleased : {name}");
-    }    
+
+        holdSelector.Released(index);
+    }
 }
 
 public struct PlatformData

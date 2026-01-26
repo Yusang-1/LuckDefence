@@ -745,10 +745,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   platformPosData: {fileID: 11400000, guid: b18ad2792ff425249bcdb0f6da11b2f6, type: 2}
+  holdSelector: {fileID: 477850104}
+  promotion: {fileID: 1324123001}
   currentEntityCode: 0
   entityCount: 0
   rank: 0
-  promotion: {fileID: 1324123001}
 --- !u!61 &125872439
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1158,10 +1159,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   platformPosData: {fileID: 11400000, guid: b18ad2792ff425249bcdb0f6da11b2f6, type: 2}
+  holdSelector: {fileID: 477850104}
+  promotion: {fileID: 1324123001}
   currentEntityCode: 0
   entityCount: 0
   rank: 0
-  promotion: {fileID: 1324123001}
 --- !u!61 &198318200
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1310,10 +1312,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   platformPosData: {fileID: 11400000, guid: b18ad2792ff425249bcdb0f6da11b2f6, type: 2}
+  holdSelector: {fileID: 477850104}
+  promotion: {fileID: 1324123001}
   currentEntityCode: 0
   entityCount: 0
   rank: 0
-  promotion: {fileID: 1324123001}
 --- !u!61 &200394170
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2947,10 +2950,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   platformPosData: {fileID: 11400000, guid: b18ad2792ff425249bcdb0f6da11b2f6, type: 2}
+  holdSelector: {fileID: 477850104}
+  promotion: {fileID: 1324123001}
   currentEntityCode: 0
   entityCount: 0
   rank: 0
-  promotion: {fileID: 1324123001}
 --- !u!61 &474270257
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3007,6 +3011,7 @@ GameObject:
   m_Component:
   - component: {fileID: 477850102}
   - component: {fileID: 477850103}
+  - component: {fileID: 477850104}
   m_Layer: 0
   m_Name: Container_Platform
   m_TagString: Untagged
@@ -3065,6 +3070,19 @@ MonoBehaviour:
   - {fileID: 1410171718}
   - {fileID: 1585462531}
   - {fileID: 698662731}
+--- !u!114 &477850104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 477850101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 425bd824696aa294eb5662dfe04621f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  platforms: {fileID: 477850103}
 --- !u!1 &493915955
 GameObject:
   m_ObjectHideFlags: 0
@@ -3167,10 +3185,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   platformPosData: {fileID: 11400000, guid: b18ad2792ff425249bcdb0f6da11b2f6, type: 2}
+  holdSelector: {fileID: 477850104}
+  promotion: {fileID: 1324123001}
   currentEntityCode: 0
   entityCount: 0
   rank: 0
-  promotion: {fileID: 1324123001}
 --- !u!61 &493915959
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3908,10 +3927,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   platformPosData: {fileID: 11400000, guid: b18ad2792ff425249bcdb0f6da11b2f6, type: 2}
+  holdSelector: {fileID: 477850104}
+  promotion: {fileID: 1324123001}
   currentEntityCode: 0
   entityCount: 0
   rank: 0
-  promotion: {fileID: 1324123001}
 --- !u!61 &698662732
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4227,10 +4247,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   platformPosData: {fileID: 11400000, guid: b18ad2792ff425249bcdb0f6da11b2f6, type: 2}
+  holdSelector: {fileID: 477850104}
+  promotion: {fileID: 1324123001}
   currentEntityCode: 0
   entityCount: 0
   rank: 0
-  promotion: {fileID: 1324123001}
 --- !u!61 &788897520
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4379,10 +4400,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   platformPosData: {fileID: 11400000, guid: b18ad2792ff425249bcdb0f6da11b2f6, type: 2}
+  holdSelector: {fileID: 477850104}
+  promotion: {fileID: 1324123001}
   currentEntityCode: 0
   entityCount: 0
   rank: 0
-  promotion: {fileID: 1324123001}
 --- !u!61 &827502417
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5006,10 +5028,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   platformPosData: {fileID: 11400000, guid: b18ad2792ff425249bcdb0f6da11b2f6, type: 2}
+  holdSelector: {fileID: 477850104}
+  promotion: {fileID: 1324123001}
   currentEntityCode: 0
   entityCount: 0
   rank: 0
-  promotion: {fileID: 1324123001}
 --- !u!61 &907380012
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6638,10 +6661,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   platformPosData: {fileID: 11400000, guid: b18ad2792ff425249bcdb0f6da11b2f6, type: 2}
+  holdSelector: {fileID: 477850104}
+  promotion: {fileID: 1324123001}
   currentEntityCode: 0
   entityCount: 0
   rank: 0
-  promotion: {fileID: 1324123001}
 --- !u!61 &1410171719
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6790,10 +6814,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   platformPosData: {fileID: 11400000, guid: b18ad2792ff425249bcdb0f6da11b2f6, type: 2}
+  holdSelector: {fileID: 477850104}
+  promotion: {fileID: 1324123001}
   currentEntityCode: 0
   entityCount: 0
   rank: 0
-  promotion: {fileID: 1324123001}
 --- !u!61 &1415928887
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6942,10 +6967,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   platformPosData: {fileID: 11400000, guid: b18ad2792ff425249bcdb0f6da11b2f6, type: 2}
+  holdSelector: {fileID: 477850104}
+  promotion: {fileID: 1324123001}
   currentEntityCode: 0
   entityCount: 0
   rank: 0
-  promotion: {fileID: 1324123001}
 --- !u!61 &1424274744
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7227,10 +7253,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   platformPosData: {fileID: 11400000, guid: b18ad2792ff425249bcdb0f6da11b2f6, type: 2}
+  holdSelector: {fileID: 477850104}
+  promotion: {fileID: 1324123001}
   currentEntityCode: 0
   entityCount: 0
   rank: 0
-  promotion: {fileID: 1324123001}
 --- !u!61 &1456179400
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8008,10 +8035,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   platformPosData: {fileID: 11400000, guid: b18ad2792ff425249bcdb0f6da11b2f6, type: 2}
+  holdSelector: {fileID: 477850104}
+  promotion: {fileID: 1324123001}
   currentEntityCode: 0
   entityCount: 0
   rank: 0
-  promotion: {fileID: 1324123001}
 --- !u!61 &1583582104
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8160,10 +8188,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   platformPosData: {fileID: 11400000, guid: b18ad2792ff425249bcdb0f6da11b2f6, type: 2}
+  holdSelector: {fileID: 477850104}
+  promotion: {fileID: 1324123001}
   currentEntityCode: 0
   entityCount: 0
   rank: 0
-  promotion: {fileID: 1324123001}
 --- !u!61 &1585462532
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8312,10 +8341,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   platformPosData: {fileID: 11400000, guid: b18ad2792ff425249bcdb0f6da11b2f6, type: 2}
+  holdSelector: {fileID: 477850104}
+  promotion: {fileID: 1324123001}
   currentEntityCode: 0
   entityCount: 0
   rank: 0
-  promotion: {fileID: 1324123001}
 --- !u!61 &1589239070
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9107,10 +9137,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   platformPosData: {fileID: 11400000, guid: b18ad2792ff425249bcdb0f6da11b2f6, type: 2}
+  holdSelector: {fileID: 477850104}
+  promotion: {fileID: 1324123001}
   currentEntityCode: 0
   entityCount: 0
   rank: 0
-  promotion: {fileID: 1324123001}
 --- !u!61 &1816844907
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9273,10 +9304,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   platformPosData: {fileID: 11400000, guid: b18ad2792ff425249bcdb0f6da11b2f6, type: 2}
+  holdSelector: {fileID: 477850104}
+  promotion: {fileID: 1324123001}
   currentEntityCode: 0
   entityCount: 0
   rank: 0
-  promotion: {fileID: 1324123001}
 --- !u!61 &1845571568
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9866,10 +9898,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   platformPosData: {fileID: 11400000, guid: b18ad2792ff425249bcdb0f6da11b2f6, type: 2}
+  holdSelector: {fileID: 477850104}
+  promotion: {fileID: 1324123001}
   currentEntityCode: 0
   entityCount: 0
   rank: 0
-  promotion: {fileID: 1324123001}
 --- !u!61 &1963695076
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10491,10 +10524,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   platformPosData: {fileID: 11400000, guid: b18ad2792ff425249bcdb0f6da11b2f6, type: 2}
+  holdSelector: {fileID: 477850104}
+  promotion: {fileID: 1324123001}
   currentEntityCode: 0
   entityCount: 0
   rank: 0
-  promotion: {fileID: 1324123001}
 --- !u!61 &2054126423
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10953,10 +10987,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   platformPosData: {fileID: 11400000, guid: b18ad2792ff425249bcdb0f6da11b2f6, type: 2}
+  holdSelector: {fileID: 477850104}
+  promotion: {fileID: 1324123001}
   currentEntityCode: 0
   entityCount: 0
   rank: 0
-  promotion: {fileID: 1324123001}
 --- !u!61 &2142686570
 BoxCollider2D:
   m_ObjectHideFlags: 0

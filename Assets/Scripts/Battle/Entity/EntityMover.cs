@@ -10,8 +10,8 @@ public abstract class EntityMover : MonoBehaviour
         this.entity = entity;        
     }
 
-    protected abstract Vector3 GetDestinationVector();
+    public abstract Vector3 GetDestinationVector(Vector3 vec);
     
 
-    protected abstract void Move();
+    public abstract void Move();
 }
