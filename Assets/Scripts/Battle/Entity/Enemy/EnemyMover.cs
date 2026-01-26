@@ -26,7 +26,7 @@ public class EnemyMover : EntityMover
             currentBeaconIndex = 0;
         }
 
-        return (BeaconContainer.s_Beacons[currentBeaconIndex].position - position).normalized;
+        return (BeaconContainer.s_Beacons[currentBeaconIndex].position - transform.position).normalized;
     }
 
     public override void Move()
