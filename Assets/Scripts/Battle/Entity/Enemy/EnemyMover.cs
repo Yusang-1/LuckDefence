@@ -18,7 +18,7 @@ public class EnemyMover : EntityMover
 
     public override Vector3 GetDestinationVector(Vector3 position)
     {
-        position = BeaconContainer.s_Beacons[currentBeaconIndex].position;
+        transform.position = BeaconContainer.s_Beacons[currentBeaconIndex].position;
 
         currentBeaconIndex++;
         if (currentBeaconIndex >= BeaconContainer.s_Beacons.Length)

@@ -3,6 +3,7 @@ using System.Collections;
 
 public class EnemySpawner : MonoBehaviour
 {
+    [SerializeField] private HPSpawner hpSpawner;
     [SerializeField] private Transform spawnArea;
 
     public void Instantiate()
@@ -32,6 +33,8 @@ public class EnemySpawner : MonoBehaviour
         {
             entities[i].gameObject.SetActive(true);
             entities[i].EntityActivated();
+
+            hpSpawner.ActivateHP(entities[i]);
 
             yield return waitSpawnDelay;
         }

@@ -45,6 +45,7 @@ public class PlatformHoldSelector : MonoBehaviour
                 Entity entity = go.GetComponent<Entity>();
 
                 entity.Mover.GetDestinationVector(platforms.PlatformList[releasedIndex].transform.position);
+                entity.Mover.GetDestinationVector(platforms.PlatformList[releasedIndex].GetPosition((entity.Data as CharacterSO).Rank));
                 entity.Mover.Move();
 
                 platforms.PlatformList[releasedIndex].EntitySpawned(go);

@@ -4,11 +4,14 @@ public class StageManager : MonoBehaviour
 {
     [SerializeField] private StageSO stageData; //임시로 인스펙터에서 받아옴
     [SerializeField] private EnemySpawner enemySpawner;
+    [SerializeField] private HPSpawner hpSpawner;
     int currentRound;
 
     private void Start()
     {
         Initialize();
+        hpSpawner.Initialize(stageData);
+
         StartNextRound();
     }
 
