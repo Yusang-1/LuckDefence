@@ -7,7 +7,10 @@ public class EntitySO : ScriptableObject
     public string EntityName;
     public int MaxHp;
     public int MaxMp;
+    public int GetMPPoint;
+    public int AttackPoint;
     public float AttackSpeed;
+    public float AttackRange;
     public float MoveSpeed;
     public GameObject Prefab;
 }
