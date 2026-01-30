@@ -33,7 +33,6 @@ public class InputManager : MonoBehaviour
 
         if (context.canceled)
         {
-            Debug.Log(1);
             ISelectableObject selectable;
             Vector3 vec = Camera.main.ScreenToWorldPoint(new Vector3(mousePosition.x, mousePosition.y, 10));
             RaycastHit2D hit2D = Physics2D.Raycast(vec, Vector3.forward, float.MaxValue);

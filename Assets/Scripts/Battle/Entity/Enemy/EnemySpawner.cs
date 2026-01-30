@@ -4,7 +4,7 @@ using System.Collections;
 public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] private HPSpawner hpSpawner;
-    [SerializeField] private Transform spawnArea;
+    [SerializeField] private Transform spawnArea;    
 
     public void Instantiate()
     {

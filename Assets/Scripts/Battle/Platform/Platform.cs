@@ -1,26 +1,48 @@
-﻿using UnityEngine;
+﻿using Unity.VisualScripting;
+using UnityEngine;
 
 public class Platform : MonoBehaviour, ISelectableObject, IHoldableObject
 {    
     [SerializeField] private PlatformPositionSO platformPosData;
     [SerializeField] private PlatformHoldSelector holdSelector;
     [SerializeField] private Promotion promotion;
+    [SerializeField] private TargetSearcher targetSearcher;
 
     [SerializeField] private int currentEntityCode;
     [SerializeField] private int entityCount;
     [SerializeField] private CharRank rank;
 
-    private GameObject[] entities;
+    private Entity[] entities;
+    private Entity target;
+    private Vector3 targetLastPosition;
     private const int maxAvailableEntityCount = 3;
     private int index;
 
     public int Index => index;
+    public int EntityCount => entityCount;
     public CharRank Rank => rank;
-    public GameObject[] Entities => entities;
+    public Entity[] Entities => entities;
+    public Entity Target
+    {
+        get => target;
+        set
+        {
+            target = value;
+
+            foreach(Character character in entities)
+            {
+                if(character != null)
+                {
+                    character.IsAttackable = target != null ? true : false;
+                }
+            }
+        }
+    }
+    public Vector3 TargetLastPosition => targetLastPosition;
 
     public void Start()
     {
-        entities = new GameObject[maxAvailableEntityCount];
+        entities = new Entity[maxAvailableEntityCount];
         entityCount = 0;
         platformPosData.Initialize();
         rank = CharRank.none;
@@ -47,7 +69,7 @@ public class Platform : MonoBehaviour, ISelectableObject, IHoldableObject
         {
             if(entity != null)
             {
-                entity.SetActive(false);
+                entity.gameObject.SetActive(false);
             }
         }
     }
@@ -91,12 +113,17 @@ public class Platform : MonoBehaviour, ISelectableObject, IHoldableObject
         Entity entity = spawnedObject.GetComponent<Entity>();        
 
         currentEntityCode = entity.Data.Code;
-        entities[entityCount] = spawnedObject;
+        entities[entityCount] = entity;
 
         CharacterSO charSO = entity.Data as CharacterSO;
         entityCount += charSO.Weight;
 
         rank = charSO.Rank;
+
+        (entity as Character).EntityActivated();
+        (entity as Character).GetPlatform(this);
+
+        targetSearcher.Initialize(entity as Character);
     }
 
     public void Selected()
@@ -124,6 +151,16 @@ public class Platform : MonoBehaviour, ISelectableObject, IHoldableObject
         Debug.Log($"HoldReleased : {name}");
 
         holdSelector.Released(index);
+    }
+
+    public void SetTarget(Entity entity)
+    {
+        if(entity == null && Target != null)
+        {
+            targetLastPosition = Target.transform.position;
+        }
+
+        Target = entity;
     }
 }
 

@@ -18,7 +18,7 @@ public class HPUI : MonoBehaviour
     }
 
     public void matchEntity(Entity entity)
-    {        
+    {
         this.entity = entity;
         damagableEntity = entity as IDamagable;
 
@@ -34,10 +34,10 @@ public class HPUI : MonoBehaviour
             gameObject.SetActive(true);
         }
 
-        float value = hp / entity.Data.MaxMp;
+        float value = (float)hp / entity.Data.MaxHp;
         hpTransform.localScale = new Vector3(value, 1, 1);
 
-        if(value <= 0)
+        if(hp <= 0)
         {
             ResetUI();
 

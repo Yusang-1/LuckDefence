@@ -37,19 +37,17 @@ public class PlatformHoldSelector : MonoBehaviour
             return;
         }        
 
-        GameObject[] entities = platforms.PlatformList[holdedIndex].Entities;
-        foreach(GameObject go in entities)
+        Entity[] entities = platforms.PlatformList[holdedIndex].Entities;
+        foreach(Entity entity in entities)
         {
-            if(go != null)
+            if(entity != null)
             {
-                Entity entity = go.GetComponent<Entity>();
-
                 entity.Mover.GetDestinationVector(platforms.PlatformList[releasedIndex].transform.position);
                 entity.Mover.GetDestinationVector(platforms.PlatformList[releasedIndex].GetPosition((entity.Data as CharacterSO).Rank));
                 entity.Mover.Move();
 
-                platforms.PlatformList[releasedIndex].EntitySpawned(go);
-            }            
+                platforms.PlatformList[releasedIndex].EntitySpawned(entity.gameObject);
+            }
         }
 
         platforms.PlatformList[holdedIndex].Migration();
