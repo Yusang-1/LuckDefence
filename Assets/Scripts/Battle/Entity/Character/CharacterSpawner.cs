@@ -96,7 +96,11 @@ public class CharacterSpawner : MonoBehaviour
 
         SummonData data = new SummonData((int)rank, charCode, platformIndex, position);
 
-        //Debug.Log($"{rank}, {charCode} Summon");
+        OrderToFactory(data);
+    }
+
+    public void OrderToFactory(SummonData data)
+    {
         factoryDict[(CharRank)data.CharRank].ActiveEntity(data);
     }
 

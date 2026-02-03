@@ -3,11 +3,11 @@ using System.Collections.Generic;
 
 public class EnemyList : MonoBehaviour
 {
-    public static List<Entity> Enemies;
+    public static List<Entity> Enemies = new List<Entity>();
 
     private void Start()
     {
-        Enemies = new List<Entity>();
+        //Enemies = new List<Entity>();
     }
 
     public static void Activated(Entity entity)
