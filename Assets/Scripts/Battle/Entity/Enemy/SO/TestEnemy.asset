@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6df22a00c16b7bf459c0746e076b6bc6, type: 3}
-  m_Name: Enemy1100
+  m_Name: TestEnemy
   m_EditorClassIdentifier: 
-  Code: 1100
+  Code: 0
   EntityName: 
-  MaxHp: 100
-  MaxMp: 20
+  MaxHp: 1000000
+  MaxMp: 0
   GetMPPoint: 0
   AttackPoint: 0
   AttackSpeed: 0
   AttackRange: 0
   MoveSpeed: 3
-  Prefab: {fileID: 7964986942513546205, guid: a505bf8bbc3a6c547a01a0ea2bec2578, type: 3}
+  Prefab: {fileID: 7964986942513546205, guid: 20caa78508e17e240b301e5caf913579, type: 3}
   Rank: 0

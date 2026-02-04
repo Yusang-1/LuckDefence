@@ -2,6 +2,8 @@
 
 public class EnemyMover : EntityMover
 {
+    [SerializeField] Rigidbody2D rigidbody2d;
+
     private int currentBeaconIndex;
 
     private void Update()
@@ -33,6 +35,8 @@ public class EnemyMover : EntityMover
     {
         Vector3 moveSpeed = directionVector * entity.Data.MoveSpeed * Time.deltaTime;
         transform.position += moveSpeed;
+
+        //rigidbody2d.AddForce(moveSpeed * 10000, ForceMode2D.Impulse);
 
         if (Vector3.Distance(transform.position, BeaconContainer.s_Beacons[currentBeaconIndex].position) <= Vector3.Distance(transform.position, transform.position + moveSpeed))
         {
