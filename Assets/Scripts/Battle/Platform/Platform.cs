@@ -1,13 +1,13 @@
-﻿using Unity.VisualScripting;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Platform : MonoBehaviour, ISelectableObject, IHoldableObject
-{    
+{
+    [SerializeField] private Platforms paltforms;
     [SerializeField] private PlatformPositionSO platformPosData;
     [SerializeField] private PlatformHoldSelector holdSelector;
     [SerializeField] private Promotion promotion;
     [SerializeField] private TargetSearcher targetSearcher;
-    [SerializeField] private TargetSearcherWithCollision testTargetSearcher;
+    //[SerializeField] private TargetSearcherWithCollision testTargetSearcher;
 
     [SerializeField] private int currentEntityCode;
     [SerializeField] private int entityCount;
@@ -48,7 +48,7 @@ public class Platform : MonoBehaviour, ISelectableObject, IHoldableObject
         platformPosData.Initialize();
         rank = CharRank.none;
 
-        testTargetSearcher = GetComponent<TargetSearcherWithCollision>();
+        //testTargetSearcher = GetComponent<TargetSearcherWithCollision>();
     }
 
     public void GetIndex(int index)
@@ -136,11 +136,14 @@ public class Platform : MonoBehaviour, ISelectableObject, IHoldableObject
         
         bool value = CheckIsPromotionable();
         promotion.GetPlatformData(new PlatformData(index, rank), value);
+
+        paltforms.SelectedPlatformIndex = index;
     }
 
     public void SelectedEnd()
     {
         //IsPromotionable = false;
+        paltforms.SelectedPlatformIndex = -1;
     }
 
     public void Holded()
