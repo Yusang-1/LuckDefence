@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.UIElements;
 
 public class SelectPlatformUIContainer : MonoBehaviour
 {
@@ -11,6 +10,7 @@ public class SelectPlatformUIContainer : MonoBehaviour
     public void Start()
     {
         platforms.PlatformSelected += OpenUI;
+        platforms.PlatformDataChanged += UpdateUI;
 
         m_UIRight.Initialize();
         m_UILeft.Initialize();
@@ -19,6 +19,7 @@ public class SelectPlatformUIContainer : MonoBehaviour
     private void OnDestroy()
     {
         platforms.PlatformSelected -= OpenUI;
+        platforms.PlatformDataChanged -= UpdateUI;
     }
 
     public void OpenUI(Platform platform)
@@ -51,5 +52,19 @@ public class SelectPlatformUIContainer : MonoBehaviour
         }
 
         m_UILeft.OpenUI(platform);
+    }
+
+    public void UpdateUI(Platform platform)
+    {
+        Debug.Log(11);
+        if(m_UIRight.IsOpen)
+        {
+            m_UIRight.SetData(platform);
+        }
+
+        if(m_UILeft.IsOpen)
+        {
+            m_UILeft.SetData(platform);
+        }
     }
 }

@@ -8,6 +8,7 @@ public class SelectPlatformUI : MonoBehaviour
     [SerializeField] private RectTransform rectTransform;
     [SerializeField] private Image sprite;
     [SerializeField] private TextMeshProUGUI entityName;
+    [SerializeField] private Button promotionButton;
 
     [SerializeField] private float UIMoveSpeed;
 
@@ -27,8 +28,10 @@ public class SelectPlatformUI : MonoBehaviour
         gameObject.SetActive(false);
 
         startPosition = rectTransform.localPosition;
-        endPosition = rectTransform.localPosition + openDirection * (Vector3)rectTransform.sizeDelta;                
-    }    
+        endPosition = rectTransform.localPosition + openDirection * (Vector3)rectTransform.sizeDelta;
+
+        promotionButton.interactable = false;
+    }
 
     public void OpenUI(Platform platform)
     {
@@ -37,8 +40,10 @@ public class SelectPlatformUI : MonoBehaviour
             StopCoroutine(closeUICoroutine);
         }
 
-        entityName.text = platform.Entities[0].Data.EntityName;       
-       
+        SetData(platform);        
+
+        if (isOpen) return;
+
         gameObject.SetActive(true);
 
         openUICoroutine = OpenUIAnimation();
@@ -70,7 +75,7 @@ public class SelectPlatformUI : MonoBehaviour
             position.x += UIMoveSpeed * Time.deltaTime * openDirection;
 
             rectTransform.localPosition = position;
-            Debug.Log("open");
+
             yield return null;
         }
 
@@ -93,10 +98,16 @@ public class SelectPlatformUI : MonoBehaviour
             position.x += UIMoveSpeed * Time.deltaTime * -openDirection;
 
             rectTransform.localPosition = position;
-            Debug.Log("close");
+
             yield return null;
         }
 
         gameObject.SetActive(false);
+    }
+
+    public void SetData(Platform platform)
+    {
+        entityName.text = platform.Entities[0].Data.Code.ToString();
+        promotionButton.interactable = platform.CheckIsPromotionable();
     }
 }

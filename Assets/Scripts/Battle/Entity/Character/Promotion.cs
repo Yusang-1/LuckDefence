@@ -1,9 +1,8 @@
 ﻿using UnityEngine;
-using System;
 
 public class Promotion : MonoBehaviour
 {
-    public event Action<bool> PromotionableChanged;
+    //public event Action<bool> PromotionableChanged;
     
     [SerializeField] private Platforms platforms;
     [SerializeField] private CharacterSpawner spawner;
@@ -17,7 +16,7 @@ public class Promotion : MonoBehaviour
         set
         {
             isPromotionable = value;
-            PromotionableChanged?.Invoke(isPromotionable);
+            //PromotionableChanged?.Invoke(isPromotionable);
         }
     }
 

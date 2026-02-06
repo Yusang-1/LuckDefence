@@ -131,6 +131,8 @@ GameObject:
   - component: {fileID: 46799760}
   - component: {fileID: 46799759}
   - component: {fileID: 46799758}
+  - component: {fileID: 46799762}
+  - component: {fileID: 46799761}
   m_Layer: 0
   m_Name: Btn_Promotion
   m_TagString: Untagged
@@ -201,7 +203,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 46799759}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 46799762}
+        m_TargetAssemblyTypeName: PromotionUI, Assembly-CSharp
+        m_MethodName: OnPromotion
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &46799759
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -240,6 +254,33 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 46799756}
   m_CullTransparentMesh: 1
+--- !u!114 &46799761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 46799756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32e3031724d32e6419c37c30974c04bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  platforms: {fileID: 477850103}
+  spawner: {fileID: 1642509419}
+--- !u!114 &46799762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 46799756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09f16f8d19eee8e4e8dfa7020897fac8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  promotion: {fileID: 46799761}
 --- !u!1 &54465223
 GameObject:
   m_ObjectHideFlags: 0
@@ -999,10 +1040,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b863940586d35d54ab883ba56afcc7c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  paltforms: {fileID: 477850103}
+  platforms: {fileID: 477850103}
   platformPosData: {fileID: 11400000, guid: b18ad2792ff425249bcdb0f6da11b2f6, type: 2}
   holdSelector: {fileID: 477850104}
-  promotion: {fileID: 1324123001}
+  promotion: {fileID: 46799761}
   targetSearcher: {fileID: 125872440}
   currentEntityCode: 0
   entityCount: 0
@@ -1524,10 +1565,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b863940586d35d54ab883ba56afcc7c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  paltforms: {fileID: 477850103}
+  platforms: {fileID: 477850103}
   platformPosData: {fileID: 11400000, guid: b18ad2792ff425249bcdb0f6da11b2f6, type: 2}
   holdSelector: {fileID: 477850104}
-  promotion: {fileID: 1324123001}
+  promotion: {fileID: 46799761}
   targetSearcher: {fileID: 198318201}
   currentEntityCode: 0
   entityCount: 0
@@ -1711,10 +1752,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b863940586d35d54ab883ba56afcc7c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  paltforms: {fileID: 477850103}
+  platforms: {fileID: 477850103}
   platformPosData: {fileID: 11400000, guid: b18ad2792ff425249bcdb0f6da11b2f6, type: 2}
   holdSelector: {fileID: 477850104}
-  promotion: {fileID: 1324123001}
+  promotion: {fileID: 46799761}
   targetSearcher: {fileID: 200394171}
   currentEntityCode: 0
   entityCount: 0
@@ -3671,10 +3712,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b863940586d35d54ab883ba56afcc7c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  paltforms: {fileID: 477850103}
+  platforms: {fileID: 477850103}
   platformPosData: {fileID: 11400000, guid: b18ad2792ff425249bcdb0f6da11b2f6, type: 2}
   holdSelector: {fileID: 477850104}
-  promotion: {fileID: 1324123001}
+  promotion: {fileID: 46799761}
   targetSearcher: {fileID: 474270258}
   currentEntityCode: 0
   entityCount: 0
@@ -4016,10 +4057,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b863940586d35d54ab883ba56afcc7c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  paltforms: {fileID: 477850103}
+  platforms: {fileID: 477850103}
   platformPosData: {fileID: 11400000, guid: b18ad2792ff425249bcdb0f6da11b2f6, type: 2}
   holdSelector: {fileID: 477850104}
-  promotion: {fileID: 1324123001}
+  promotion: {fileID: 46799761}
   targetSearcher: {fileID: 493915960}
   currentEntityCode: 0
   entityCount: 0
@@ -5306,10 +5347,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b863940586d35d54ab883ba56afcc7c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  paltforms: {fileID: 477850103}
+  platforms: {fileID: 477850103}
   platformPosData: {fileID: 11400000, guid: b18ad2792ff425249bcdb0f6da11b2f6, type: 2}
   holdSelector: {fileID: 477850104}
-  promotion: {fileID: 1324123001}
+  promotion: {fileID: 46799761}
   targetSearcher: {fileID: 698662733}
   currentEntityCode: 0
   entityCount: 0
@@ -5660,10 +5701,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b863940586d35d54ab883ba56afcc7c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  paltforms: {fileID: 477850103}
+  platforms: {fileID: 477850103}
   platformPosData: {fileID: 11400000, guid: b18ad2792ff425249bcdb0f6da11b2f6, type: 2}
   holdSelector: {fileID: 477850104}
-  promotion: {fileID: 1324123001}
+  promotion: {fileID: 46799761}
   targetSearcher: {fileID: 788897521}
   currentEntityCode: 0
   entityCount: 0
@@ -5983,10 +6024,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b863940586d35d54ab883ba56afcc7c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  paltforms: {fileID: 477850103}
+  platforms: {fileID: 477850103}
   platformPosData: {fileID: 11400000, guid: b18ad2792ff425249bcdb0f6da11b2f6, type: 2}
   holdSelector: {fileID: 477850104}
-  promotion: {fileID: 1324123001}
+  promotion: {fileID: 46799761}
   targetSearcher: {fileID: 827502418}
   currentEntityCode: 0
   entityCount: 0
@@ -6168,7 +6209,7 @@ GameObject:
   - component: {fileID: 829735709}
   - component: {fileID: 829735710}
   m_Layer: 0
-  m_Name: SelectPlatformUIRightLeft
+  m_Name: SelectPlatformUILeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6211,6 +6252,7 @@ MonoBehaviour:
   rectTransform: {fileID: 829735708}
   sprite: {fileID: 1781863567}
   entityName: {fileID: 1147512559}
+  promotionButton: {fileID: 1551741607}
   UIMoveSpeed: 100
   openDirection: 1
 --- !u!114 &829735710
@@ -6786,6 +6828,7 @@ MonoBehaviour:
   rectTransform: {fileID: 876061151}
   sprite: {fileID: 1922457817}
   entityName: {fileID: 799466057}
+  promotionButton: {fileID: 46799758}
   UIMoveSpeed: 100
   openDirection: -1
 --- !u!1 &907380008
@@ -6891,10 +6934,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b863940586d35d54ab883ba56afcc7c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  paltforms: {fileID: 477850103}
+  platforms: {fileID: 477850103}
   platformPosData: {fileID: 11400000, guid: b18ad2792ff425249bcdb0f6da11b2f6, type: 2}
   holdSelector: {fileID: 477850104}
-  promotion: {fileID: 1324123001}
+  promotion: {fileID: 46799761}
   targetSearcher: {fileID: 907380013}
   currentEntityCode: 0
   entityCount: 0
@@ -8588,7 +8631,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1324122996
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8621,7 +8664,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09f16f8d19eee8e4e8dfa7020897fac8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  button: {fileID: 1324122998}
   promotion: {fileID: 1324123001}
 --- !u!114 &1324122998
 MonoBehaviour:
@@ -9134,10 +9176,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b863940586d35d54ab883ba56afcc7c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  paltforms: {fileID: 477850103}
+  platforms: {fileID: 477850103}
   platformPosData: {fileID: 11400000, guid: b18ad2792ff425249bcdb0f6da11b2f6, type: 2}
   holdSelector: {fileID: 477850104}
-  promotion: {fileID: 1324123001}
+  promotion: {fileID: 46799761}
   targetSearcher: {fileID: 1410171720}
   currentEntityCode: 0
   entityCount: 0
@@ -9321,10 +9363,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b863940586d35d54ab883ba56afcc7c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  paltforms: {fileID: 477850103}
+  platforms: {fileID: 477850103}
   platformPosData: {fileID: 11400000, guid: b18ad2792ff425249bcdb0f6da11b2f6, type: 2}
   holdSelector: {fileID: 477850104}
-  promotion: {fileID: 1324123001}
+  promotion: {fileID: 46799761}
   targetSearcher: {fileID: 1415928888}
   currentEntityCode: 0
   entityCount: 0
@@ -9508,10 +9550,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b863940586d35d54ab883ba56afcc7c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  paltforms: {fileID: 477850103}
+  platforms: {fileID: 477850103}
   platformPosData: {fileID: 11400000, guid: b18ad2792ff425249bcdb0f6da11b2f6, type: 2}
   holdSelector: {fileID: 477850104}
-  promotion: {fileID: 1324123001}
+  promotion: {fileID: 46799761}
   targetSearcher: {fileID: 1424274745}
   currentEntityCode: 0
   entityCount: 0
@@ -9828,10 +9870,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b863940586d35d54ab883ba56afcc7c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  paltforms: {fileID: 477850103}
+  platforms: {fileID: 477850103}
   platformPosData: {fileID: 11400000, guid: b18ad2792ff425249bcdb0f6da11b2f6, type: 2}
   holdSelector: {fileID: 477850104}
-  promotion: {fileID: 1324123001}
+  promotion: {fileID: 46799761}
   targetSearcher: {fileID: 1456179401}
   currentEntityCode: 0
   entityCount: 0
@@ -10415,6 +10457,8 @@ GameObject:
   - component: {fileID: 1551741609}
   - component: {fileID: 1551741608}
   - component: {fileID: 1551741607}
+  - component: {fileID: 1551741611}
+  - component: {fileID: 1551741610}
   m_Layer: 0
   m_Name: Btn_Promotion
   m_TagString: Untagged
@@ -10485,7 +10529,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1551741608}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1551741611}
+        m_TargetAssemblyTypeName: PromotionUI, Assembly-CSharp
+        m_MethodName: OnPromotion
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1551741608
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10524,6 +10580,33 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1551741605}
   m_CullTransparentMesh: 1
+--- !u!114 &1551741610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1551741605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32e3031724d32e6419c37c30974c04bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  platforms: {fileID: 477850103}
+  spawner: {fileID: 1642509419}
+--- !u!114 &1551741611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1551741605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09f16f8d19eee8e4e8dfa7020897fac8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  promotion: {fileID: 1551741610}
 --- !u!1 &1578130213
 GameObject:
   m_ObjectHideFlags: 0
@@ -10937,10 +11020,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b863940586d35d54ab883ba56afcc7c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  paltforms: {fileID: 477850103}
+  platforms: {fileID: 477850103}
   platformPosData: {fileID: 11400000, guid: b18ad2792ff425249bcdb0f6da11b2f6, type: 2}
   holdSelector: {fileID: 477850104}
-  promotion: {fileID: 1324123001}
+  promotion: {fileID: 46799761}
   targetSearcher: {fileID: 1583582105}
   currentEntityCode: 0
   entityCount: 0
@@ -11124,10 +11207,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b863940586d35d54ab883ba56afcc7c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  paltforms: {fileID: 477850103}
+  platforms: {fileID: 477850103}
   platformPosData: {fileID: 11400000, guid: b18ad2792ff425249bcdb0f6da11b2f6, type: 2}
   holdSelector: {fileID: 477850104}
-  promotion: {fileID: 1324123001}
+  promotion: {fileID: 46799761}
   targetSearcher: {fileID: 1585462533}
   currentEntityCode: 0
   entityCount: 0
@@ -11311,10 +11394,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b863940586d35d54ab883ba56afcc7c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  paltforms: {fileID: 477850103}
+  platforms: {fileID: 477850103}
   platformPosData: {fileID: 11400000, guid: b18ad2792ff425249bcdb0f6da11b2f6, type: 2}
   holdSelector: {fileID: 477850104}
-  promotion: {fileID: 1324123001}
+  promotion: {fileID: 46799761}
   targetSearcher: {fileID: 1589239071}
   currentEntityCode: 0
   entityCount: 0
@@ -12358,10 +12441,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b863940586d35d54ab883ba56afcc7c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  paltforms: {fileID: 477850103}
+  platforms: {fileID: 477850103}
   platformPosData: {fileID: 11400000, guid: b18ad2792ff425249bcdb0f6da11b2f6, type: 2}
   holdSelector: {fileID: 477850104}
-  promotion: {fileID: 1324123001}
+  promotion: {fileID: 46799761}
   targetSearcher: {fileID: 1816844908}
   currentEntityCode: 0
   entityCount: 0
@@ -12559,10 +12642,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b863940586d35d54ab883ba56afcc7c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  paltforms: {fileID: 477850103}
+  platforms: {fileID: 477850103}
   platformPosData: {fileID: 11400000, guid: b18ad2792ff425249bcdb0f6da11b2f6, type: 2}
   holdSelector: {fileID: 477850104}
-  promotion: {fileID: 1324123001}
+  promotion: {fileID: 46799761}
   targetSearcher: {fileID: 1845571569}
   currentEntityCode: 0
   entityCount: 0
@@ -13315,10 +13398,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b863940586d35d54ab883ba56afcc7c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  paltforms: {fileID: 477850103}
+  platforms: {fileID: 477850103}
   platformPosData: {fileID: 11400000, guid: b18ad2792ff425249bcdb0f6da11b2f6, type: 2}
   holdSelector: {fileID: 477850104}
-  promotion: {fileID: 1324123001}
+  promotion: {fileID: 46799761}
   targetSearcher: {fileID: 1963695077}
   currentEntityCode: 0
   entityCount: 0
@@ -14052,10 +14135,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b863940586d35d54ab883ba56afcc7c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  paltforms: {fileID: 477850103}
+  platforms: {fileID: 477850103}
   platformPosData: {fileID: 11400000, guid: b18ad2792ff425249bcdb0f6da11b2f6, type: 2}
   holdSelector: {fileID: 477850104}
-  promotion: {fileID: 1324123001}
+  promotion: {fileID: 46799761}
   targetSearcher: {fileID: 2054126424}
   currentEntityCode: 0
   entityCount: 0
@@ -14549,10 +14632,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b863940586d35d54ab883ba56afcc7c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  paltforms: {fileID: 477850103}
+  platforms: {fileID: 477850103}
   platformPosData: {fileID: 11400000, guid: b18ad2792ff425249bcdb0f6da11b2f6, type: 2}
   holdSelector: {fileID: 477850104}
-  promotion: {fileID: 1324123001}
+  promotion: {fileID: 46799761}
   targetSearcher: {fileID: 2142686571}
   currentEntityCode: 0
   entityCount: 0

@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
 
+
 public class Platform : MonoBehaviour, ISelectableObject, IHoldableObject
 {
-    [SerializeField] private Platforms paltforms;
+    [SerializeField] private Platforms platforms;
     [SerializeField] private PlatformPositionSO platformPosData;
     [SerializeField] private PlatformHoldSelector holdSelector;
     [SerializeField] private Promotion promotion;
@@ -75,6 +76,8 @@ public class Platform : MonoBehaviour, ISelectableObject, IHoldableObject
                 entity.gameObject.SetActive(false);
             }
         }
+
+        platforms.DataChanged(index);
     }
 
     public void Migration()
@@ -82,6 +85,8 @@ public class Platform : MonoBehaviour, ISelectableObject, IHoldableObject
         entityCount = 0;
         currentEntityCode = 0;
         rank = CharRank.none;
+
+        platforms.DataChanged(index);
     }
 
     public bool CheckEntityAvailable(int code)
@@ -89,7 +94,7 @@ public class Platform : MonoBehaviour, ISelectableObject, IHoldableObject
         return (entityCount == 0 || (currentEntityCode == code && entityCount != maxAvailableEntityCount));
     }
 
-    private bool CheckIsPromotionable()
+    public bool CheckIsPromotionable()
     {
         if (entityCount == maxAvailableEntityCount && rank < CharRank.legendary)
         {
@@ -128,6 +133,8 @@ public class Platform : MonoBehaviour, ISelectableObject, IHoldableObject
 
         targetSearcher.Initialize(entity as Character);
         //testTargetSearcher.Initialize(entity as Character);
+
+        platforms.DataChanged(index);
     }
 
     public void Selected()
@@ -135,15 +142,17 @@ public class Platform : MonoBehaviour, ISelectableObject, IHoldableObject
         Debug.Log($"Selected : {name}");
         
         bool value = CheckIsPromotionable();
+
         promotion.GetPlatformData(new PlatformData(index, rank), value);
 
-        paltforms.SelectedPlatformIndex = index;
+        Debug.Log(index);
+        platforms.SelectedPlatformIndex = index;
     }
 
     public void SelectedEnd()
     {
         //IsPromotionable = false;
-        paltforms.SelectedPlatformIndex = -1;
+        //platforms.SelectedPlatformIndex = -1;
     }
 
     public void Holded()
