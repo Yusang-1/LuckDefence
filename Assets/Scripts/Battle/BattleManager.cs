@@ -4,7 +4,7 @@ public class BattleManager : MonoBehaviour
 {
     [SerializeField] private StageManager stageManager;
 
-    private void StartBattle()
+    public void StartBattle()
     {
         stageManager.Initialize();
     }

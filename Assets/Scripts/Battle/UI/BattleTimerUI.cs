@@ -24,7 +24,7 @@ public class BattleTimerUI : MonoBehaviour
         get => m_currentTime;
         set
         {
-            m_currentTime = Mathf.Clamp(value, 0, maxTime);            
+            m_currentTime = Mathf.Clamp(value, 0, maxTime);
             ChangeText(m_currentTime.ToString("N2"));
 
             if (m_currentTime == 0)
@@ -34,9 +34,10 @@ public class BattleTimerUI : MonoBehaviour
         }
     }
 
-    public void AddTime(float time)
+    public void OnStartTimerAddTime(RoundData data)
     {
-        CurrentTime += time;
+        Debug.Log(2);
+        CurrentTime += data.AdditionalTime;
 
         if(timeCoroutine == null)
         {

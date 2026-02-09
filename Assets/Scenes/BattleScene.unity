@@ -1275,6 +1275,22 @@ MonoBehaviour:
     m_ActionId: 7d5954cc-e754-4fe9-b10f-9790ed6a1d15
     m_ActionName: 'Player/ClickHold[/Mouse/leftButton,/Mouse/position,/Device Simulator
       Touchscreen/press,/Device Simulator Touchscreen/position]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 155917431}
+        m_TargetAssemblyTypeName: InputManager, Assembly-CSharp
+        m_MethodName: TestStart
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: b52104e7-e61e-4851-afd3-03bdc8aa6368
+    m_ActionName: 'Player/TestStart[/Keyboard/e]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard&Mouse
   m_DefaultActionMap: 
@@ -1307,6 +1323,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad45a799384bb3f42a4b6f2105cdf26f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 1328914124}
 --- !u!1 &194005628
 GameObject:
   m_ObjectHideFlags: 0
@@ -8271,6 +8288,7 @@ GameObject:
   - component: {fileID: 1230565693}
   - component: {fileID: 1230565695}
   - component: {fileID: 1230565694}
+  - component: {fileID: 1230565696}
   m_Layer: 0
   m_Name: Image_EnemyCount
   m_TagString: Untagged
@@ -8336,6 +8354,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1230565692}
   m_CullTransparentMesh: 1
+--- !u!114 &1230565696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1230565692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 089aa1e77df7c5745820da60b32d66f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyCountText: {fileID: 2048710202}
 --- !u!1 &1252316073
 GameObject:
   m_ObjectHideFlags: 0
@@ -8803,8 +8834,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abdefaaa3a3b93a4593d73edd96422de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  battleData: {fileID: 11400000, guid: 26c73e00451e22a42a2d7dc96e9dde98, type: 2}
   stageData: {fileID: 11400000, guid: 1b33c6ca0af4d534797d22b269e1d7c3, type: 2}
-  testStage: {fileID: 11400000, guid: 24c9b016c8593374a8a43d34622b6dbe, type: 2}
   enemySpawner: {fileID: 1642509421}
   hpSpawner: {fileID: 1642509422}
   timerUI: {fileID: 1549002311}
@@ -8821,7 +8852,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stageManager: {fileID: 1328914123}
-  timer: {fileID: 0}
 --- !u!4 &1328914125
 Transform:
   m_ObjectHideFlags: 0
@@ -11645,6 +11675,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hpSpawner: {fileID: 1642509422}
   spawnArea: {fileID: 1578130214}
+  battleData: {fileID: 11400000, guid: 26c73e00451e22a42a2d7dc96e9dde98, type: 2}
 --- !u!114 &1642509422
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11879,6 +11910,7 @@ GameObject:
   - component: {fileID: 1751153147}
   - component: {fileID: 1751153149}
   - component: {fileID: 1751153148}
+  - component: {fileID: 1751153150}
   m_Layer: 0
   m_Name: BattleUI
   m_TagString: Untagged
@@ -11947,6 +11979,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1751153146}
   m_CullTransparentMesh: 1
+--- !u!114 &1751153150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1751153146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e149f5e0f934a443993f9a828776411, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timerUI: {fileID: 1549002311}
+  enemyCountUI: {fileID: 1230565696}
+  battleData: {fileID: 11400000, guid: 26c73e00451e22a42a2d7dc96e9dde98, type: 2}
 --- !u!1 &1766423962
 GameObject:
   m_ObjectHideFlags: 0

@@ -3,6 +3,8 @@ using UnityEngine.InputSystem;
 
 public class InputManager : MonoBehaviour
 {
+    [SerializeField] BattleManager manager;
+
     private ISelectableObject m_ISelectable;
     private Vector3 mousePosition;
     private bool isHold;
@@ -72,6 +74,14 @@ public class InputManager : MonoBehaviour
                 holdable.HoldReleased();
             }
             isHold = false;
+        }
+    }
+
+    public void TestStart(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            manager.StartBattle();
         }
     }
 }

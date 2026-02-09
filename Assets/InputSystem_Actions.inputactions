@@ -32,6 +32,15 @@
                     "processors": "",
                     "interactions": "Hold",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "TestStart",
+                    "type": "Button",
+                    "id": "b52104e7-e61e-4851-afd3-03bdc8aa6368",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -298,6 +307,17 @@
                     "action": "ClickHold",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "fc253511-e5b3-45a8-98b2-9db46b5e3763",
+                    "path": "<Keyboard>/#(E)",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "TestStart",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },

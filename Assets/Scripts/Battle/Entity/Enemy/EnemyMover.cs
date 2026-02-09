@@ -2,8 +2,6 @@
 
 public class EnemyMover : EntityMover
 {
-    [SerializeField] Rigidbody2D rigidbody2d;
-
     private int currentBeaconIndex;
 
     private void Update()

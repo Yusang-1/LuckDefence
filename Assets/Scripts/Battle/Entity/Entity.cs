@@ -8,7 +8,7 @@ public class Entity : MonoBehaviour
     public EntitySO Data => data;
     public EntityMover Mover => mover;
 
-    private void Start()
+    private void Awake()
     {
         mover?.Initialize(this);
     }

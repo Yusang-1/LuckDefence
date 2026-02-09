@@ -4,7 +4,9 @@ using System.Collections;
 public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] private HPSpawner hpSpawner;
-    [SerializeField] private Transform spawnArea;    
+    [SerializeField] private Transform spawnArea;
+
+    [SerializeField] private BattleDataSO battleData;
 
     public void Instantiate()
     {
@@ -33,6 +35,8 @@ public class EnemySpawner : MonoBehaviour
         {
             entities[i].gameObject.SetActive(true);
             entities[i].EntityActivated();
+
+            battleData.CurrentEnemyCount++;
 
             hpSpawner.ActivateHP(entities[i]);
 
