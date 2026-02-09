@@ -7,14 +7,22 @@ public class StageManager : MonoBehaviour
 
     [SerializeField] private EnemySpawner enemySpawner;
     [SerializeField] private HPSpawner hpSpawner;
+
+    [SerializeField] private BattleTimerUI timerUI;
     int currentRound;
 
     private void Start()
     {
         Initialize();
         hpSpawner.Initialize(stageData);
+        timerUI.TimeIsOver += StartNextRound;
 
         StartNextRound();
+    }
+
+    private void OnDestroy()
+    {
+        timerUI.TimeIsOver -= StartNextRound;
     }
 
     public void Initialize()
@@ -25,6 +33,7 @@ public class StageManager : MonoBehaviour
     private void StartNextRound()
     {
         enemySpawner.SpawnEnemy(stageData.RoundData[currentRound]);
+        timerUI.AddTime(stageData.RoundData[currentRound].AdditionalTime);
 
         currentRound++;
     }

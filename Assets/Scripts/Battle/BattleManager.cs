@@ -3,7 +3,6 @@
 public class BattleManager : MonoBehaviour
 {
     [SerializeField] private StageManager stageManager;
-    [SerializeField] private BattleTimer timer;
 
     private void StartBattle()
     {

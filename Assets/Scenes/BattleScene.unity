@@ -8784,7 +8784,6 @@ GameObject:
   - component: {fileID: 1328914125}
   - component: {fileID: 1328914124}
   - component: {fileID: 1328914123}
-  - component: {fileID: 1328914126}
   m_Layer: 0
   m_Name: BattleManager
   m_TagString: Untagged
@@ -8808,6 +8807,7 @@ MonoBehaviour:
   testStage: {fileID: 11400000, guid: 24c9b016c8593374a8a43d34622b6dbe, type: 2}
   enemySpawner: {fileID: 1642509421}
   hpSpawner: {fileID: 1642509422}
+  timerUI: {fileID: 1549002311}
 --- !u!114 &1328914124
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8821,7 +8821,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stageManager: {fileID: 1328914123}
-  timer: {fileID: 1328914126}
+  timer: {fileID: 0}
 --- !u!4 &1328914125
 Transform:
   m_ObjectHideFlags: 0
@@ -8837,19 +8837,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1328914126
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1328914122}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f09b072daf8ac6840bbc7428ff2b59cc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timer: {fileID: 1088574835}
 --- !u!1 &1376529892
 GameObject:
   m_ObjectHideFlags: 0
@@ -10301,6 +10288,7 @@ GameObject:
   - component: {fileID: 1549002308}
   - component: {fileID: 1549002310}
   - component: {fileID: 1549002309}
+  - component: {fileID: 1549002311}
   m_Layer: 0
   m_Name: Image_Timer
   m_TagString: Untagged
@@ -10366,6 +10354,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1549002307}
   m_CullTransparentMesh: 1
+--- !u!114 &1549002311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1549002307}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 394e5dac9f6e32b4e97426be958da571, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timerImage: {fileID: 1549002309}
+  timerText: {fileID: 1088574835}
+  minTimeUnit: 0.01
+  warningTime: 10
+  maxTime: 100
 --- !u!1 &1550648522
 GameObject:
   m_ObjectHideFlags: 0
