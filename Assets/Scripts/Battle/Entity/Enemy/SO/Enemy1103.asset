@@ -13,9 +13,13 @@ MonoBehaviour:
   m_Name: Enemy1103
   m_EditorClassIdentifier: 
   Code: 1100
-  EnemyName: Enemy1100
-  Rank: 0
+  EntityName: 
   MaxHp: 120
   MaxMp: 20
+  GetMPPoint: 0
+  AttackPoint: 0
+  AttackSpeed: 0
+  AttackRange: 0
   MoveSpeed: 1
-  Prefab: {fileID: 7964986942513546205, guid: a505bf8bbc3a6c547a01a0ea2bec2578, type: 3}
+  Prefab: {fileID: 7964986942513546205, guid: 3d2788e2f391cba4b9feaf7b0e6384a3, type: 3}
+  Rank: 0
