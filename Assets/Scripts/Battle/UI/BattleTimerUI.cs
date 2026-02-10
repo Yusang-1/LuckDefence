@@ -36,7 +36,6 @@ public class BattleTimerUI : MonoBehaviour
 
     public void OnStartTimerAddTime(RoundData data)
     {
-        Debug.Log(2);
         CurrentTime += data.AdditionalTime;
 
         if(timeCoroutine == null)

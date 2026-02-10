@@ -2,20 +2,19 @@
 
 public class BattleUIManager : MonoBehaviour
 {
+    [SerializeField] private GameObject battleUI;
+    [SerializeField] private GameObject loadingUI;
     [SerializeField] private BattleTimerUI timerUI;
     [SerializeField] private EnemyCountUI enemyCountUI;
 
     [SerializeField] private BattleDataSO battleData;
 
-    private void Start()
-    {
-        battleData.StartNextRound += timerUI.OnStartTimerAddTime;
-        battleData.EnemyCountChanged += enemyCountUI.OnChangeText;
-    }
+    public BattleTimerUI TimerUI => timerUI;
+    public EnemyCountUI EnemyCountUI => enemyCountUI;
 
-    private void OnDestroy()
+    public void EnableBattleUI()
     {
-        battleData.StartNextRound -= timerUI.OnStartTimerAddTime;
-        battleData.EnemyCountChanged -= enemyCountUI.OnChangeText;
+        loadingUI.SetActive(false);
+        battleUI.SetActive(true);
     }
 }

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
+using System.Collections;
 using System.Collections.Generic;
-using Unity.Android.Gradle.Manifest;
 
 public class CharacterSpawner : MonoBehaviour
 {
@@ -16,18 +16,13 @@ public class CharacterSpawner : MonoBehaviour
     private Dictionary<CharRank, AbstractFactory> factoryDict;
     private Dictionary<int, Entity> entityAsCodeDict;
 
-    private void Start()
+    public IEnumerator Initialize()
     {
         factoryDict = new Dictionary<CharRank, AbstractFactory>();
         summonableRanks = new List<CharRank>();
         summonableCharacterCodes = new List<int>();
         availablePlatformIndex = new List<int>();
 
-        Initialize();
-    }
-
-    public void Initialize()
-    {
         AbstractFactory factory;
         FactoryChar fc;
         CharListAsRank charListAsRank;
@@ -52,6 +47,8 @@ public class CharacterSpawner : MonoBehaviour
 
             factory.Initialize(entityAsCodeDict);
             probabilityData.Initialize();
+
+            yield return null;
         }
 
         foreach(FactoryChar factor in  factories)
@@ -59,7 +56,7 @@ public class CharacterSpawner : MonoBehaviour
             foreach(var item in factor.PooledEntityDict)
             {
                 item.Value.CharacterSpawned += OnCharacterSpawned;
-            }            
+            }
         }
     }
 
@@ -130,7 +127,7 @@ public class CharacterSpawner : MonoBehaviour
             temp += item.Value;
             if (randNum <= temp && summonableRanks.Contains(item.Key))
             {
-                rank = item.Key;                
+                rank = item.Key;
 
                 break;
             }

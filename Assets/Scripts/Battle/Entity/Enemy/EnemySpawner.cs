@@ -8,11 +8,6 @@ public class EnemySpawner : MonoBehaviour
 
     [SerializeField] private BattleDataSO battleData;
 
-    public void Instantiate()
-    {
-
-    }
-
     public void SpawnEnemy(RoundData roundData)
     {
         GameObject go;
