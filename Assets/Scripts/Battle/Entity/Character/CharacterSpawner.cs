@@ -3,21 +3,22 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class CharacterSpawner : MonoBehaviour
-{
+{    
     [SerializeField] private AbstractFactory[] factories;
     [SerializeField] private RankProbabilitySO probabilityData;
-    [SerializeField] private CharListAsRank[] charListAsRanks;
     [SerializeField] private Platforms platforms;
+
+    private CharacterListDataSO charListData;
 
     private List<CharRank> summonableRanks;
     private List<int> summonableCharacterCodes;
     private List<int> availablePlatformIndex;
 
     private Dictionary<CharRank, AbstractFactory> factoryDict;
-    private Dictionary<int, Entity> entityAsCodeDict;
 
-    public IEnumerator Initialize()
+    public IEnumerator Initialize(CharacterListDataSO characterListData)
     {
+        charListData = characterListData;
         factoryDict = new Dictionary<CharRank, AbstractFactory>();
         summonableRanks = new List<CharRank>();
         summonableCharacterCodes = new List<int>();
@@ -25,31 +26,20 @@ public class CharacterSpawner : MonoBehaviour
 
         AbstractFactory factory;
         FactoryChar fc;
-        CharListAsRank charListAsRank;
-        Entity entity;
-        
-        for (int i = 0; i < charListAsRanks.Length; i++)
+
+        characterListData.Initialize();
+
+        for (int i = 0; i < factories.Length; i++)
         {
-            entityAsCodeDict = new Dictionary<int, Entity>();
-
-            charListAsRank = charListAsRanks[i];
-
-            for (int j = 0; j < charListAsRank.Entities.Length; j++)
-            {
-                entity = charListAsRank.Entities[j];
-                int code = entity.Data.Code;
-                entityAsCodeDict.Add(code, entity);
-            }
-
             factory = factories[i];
             fc = factory as FactoryChar;
-            factoryDict.Add(fc.Rank, factory);
+            factory.Initialize(characterListData.CharListAsRankDictionary[fc.Rank].EntityAsCodeDict);
 
-            factory.Initialize(entityAsCodeDict);
-            probabilityData.Initialize();
+            factoryDict.Add(fc.Rank, factory);
 
             yield return null;
         }
+        probabilityData.Initialize();
 
         foreach(FactoryChar factor in  factories)
         {
@@ -143,7 +133,7 @@ public class CharacterSpawner : MonoBehaviour
 
     public int CheckSummonableCharacterInRank(CharRank rank)
     {
-        int length = charListAsRanks[(int)rank].Entities.Length;
+        int length = charListData.CharListAsRankDictionary[rank].Entities.Length;
         int code;
         bool isAvailable;
 
@@ -151,7 +141,7 @@ public class CharacterSpawner : MonoBehaviour
         {
             for (int i = 0; i < length; i++)
             {
-                code = charListAsRanks[(int)rank].Entities[i].Data.Code;
+                code = charListData.CharListAsRankDictionary[rank].Entities[i].Data.Code;
                 isAvailable = platform.CheckEntityAvailable(code);
 
                 if (isAvailable && !summonableCharacterCodes.Contains(code))
