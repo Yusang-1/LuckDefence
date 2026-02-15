@@ -8931,6 +8931,7 @@ MonoBehaviour:
   hpSpawner: {fileID: 1642509422}
   stageData: {fileID: 11400000, guid: 1b33c6ca0af4d534797d22b269e1d7c3, type: 2}
   battleData: {fileID: 11400000, guid: 26c73e00451e22a42a2d7dc96e9dde98, type: 2}
+  charListData: {fileID: 11400000, guid: 50c5009c247dbec479691daa339e02c4, type: 2}
 --- !u!4 &1328914125
 Transform:
   m_ObjectHideFlags: 0
@@ -11718,12 +11719,6 @@ MonoBehaviour:
   - {fileID: 918921486}
   - {fileID: 1449028895}
   probabilityData: {fileID: 11400000, guid: d8cdd720bab9a6f4891fc8b83e4b3f87, type: 2}
-  charListAsRanks:
-  - {fileID: 11400000, guid: bbb68e8a0194c8b4e94a5e6c98827328, type: 2}
-  - {fileID: 11400000, guid: 2351ceffa2121394a9a97f06de6ae54f, type: 2}
-  - {fileID: 11400000, guid: b98f8be4de875a34b94416b2356efcd1, type: 2}
-  - {fileID: 11400000, guid: 6cf9965ae02939240ba2108c78b8e951, type: 2}
-  - {fileID: 11400000, guid: 1f1a9345a2cfe09458ea286a719b3f85, type: 2}
   platforms: {fileID: 477850103}
 --- !u!4 &1642509420
 Transform:

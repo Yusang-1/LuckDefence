@@ -27,13 +27,13 @@ public class CharacterSpawner : MonoBehaviour
         AbstractFactory factory;
         FactoryChar fc;
 
-        characterListData.Initialize();
+        //characterListData.Initialize();
 
         for (int i = 0; i < factories.Length; i++)
         {
             factory = factories[i];
             fc = factory as FactoryChar;
-            factory.Initialize(characterListData.CharListAsRankDictionary[fc.Rank].EntityAsCodeDict);
+            factory.Initialize(charListData.CharListAsRankDictionary[fc.Rank].EntityAsCodeDict);
 
             factoryDict.Add(fc.Rank, factory);
 

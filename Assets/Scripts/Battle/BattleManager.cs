@@ -12,6 +12,7 @@ public class BattleManager : MonoBehaviour
 
     [SerializeField] private StageSO stageData;
     [SerializeField] private BattleDataSO battleData;
+    [SerializeField] private CharacterListDataSO charListData;
 
     public IEnumerator Start()
     {
@@ -28,8 +29,7 @@ public class BattleManager : MonoBehaviour
 
         yield return null;
 
-        yield return characterSpawner.Initialize();
-
+        yield return characterSpawner.Initialize(charListData);
 
         UIManager.EnableBattleUI();
     }
