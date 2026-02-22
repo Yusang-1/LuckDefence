@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 19e5ccec9a0c0934aa8a6813349ba38d, type: 3}
-  m_Name: Char105
+  m_Name: Char102
   m_EditorClassIdentifier: 
-  Code: 105
-  EntityName: 
+  Code: 102
+  EntityName: Char102
   MaxHp: 0
   MaxMp: 100
   GetMPPoint: 0

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Char100
   m_EditorClassIdentifier: 
   Code: 100
-  EntityName: 
+  EntityName: Char100
   MaxHp: 0
   MaxMp: 100
   GetMPPoint: 0
