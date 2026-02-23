@@ -6,11 +6,14 @@ public class CharacterListDataSO : ScriptableObject
 {
     [SerializeField] private CharListAsRank[] charListAsRanks;
     private Dictionary<CharRank, CharListAsRank> charListAsRankDictionary;
-    [SerializeField] int codeUnit;
+
     public Dictionary<CharRank, CharListAsRank> CharListAsRankDictionary => charListAsRankDictionary;
+
+    public bool IsDirty;
 
     public void Initialize()
     {
+        IsDirty = false;
         charListAsRankDictionary = new Dictionary<CharRank, CharListAsRank>();
 
         for (int i = 0; i < charListAsRanks.Length; i++)
@@ -19,10 +22,5 @@ public class CharacterListDataSO : ScriptableObject
 
             charListAsRanks[i].Initialize();
         }
-    }
-
-    public CharRank GetCharRankByCode(int code)
-    {
-        return (CharRank)(code / codeUnit - 1);
     }
 }

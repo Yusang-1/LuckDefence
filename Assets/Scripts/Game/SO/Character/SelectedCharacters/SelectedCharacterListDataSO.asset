@@ -12,5 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cfd8c9576c059e439156b1cbd5c530c, type: 3}
   m_Name: SelectedCharacterListDataSO
   m_EditorClassIdentifier: 
-  charListAsRanks: []
-  codeUnit: 100
+  charListAsRanks:
+  - {fileID: 11400000, guid: f86667576f7eb794b9440439cba25f49, type: 2}
+  - {fileID: 11400000, guid: 7689224865d2bd1429a7ba0da905b925, type: 2}
+  - {fileID: 11400000, guid: 185095f3617d57b479d2e36a29dac3e5, type: 2}
+  - {fileID: 11400000, guid: 92ad2eec1dd448a459bbd572daa92a53, type: 2}
+  - {fileID: 11400000, guid: a37f42ba737a95c409025505303001b0, type: 2}

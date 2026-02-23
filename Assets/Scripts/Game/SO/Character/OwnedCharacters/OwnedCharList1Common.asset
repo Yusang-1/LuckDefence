@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: OwnedCharList1Common
   m_EditorClassIdentifier: 
   rank: 0
-  entities: []
-  selectedCharCodeList: 
+  entities:
+  - {fileID: -8877789029580565054, guid: eeef8b25865a25242908222e55ebcbfc, type: 3}
+  isDirty: 0

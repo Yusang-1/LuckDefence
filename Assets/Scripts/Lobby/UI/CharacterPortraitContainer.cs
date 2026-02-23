@@ -1,20 +1,38 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 using TMPro;
 
-public class CharacterPortraitContainer : MonoBehaviour
+public class CharacterPortraitContainer : MonoBehaviour, IPointerClickHandler
 {
     [SerializeField] private Image characterPortrait;
     [SerializeField] private TextMeshProUGUI characterName;
+    
+    private CharacterShopUI characterShopUI;
+    private int characterCode;
 
-    public void Initialize(Image image, string name)
+    //public void Initialize(Entity entity)
+    //{
+    //    characterPortrait = entity.Data.Portrait;
+    //    characterName.text = entity.Data.EntityName;
+    //    this.entity = entity;
+    //}
+
+    public void Initialize(Entity entity, CharacterShopUI characterShopUI)
     {
-        characterPortrait = image;
-        characterName.text = name;
+        characterName.text = entity.Data.EntityName;
+        characterCode = entity.Data.Code;
+        this.characterShopUI = characterShopUI;
     }
 
-    public void Initialize(string name)
+    public void SetPortrait(Entity entity)
     {
-        characterName.text = name;
+        characterName.text = entity.Data.EntityName;
+        characterCode = entity.Data.Code;
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        characterShopUI.PortraitSelected(characterCode);
     }
 }

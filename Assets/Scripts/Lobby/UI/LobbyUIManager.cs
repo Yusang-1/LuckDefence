@@ -2,10 +2,10 @@
 
 public class LobbyUIManager : MonoBehaviour
 {
-    [SerializeField] private CharacterShopUI characterShopUI;
+    [SerializeField] private CharacterShopUI characterShopUI;    
 
     private void Start()
     {
-        characterShopUI.Initialize();
+        StartCoroutine(characterShopUI.Initialize());
     }
 }

@@ -8,57 +8,57 @@ public class CharListAsRank : ScriptableObject
     [SerializeField] private Entity[] entities;
 
     private Dictionary<int, Entity> entityAsCodeDict;
-    private Dictionary<int, bool> isEntityOwnedDict;
-
-    [SerializeField] private List<int> selectedCharCodeList;
+    [SerializeField] private bool isDirty;
 
     public CharRank Rank => rank;
     public Entity[] Entities => entities;
     public Dictionary<int, Entity> EntityAsCodeDict => entityAsCodeDict;
-    public Dictionary<int, bool> IsEntityOwnedDict => isEntityOwnedDict;
-    public List<int> SelectedCharCodeList => selectedCharCodeList;
+
+    public bool IsDirty => isDirty;
 
     public void Initialize()
     {
+        isDirty = false;
         entityAsCodeDict = new Dictionary<int, Entity>();
-        isEntityOwnedDict = new Dictionary<int, bool>();
-        selectedCharCodeList = new List<int>();
 
         for (int i = 0; i < entities.Length; i++)
         {
             int code = entities[i].Data.Code;
             entityAsCodeDict.Add(code, entities[i]);
-            IsEntityOwnedDict.Add(code, false);
         }
     }
 
-    public void GetCharacter(int code)
+    public void AddCharacter(Entity entity)
     {
-        if (IsEntityOwnedDict[code] == false)
+        if(IsCodeExist(entity.Data.Code) == true)
         {
-            IsEntityOwnedDict[code] = true;
-        }
-    }
-
-    public void AddCharacterInBattleList(int code)
-    {
-        if (isEntityOwnedDict[code] == false)
-        {
-            Debug.LogWarning("소유하지 않은 캐릭터를 배틀리스트에 추가 시도");
+            Debug.LogWarning("이미 존재하는 코드를 추가");
             return;
         }
 
-        if(selectedCharCodeList.Contains(code) == false)
-        {
-            selectedCharCodeList.Add(code);
-        }
+        entityAsCodeDict.Add(entity.Data.Code, entity);
+        isDirty = true;
     }
 
-    public void RemoveCharacterInBattleList(int code)
+    public void RemoveCharacter(int code)
     {
-        if (selectedCharCodeList.Contains(code) == true)
+        if (IsCodeExist(code) == false)
         {
-            selectedCharCodeList.Remove(code);
+            Debug.LogWarning("존재하지 않는 코드를 제거");
+            return;
         }
+
+        entityAsCodeDict.Remove(code);
+        isDirty = true;
+    }
+
+    public bool IsCodeExist(int code)
+    {
+        return entityAsCodeDict.ContainsKey(code);
+    }
+
+    public void SetDirty(bool value)
+    {
+        isDirty = value;
     }
 }
