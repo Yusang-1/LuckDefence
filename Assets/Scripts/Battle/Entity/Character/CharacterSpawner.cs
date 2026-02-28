@@ -81,7 +81,7 @@ public class CharacterSpawner : MonoBehaviour
         int platformIndex = CheckAvailablePlatformIndexByCharacter(charCode);
         Vector3 position = GetSummonPosition(platformIndex, rank);
 
-        SummonData data = new SummonData((int)rank, charCode, platformIndex, position);
+        SummonData data = new((int)rank, charCode, platformIndex, position);
 
         OrderToFactory(data);
     }
@@ -200,7 +200,7 @@ public class CharacterSpawner : MonoBehaviour
         int platformIndex = data.Index;
         Vector3 position = GetSummonPosition(platformIndex, rank);
 
-        SummonData summonData = new SummonData((int)rank, charCode, platformIndex, position);
+        SummonData summonData = new((int)rank, charCode, platformIndex, position);
 
         //Debug.Log($"{rank}, {charCode} Summon");
         factoryDict[(CharRank)summonData.CharRank].ActiveEntity(summonData);
@@ -209,9 +209,9 @@ public class CharacterSpawner : MonoBehaviour
 
 public struct SummonData
 {
-    private int charRank;
-    private int charCode;
-    private int platformIndex;
+    private readonly int charRank;
+    private readonly int charCode;
+    private readonly int platformIndex;
     private Vector3 position;
 
     public SummonData(int charRank, int charCode, int platformIndex, Vector3 position)
@@ -222,8 +222,8 @@ public struct SummonData
         this.position = position;
     }
 
-    public int CharRank => charRank;
-    public int CharCode => charCode;
-    public int PlatformIndex => platformIndex;
-    public Vector3 Position => position;
+    public readonly int CharRank => charRank;
+    public readonly int CharCode => charCode;
+    public readonly int PlatformIndex => platformIndex;
+    public readonly Vector3 Position => position;
 }

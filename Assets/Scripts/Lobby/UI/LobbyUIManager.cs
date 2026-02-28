@@ -1,11 +1,21 @@
 ﻿using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
 
 public class LobbyUIManager : MonoBehaviour
 {
-    [SerializeField] private CharacterShopUI characterShopUI;    
+    [SerializeField] private LowerUI lowerUI;
+    [SerializeField] private CharacterShopUI characterShopUI;
+    [SerializeField] private ManagedCharacterUI managedCharacterUI;
 
-    private void Start()
+    private List<AbstractUI> uis;
+
+    private IEnumerator Start()
     {
-        StartCoroutine(characterShopUI.Initialize());
+        yield return StartCoroutine(characterShopUI.Initialize());
+
+        yield return StartCoroutine(lowerUI.Initialize());
+
+        yield return StartCoroutine(managedCharacterUI.Initialize());
     }
 }

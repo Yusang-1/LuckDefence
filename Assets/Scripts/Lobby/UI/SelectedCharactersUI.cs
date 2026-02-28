@@ -55,18 +55,6 @@ public class SelectedCharactersUI : MonoBehaviour
         }        
     }
 
-    public void AddCharacter(Entity entity)
-    {
-        portraits[selectedCount].SetPortrait(entity);
-
-        selectedCount++;
-    }
-
-    public void RemoveCharacter(Entity entity)
-    {
-
-    }
-
     public void UpdateUI()
     {
         if(characterData.SelectedCharacterListData.IsDirty == false)

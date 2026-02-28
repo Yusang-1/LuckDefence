@@ -8,8 +8,10 @@ public class CharacterPortraitContainer : MonoBehaviour, IPointerClickHandler
     [SerializeField] private Image characterPortrait;
     [SerializeField] private TextMeshProUGUI characterName;
     
-    private CharacterShopUI characterShopUI;
+    private AbstractUI characterShopUI;
     private int characterCode;
+
+    public int CharacterCode => characterCode;
 
     //public void Initialize(Entity entity)
     //{
@@ -18,11 +20,12 @@ public class CharacterPortraitContainer : MonoBehaviour, IPointerClickHandler
     //    this.entity = entity;
     //}
 
-    public void Initialize(Entity entity, CharacterShopUI characterShopUI)
+    public void Initialize(Entity entity, AbstractUI characterShopUI)
     {
         characterName.text = entity.Data.EntityName;
         characterCode = entity.Data.Code;
         this.characterShopUI = characterShopUI;
+
     }
 
     public void SetPortrait(Entity entity)

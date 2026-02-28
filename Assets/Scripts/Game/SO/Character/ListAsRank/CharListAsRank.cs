@@ -8,7 +8,7 @@ public class CharListAsRank : ScriptableObject
     [SerializeField] private Entity[] entities;
 
     private Dictionary<int, Entity> entityAsCodeDict;
-    [SerializeField] private bool isDirty;
+    private bool isDirty;
 
     public CharRank Rank => rank;
     public Entity[] Entities => entities;

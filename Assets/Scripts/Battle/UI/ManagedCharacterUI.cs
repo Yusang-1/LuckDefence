@@ -1,14 +1,12 @@
-﻿using System.Collections;
-using UnityEditor.U2D.Animation;
-using UnityEngine;
+﻿using UnityEngine;
+using System.Collections;
 
-public class CharacterShopUI : AbstractUI
+public class ManagedCharacterUI : AbstractUI
 {
     [SerializeField] private CharacterData characterData;
 
-    [SerializeField] private AllCharListUI[] allCharListUIs;
-    //[SerializeField] private SelectedCharactersUI selectedCharactersUI;
-    [SerializeField] private ManagedCharacterUI managedCharListUIs;
+    [SerializeField] private OwnedCharListUI[] ownedCharListUIs;
+    [SerializeField] private SelectedCharactersUI selectedCharactersUI;
     [SerializeField] private CharacterInfoUI selectedCharacterInfoUI;
 
     private int selectedCharCode;
@@ -29,12 +27,11 @@ public class CharacterShopUI : AbstractUI
     {
         gameObject.SetActive(true);
 
-        yield return null;
-        //yield return StartCoroutine(selectedCharactersUI.Initialize(characterData));
+        yield return StartCoroutine(selectedCharactersUI.Initialize(characterData));
 
-        for (int i = 0; i < allCharListUIs.Length; i++)
+        for (int i = 0; i < ownedCharListUIs.Length; i++)
         {
-            allCharListUIs[i].Initialize(characterData.CharacterListData.CharListAsRankDictionary[(CharRank)i], this);
+            ownedCharListUIs[i].Initialize(characterData.OwnedcharacterListData.CharListAsRankDictionary[(CharRank)i], this);
         }
 
         gameObject.SetActive(false);
@@ -44,9 +41,9 @@ public class CharacterShopUI : AbstractUI
     {
         gameObject.SetActive(true);
 
-        for (int i = 0; i < allCharListUIs.Length; i++)
+        for (int i = 0; i < ownedCharListUIs.Length; i++)
         {
-            allCharListUIs[i].OpenAllCharacterListUI();
+            ownedCharListUIs[i].OpenAllCharacterListUI();
         }
     }
 
@@ -57,16 +54,20 @@ public class CharacterShopUI : AbstractUI
 
     }
 
-    public void OnBuyCharacter()
+    public void OnAddCharacterToBattleList()
     {
-        characterData.AddOwnedCharacter(selectedEntity);
+        characterData.AddSelectedCharacter(selectedEntity);
 
-        //selectedCharactersUI.AddCharacter(selectedEntity);
         UpdateShopUI();
     }
 
-    private void UpdateShopUI()
+    public void UpdateShopUI()
     {
-        managedCharListUIs.UpdateShopUI();
+        for (int i = 0; i < ownedCharListUIs.Length; i++)
+        {
+            ownedCharListUIs[i].UpdateUI();
+        }
+
+        selectedCharactersUI.UpdateUI();
     }
 }

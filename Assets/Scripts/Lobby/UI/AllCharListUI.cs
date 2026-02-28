@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class OwnedCharListUI : MonoBehaviour
+public class AllCharListUI : MonoBehaviour
 {
     [SerializeField] private RectTransform myRect;
     [SerializeField] private RectTransform upperUI;
@@ -11,27 +11,29 @@ public class OwnedCharListUI : MonoBehaviour
     [SerializeField] private float paddingHorizontal;
     [SerializeField] private float paddingVertical;
     [SerializeField] private Vector2 anchorTopLeft;
-    
+
     private CharListAsRank charList;
-    private CharacterPortraitContainer[] portraitContainers;
+    private GameObject[] portraitUIs;
 
     private int activatedPortraitCount;
 
-    public void Initialize(CharListAsRank charList, AbstractUI managedCharacterUI)
+    public void Initialize(CharListAsRank charList, AbstractUI characterShopUI)
     {
         activatedPortraitCount = 0;
 
         this.charList = charList;
-        portraitContainers = new CharacterPortraitContainer[charList.Entities.Length];
+        portraitUIs = new GameObject[charList.Entities.Length];
 
         GameObject uiObject;
         for (int i = 0; i < charList.Entities.Length; i++)
         {
             uiObject = Instantiate(characterPortraitUI.gameObject, lowerUI);
 
-            portraitContainers[i] = uiObject.GetComponent<CharacterPortraitContainer>();
-            portraitContainers[i].Initialize(charList.Entities[i], managedCharacterUI);
+            uiObject.GetComponent<CharacterPortraitContainer>().Initialize(charList.Entities[i], characterShopUI);
+
+            portraitUIs[i] = uiObject;
         }
+
 
         OpenAllCharacterListUI();
     }
@@ -47,13 +49,13 @@ public class OwnedCharListUI : MonoBehaviour
         float spacingBetweenUIs;
         while (true)
         {
-            if(paddingHorizontal * 2 + characterPortraitUI.sizeDelta.x * maxColumn + defaultSpacingBetweenUIs * (maxColumn - 1) > myRect.sizeDelta.x)
+            if (paddingHorizontal * 2 + characterPortraitUI.sizeDelta.x * maxColumn + defaultSpacingBetweenUIs * (maxColumn - 1) > myRect.sizeDelta.x)
             {
                 spacingBetweenUIs = defaultSpacingBetweenUIs;
                 maxColumn--;
                 break;
             }
-            else if(paddingHorizontal * 2 + characterPortraitUI.sizeDelta.x * maxColumn + defaultSpacingBetweenUIs * (maxColumn - 1) == myRect.sizeDelta.x)
+            else if (paddingHorizontal * 2 + characterPortraitUI.sizeDelta.x * maxColumn + defaultSpacingBetweenUIs * (maxColumn - 1) == myRect.sizeDelta.x)
             {
                 spacingBetweenUIs = (myRect.sizeDelta.x - paddingHorizontal * 2 + characterPortraitUI.sizeDelta.x * maxColumn) / (maxColumn - 1);
                 break;
@@ -66,31 +68,20 @@ public class OwnedCharListUI : MonoBehaviour
         int row = 0, column = 0;
         Vector2 pos;
         RectTransform rect;
-
-        int count = 0;
-        for (int i = 0; i < portraitContainers.Length; i++)
+        for (int i = 0; i < portraitUIs.Length; i++)
         {
-            if (portraitContainers[i].CharacterCode == charList.Entities[count].Data.Code)
-            {
-                count++;
-            }
-            else
-            {
-                continue;
-            }
+            portraitUIs[i].SetActive(true);
 
-            portraitContainers[i].gameObject.SetActive(true);
-
-            rect = portraitContainers[i].GetComponent<RectTransform>();
+            rect = portraitUIs[i].GetComponent<RectTransform>();
             rect.anchorMax = anchorTopLeft;
             rect.anchorMin = anchorTopLeft;
 
-            pos.x = paddingHorizontal + column * (rect.sizeDelta.x + spacingBetweenUIs) + characterPortraitUI.sizeDelta.x / 2 - myRect.sizeDelta.x /2;
+            pos.x = paddingHorizontal + column * (rect.sizeDelta.x + spacingBetweenUIs) + characterPortraitUI.sizeDelta.x / 2 - myRect.sizeDelta.x / 2;
             pos.y = -paddingVertical + row * (rect.sizeDelta.y + spacingBetweenUIs) - characterPortraitUI.sizeDelta.y / 2;
             //Debug.Log(pos);
             rect.localPosition = pos;
 
-            if(activatedPortraitCount % maxColumn == 0)
+            if (activatedPortraitCount % maxColumn == 0)
             {
                 column = 0;
                 row++;
@@ -106,32 +97,4 @@ public class OwnedCharListUI : MonoBehaviour
         myRect.sizeDelta = new Vector2(myRect.sizeDelta.x, paddingVertical * 2 + (row + 1) * characterPortraitUI.sizeDelta.y + row * spacingBetweenUIs + upperUI.sizeDelta.y);
         lowerUI.sizeDelta = new Vector2(lowerUI.sizeDelta.x, paddingVertical * 2 + (row + 1) * characterPortraitUI.sizeDelta.y + row * spacingBetweenUIs);
     }
-
-    public void UpdateUI()
-    {
-        if(charList.IsDirty == false)
-        {
-            return;
-        }
-
-        OpenAllCharacterListUI();
-    }
-
-    //public void OpenOwnedCharacterListUI()
-    //{
-    //    int count = 0;
-    //    foreach(var item in charList.IsEntityOwnedDict)
-    //    {
-    //        if(item.Value == true)
-    //        {
-    //            portraitUIs[count].SetActive(true);
-    //        }
-    //        else
-    //        {
-    //            portraitUIs[count].SetActive(false);
-    //        }
-
-    //        count++;
-    //    }
-    //}
 }
