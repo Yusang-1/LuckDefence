@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ManagedCharacterUI : AbstractUI
+public class ManagedCharacterUI : AbstractUI, ILobbyUIState
 {
     [SerializeField] private CharacterData characterData;
 
@@ -69,5 +69,15 @@ public class ManagedCharacterUI : AbstractUI
         }
 
         selectedCharactersUI.UpdateUI();
+    }
+
+    public void ActiveUI()
+    {
+        gameObject.SetActive(true);
+    }
+
+    public void DeactiveUI()
+    {
+        gameObject.SetActive(false);
     }
 }

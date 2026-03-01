@@ -2,10 +2,11 @@
 
 public class OpenManageCharacterUI : MonoBehaviour
 {
+    [SerializeField] private LobbyUIManager lobbyUIManager;
     [SerializeField] private ManagedCharacterUI managedCharacterUI;
 
     public void OnOpenManageCharacter()
     {
-        managedCharacterUI.OpenUI();
+        lobbyUIManager.OpenUIState(managedCharacterUI);
     }
 }

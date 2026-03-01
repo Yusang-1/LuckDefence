@@ -1,8 +1,7 @@
-﻿using System.Collections;
-using UnityEditor.U2D.Animation;
-using UnityEngine;
+﻿using UnityEngine;
+using System.Collections;
 
-public class CharacterShopUI : AbstractUI
+public class CharacterShopUI : AbstractUI, ILobbyUIState
 {
     [SerializeField] private CharacterData characterData;
 
@@ -68,5 +67,15 @@ public class CharacterShopUI : AbstractUI
     private void UpdateShopUI()
     {
         managedCharListUIs.UpdateShopUI();
+    }
+
+    public void ActiveUI()
+    {
+        gameObject.SetActive(true);
+    }
+
+    public void DeactiveUI()
+    {
+        gameObject.SetActive(false);
     }
 }
