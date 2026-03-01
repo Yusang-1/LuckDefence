@@ -3448,6 +3448,7 @@ MonoBehaviour:
   - {fileID: 1547751503}
   managedCharListUIs: {fileID: 1890913134}
   selectedCharacterInfoUI: {fileID: 1075511969}
+  contentRect: {fileID: 1107882730}
 --- !u!1 &723424377
 GameObject:
   m_ObjectHideFlags: 0

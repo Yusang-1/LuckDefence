@@ -21,7 +21,7 @@ MonoBehaviour:
   AttackSpeed: 1.2
   AttackRange: 4
   MoveSpeed: 2.5
-  Prefab: {fileID: 7110521180183965529, guid: eeef8b25865a25242908222e55ebcbfc, type: 3}
+  Prefab: {fileID: 4946938192007109277, guid: 71bf64e591fed734ea00b32059ecea25, type: 3}
   Rank: 1
   poolNum: 7
   Weight: 1
