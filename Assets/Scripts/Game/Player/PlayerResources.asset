@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerLevel: 1
   playerName: TestPlayer
-  playerCoin: 100
+  playerCoin: 500

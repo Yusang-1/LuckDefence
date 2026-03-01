@@ -22,10 +22,10 @@ public class AllCharListUI : MonoBehaviour
         activatedPortraitCount = 0;
 
         this.charList = charList;
-        portraitUIs = new GameObject[charList.Entities.Length];
+        portraitUIs = new GameObject[charList.Entities.Count];
 
         GameObject uiObject;
-        for (int i = 0; i < charList.Entities.Length; i++)
+        for (int i = 0; i < charList.Entities.Count; i++)
         {
             uiObject = Instantiate(characterPortraitUI.gameObject, lowerUI);
 

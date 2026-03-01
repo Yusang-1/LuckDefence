@@ -22,10 +22,10 @@ public class OwnedCharListUI : MonoBehaviour
         activatedPortraitCount = 0;
 
         this.charList = charList;
-        portraitContainers = new CharacterPortraitContainer[characterData.CharacterListData.CharListAsRankDictionary[charList.Rank].Entities.Length];
+        portraitContainers = new CharacterPortraitContainer[characterData.CharacterListData.CharListAsRankDictionary[charList.Rank].Entities.Count];
 
         GameObject uiObject;
-        for (int i = 0; i < characterData.CharacterListData.CharListAsRankDictionary[charList.Rank].Entities.Length; i++)
+        for (int i = 0; i < characterData.CharacterListData.CharListAsRankDictionary[charList.Rank].Entities.Count; i++)
         {
             uiObject = Instantiate(characterPortraitUI.gameObject, lowerUI);
 
