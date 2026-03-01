@@ -6,4 +6,5 @@ public class CharacterSO : EntitySO
     public CharRank Rank;    
     public int poolNum;
     public int Weight;
+    public int price;
 }
