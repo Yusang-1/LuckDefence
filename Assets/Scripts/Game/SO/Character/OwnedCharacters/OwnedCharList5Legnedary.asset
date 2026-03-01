@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rank: 4
   entities: []
-  selectedCharCodeList: 
+  codes: 

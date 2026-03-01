@@ -4,6 +4,7 @@ using System.Collections;
 public class CharacterShopUI : AbstractUI, ILobbyUIState
 {
     [SerializeField] private CharacterData characterData;
+    [SerializeField] private PlayerResourcesSO playerResourcesData;
 
     [SerializeField] private AllCharListUI[] allCharListUIs;
     //[SerializeField] private SelectedCharactersUI selectedCharactersUI;
@@ -58,9 +59,21 @@ public class CharacterShopUI : AbstractUI, ILobbyUIState
 
     public void OnBuyCharacter()
     {
+        if (characterData.OwnedcharacterListData.CharListAsRankDictionary[characterData.GetCharRankByCode(selectedCharCode)].IsCodeExist(selectedCharCode))
+        {
+            Debug.LogWarning("이미 소유한 캐릭터를 구매하려고 함");
+            return;
+        }
+
+        if(playerResourcesData.PlayerCoin < (selectedEntity.Data as CharacterSO).price)
+        {
+            Debug.LogWarning("캐릭터를 구매할 금액이 부족함");
+            return;
+        }
+        playerResourcesData.ChangePlayerCoin(-(selectedEntity.Data as CharacterSO).price);
+
         characterData.AddOwnedCharacter(selectedEntity);
 
-        //selectedCharactersUI.AddCharacter(selectedEntity);
         UpdateShopUI();
     }
 

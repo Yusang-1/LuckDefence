@@ -17,20 +17,22 @@ public class OwnedCharListUI : MonoBehaviour
 
     private int activatedPortraitCount;
 
-    public void Initialize(CharListAsRank charList, AbstractUI managedCharacterUI)
+    public void Initialize(CharacterData characterData, CharListAsRank charList, AbstractUI managedCharacterUI)
     {
         activatedPortraitCount = 0;
 
         this.charList = charList;
-        portraitContainers = new CharacterPortraitContainer[charList.Entities.Length];
+        portraitContainers = new CharacterPortraitContainer[characterData.CharacterListData.CharListAsRankDictionary[charList.Rank].Entities.Length];
 
         GameObject uiObject;
-        for (int i = 0; i < charList.Entities.Length; i++)
+        for (int i = 0; i < characterData.CharacterListData.CharListAsRankDictionary[charList.Rank].Entities.Length; i++)
         {
             uiObject = Instantiate(characterPortraitUI.gameObject, lowerUI);
 
             portraitContainers[i] = uiObject.GetComponent<CharacterPortraitContainer>();
-            portraitContainers[i].Initialize(charList.Entities[i], managedCharacterUI);
+            portraitContainers[i].Initialize(characterData.CharacterListData.CharListAsRankDictionary[charList.Rank].Entities[i], managedCharacterUI);
+
+            portraitContainers[i].gameObject.SetActive(false);
         }
 
         OpenAllCharacterListUI();
@@ -70,7 +72,7 @@ public class OwnedCharListUI : MonoBehaviour
         int count = 0;
         for (int i = 0; i < portraitContainers.Length; i++)
         {
-            if (portraitContainers[i].CharacterCode == charList.Entities[count].Data.Code)
+            if (count < charList.Codes.Count && portraitContainers[i].CharacterCode == charList.Codes[count])
             {
                 count++;
             }

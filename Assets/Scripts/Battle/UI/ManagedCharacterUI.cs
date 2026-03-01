@@ -31,7 +31,7 @@ public class ManagedCharacterUI : AbstractUI, ILobbyUIState
 
         for (int i = 0; i < ownedCharListUIs.Length; i++)
         {
-            ownedCharListUIs[i].Initialize(characterData.OwnedcharacterListData.CharListAsRankDictionary[(CharRank)i], this);
+            ownedCharListUIs[i].Initialize(characterData, characterData.OwnedcharacterListData.CharListAsRankDictionary[(CharRank)i], this);
         }
 
         gameObject.SetActive(false);

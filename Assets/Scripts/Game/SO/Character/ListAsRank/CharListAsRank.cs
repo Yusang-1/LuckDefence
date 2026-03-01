@@ -7,11 +7,14 @@ public class CharListAsRank : ScriptableObject
     [SerializeField] private CharRank rank;
     [SerializeField] private Entity[] entities;
 
+    [SerializeField] private List<int> codes;
+
     private Dictionary<int, Entity> entityAsCodeDict;
     private bool isDirty;
 
     public CharRank Rank => rank;
     public Entity[] Entities => entities;
+    public List<int> Codes => codes;
     public Dictionary<int, Entity> EntityAsCodeDict => entityAsCodeDict;
 
     public bool IsDirty => isDirty;
@@ -19,11 +22,13 @@ public class CharListAsRank : ScriptableObject
     public void Initialize()
     {
         isDirty = false;
+        codes = new List<int>();
         entityAsCodeDict = new Dictionary<int, Entity>();
 
         for (int i = 0; i < entities.Length; i++)
         {
             int code = entities[i].Data.Code;
+            codes.Add(code);
             entityAsCodeDict.Add(code, entities[i]);
         }
     }
@@ -36,6 +41,8 @@ public class CharListAsRank : ScriptableObject
             return;
         }
 
+        Codes.Add(entity.Data.Code);
+        Codes.Sort();
         entityAsCodeDict.Add(entity.Data.Code, entity);
         isDirty = true;
     }
