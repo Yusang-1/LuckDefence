@@ -52,7 +52,14 @@ public class SelectedCharactersUI : MonoBehaviour
             }
             
             yield return null;
-        }        
+        }
+
+        characterData.SelectedCharacterListData.IsDirty = true;
+        foreach (var charListAsRank in characterData.SelectedCharacterListData.CharListAsRankDictionary)
+        {
+            charListAsRank.Value.SetDirty(true);
+        }
+        UpdateUI();
     }
 
     public void UpdateUI()
@@ -62,20 +69,26 @@ public class SelectedCharactersUI : MonoBehaviour
             return;
         }
 
-        selectedCount = 0;
+        int count = 0;
+        int rankCount = 0;
         foreach (var charListAsRank in characterData.SelectedCharacterListData.CharListAsRankDictionary)
         {
             if(charListAsRank.Value.IsDirty == false)
             {
-                selectedCount += characterData.RankCountByRank[charListAsRank.Key];
+                rankCount += characterData.RankCountByRank[charListAsRank.Key];
+                count = rankCount;
                 continue;
             }
 
             foreach(var entityAsCode in charListAsRank.Value.EntityAsCodeDict)
             {
-                portraits[selectedCount].SetPortrait(entityAsCode.Value);
+                portraits[count].SetPortrait(entityAsCode.Value);
+                count++;
             }
             charListAsRank.Value.SetDirty(false);
+
+            rankCount += characterData.RankCountByRank[charListAsRank.Key];
+            count = rankCount;
         }
         characterData.SelectedCharacterListData.IsDirty = false;
     }

@@ -7840,6 +7840,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b829ec53864905458b86b9f085b2fac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  characterData: {fileID: 265329637}
 --- !u!1 &1307108849
 GameObject:
   m_ObjectHideFlags: 0
@@ -10980,6 +10981,7 @@ MonoBehaviour:
   - {fileID: 794510606}
   selectedCharactersUI: {fileID: 348673591}
   selectedCharacterInfoUI: {fileID: 1706814258}
+  contentRect: {fileID: 1893664706}
 --- !u!1 &1893664705
 GameObject:
   m_ObjectHideFlags: 0

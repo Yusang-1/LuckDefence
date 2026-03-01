@@ -69,4 +69,25 @@ public class CharacterData : MonoBehaviour
     {
         return (CharRank)(code / codeUnit - 1);
     }
+
+    public bool isSelectedCharacterFull()
+    {
+        int count = 0;
+        foreach(var item in selectedCharacterListData.CharListAsRankDictionary)
+        {
+            if(item.Value.isSelectedCharacterFull() == true)
+            {
+                count++;
+            }
+        }
+
+        if(count == selectedCharacterListData.CharListAsRankDictionary.Count)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
 }

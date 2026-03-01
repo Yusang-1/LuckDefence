@@ -6,6 +6,7 @@ public class CharListAsRank : ScriptableObject
 {
     [SerializeField] private CharRank rank;
     [SerializeField] private List<Entity> entities;
+    [SerializeField] private int fullCount;
 
     private List<int> codes;
 
@@ -77,5 +78,22 @@ public class CharListAsRank : ScriptableObject
     public void SetDirty(bool value)
     {
         isDirty = value;
+    }
+
+    public bool isSelectedCharacterFull()
+    {
+        if(entities.Count == fullCount)
+        {
+            return true;
+        }
+        else if(entities.Count > fullCount)
+        {
+            Debug.LogWarning("배틀 리스트에 캐릭터 초과됨");
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 }

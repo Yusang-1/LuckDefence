@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rank: 0
   entities: []
-  selectedCharCodeList: 
+  fullCount: 6
