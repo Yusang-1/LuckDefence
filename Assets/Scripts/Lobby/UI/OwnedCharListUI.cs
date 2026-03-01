@@ -88,7 +88,7 @@ public class OwnedCharListUI : MonoBehaviour
             rect.anchorMin = anchorTopLeft;
 
             pos.x = paddingHorizontal + column * (rect.sizeDelta.x + spacingBetweenUIs) + characterPortraitUI.sizeDelta.x / 2 - myRect.sizeDelta.x /2;
-            pos.y = -paddingVertical + row * (rect.sizeDelta.y + spacingBetweenUIs) - characterPortraitUI.sizeDelta.y / 2;
+            pos.y = -paddingVertical - row * (rect.sizeDelta.y + spacingBetweenUIs) - characterPortraitUI.sizeDelta.y / 2;
             //Debug.Log(pos);
             rect.localPosition = pos;
 
@@ -117,6 +117,11 @@ public class OwnedCharListUI : MonoBehaviour
         }
 
         OpenAllCharacterListUI();
+    }
+
+    public float GetUIHeight()
+    {
+        return myRect.sizeDelta.y;
     }
 
     //public void OpenOwnedCharacterListUI()

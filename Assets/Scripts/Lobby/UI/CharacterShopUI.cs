@@ -11,6 +11,8 @@ public class CharacterShopUI : AbstractUI, ILobbyUIState
     [SerializeField] private ManagedCharacterUI managedCharListUIs;
     [SerializeField] private CharacterInfoUI selectedCharacterInfoUI;
 
+    [SerializeField] private RectTransform contentRect;
+
     private int selectedCharCode;
     private Entity selectedEntity;
 
@@ -29,32 +31,24 @@ public class CharacterShopUI : AbstractUI, ILobbyUIState
     {
         gameObject.SetActive(true);
 
-        yield return null;
-        //yield return StartCoroutine(selectedCharactersUI.Initialize(characterData));
-
+        float height = 0;
         for (int i = 0; i < allCharListUIs.Length; i++)
         {
             allCharListUIs[i].Initialize(characterData.CharacterListData.CharListAsRankDictionary[(CharRank)i], this);
+
+            height += allCharListUIs[i].GetUIHeight();
+            yield return null;
         }
+        height += allCharListUIs[allCharListUIs.Length - 1].GetUIHeight() / 2;
+
+        contentRect.sizeDelta = new Vector2(contentRect.sizeDelta.x, height);
 
         gameObject.SetActive(false);
-    }
-
-    public void OpenUI()
-    {
-        gameObject.SetActive(true);
-
-        for (int i = 0; i < allCharListUIs.Length; i++)
-        {
-            allCharListUIs[i].OpenAllCharacterListUI();
-        }
     }
 
     public override void PortraitSelected(int code)
     {
         SelectedCharCode = code;
-
-
     }
 
     public void OnBuyCharacter()

@@ -9,6 +9,8 @@ public class ManagedCharacterUI : AbstractUI, ILobbyUIState
     [SerializeField] private SelectedCharactersUI selectedCharactersUI;
     [SerializeField] private CharacterInfoUI selectedCharacterInfoUI;
 
+    [SerializeField] private RectTransform contentRect;
+
     private int selectedCharCode;
     private Entity selectedEntity;
 
@@ -29,10 +31,16 @@ public class ManagedCharacterUI : AbstractUI, ILobbyUIState
 
         yield return StartCoroutine(selectedCharactersUI.Initialize(characterData));
 
+        float height = 0;
         for (int i = 0; i < ownedCharListUIs.Length; i++)
         {
             ownedCharListUIs[i].Initialize(characterData, characterData.OwnedcharacterListData.CharListAsRankDictionary[(CharRank)i], this);
+            height += ownedCharListUIs[i].GetUIHeight();
+            yield return null;
         }
+        height += ownedCharListUIs[ownedCharListUIs.Length - 1].GetUIHeight() / 2;
+
+        contentRect.sizeDelta = new Vector2(contentRect.sizeDelta.x, height);
 
         gameObject.SetActive(false);
     }
