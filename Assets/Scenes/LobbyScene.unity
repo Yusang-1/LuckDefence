@@ -1952,7 +1952,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterListData: {fileID: 11400000, guid: 50c5009c247dbec479691daa339e02c4, type: 2}
-  ownedcharacterListData: {fileID: 11400000, guid: 36fc1b429e2f02940ab785ba953ece0d, type: 2}
+  ownedCharacterListData: {fileID: 11400000, guid: 36fc1b429e2f02940ab785ba953ece0d, type: 2}
   selectedCharacterListData: {fileID: 11400000, guid: 166d382c2fce3834f801566890b97e24, type: 2}
   codeUnit: 100
   commonCount: 6

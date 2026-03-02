@@ -4,7 +4,7 @@ using System.Collections.Generic;
 public class CharacterData : MonoBehaviour
 {
     [SerializeField] private CharacterListDataSO characterListData;
-    [SerializeField] private CharacterListDataSO ownedcharacterListData;
+    [SerializeField] private CharacterListDataSO ownedCharacterListData;
     [SerializeField] private CharacterListDataSO selectedCharacterListData;
 
     [SerializeField] int codeUnit;
@@ -18,7 +18,7 @@ public class CharacterData : MonoBehaviour
     private Dictionary<CharRank, int> rankCountByRank;
 
     public CharacterListDataSO CharacterListData => characterListData;
-    public CharacterListDataSO OwnedcharacterListData => ownedcharacterListData;
+    public CharacterListDataSO OwnedCharacterListData => ownedCharacterListData;
     public CharacterListDataSO SelectedCharacterListData => selectedCharacterListData;
 
     public int AllCount => allCount;
@@ -27,7 +27,7 @@ public class CharacterData : MonoBehaviour
     private void Start()
     {
         characterListData.Initialize();
-        ownedcharacterListData.Initialize();
+        ownedCharacterListData.Initialize();
         selectedCharacterListData.Initialize();
 
         rankCountByRank = new Dictionary<CharRank, int>();
@@ -40,17 +40,22 @@ public class CharacterData : MonoBehaviour
 
     public void AddOwnedCharacter(Entity entity)
     {
-        ownedcharacterListData.CharListAsRankDictionary[GetCharRankByCode(entity.Data.Code)].AddCharacter(entity);
+        ownedCharacterListData.CharListAsRankDictionary[GetCharRankByCode(entity.Data.Code)].AddCharacter(entity);
     }
 
     public void RemoveOwnedCharacter(Entity entity)
     {
-        ownedcharacterListData.CharListAsRankDictionary[GetCharRankByCode(entity.Data.Code)].RemoveCharacter(entity.Data.Code);
+        ownedCharacterListData.CharListAsRankDictionary[GetCharRankByCode(entity.Data.Code)].RemoveCharacter(entity.Data.Code);
+
+        if(selectedCharacterListData.CharListAsRankDictionary[GetCharRankByCode(entity.Data.Code)].IsCodeExist(entity.Data.Code) == true)
+        {
+            RemoveSelectedCharacter(entity);
+        }
     }
 
     public void AddSelectedCharacter(Entity entity)
     {
-        if(ownedcharacterListData.CharListAsRankDictionary[GetCharRankByCode(entity.Data.Code)].IsCodeExist(entity.Data.Code) == false)
+        if (ownedCharacterListData.CharListAsRankDictionary[GetCharRankByCode(entity.Data.Code)].IsCodeExist(entity.Data.Code) == false)
         {
             Debug.LogWarning("소유하지 않은 캐릭터를 엔트리에 넣으려고 시도");
             return;
@@ -61,7 +66,7 @@ public class CharacterData : MonoBehaviour
     }
 
     public void RemoveSelectedCharacter(Entity entity)
-    {        
+    {
         selectedCharacterListData.CharListAsRankDictionary[GetCharRankByCode(entity.Data.Code)].RemoveCharacter(entity.Data.Code);
     }
 

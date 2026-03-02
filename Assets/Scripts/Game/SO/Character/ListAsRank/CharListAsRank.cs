@@ -66,7 +66,18 @@ public class CharListAsRank : ScriptableObject
             return;
         }
 
+        Entities.Remove(entityAsCodeDict[code]);
+
+        codes.Remove(code);
+        codes.Sort();
+
         entityAsCodeDict.Remove(code);
+
+        for(int i = 0; i < codes.Count; i++)
+        {
+            entities[i] = entityAsCodeDict[codes[i]];
+        }
+        
         isDirty = true;
     }
 

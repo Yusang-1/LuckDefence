@@ -53,7 +53,7 @@ public class CharacterShopUI : AbstractUI, ILobbyUIState
 
     public void OnBuyCharacter()
     {
-        if (characterData.OwnedcharacterListData.CharListAsRankDictionary[characterData.GetCharRankByCode(selectedCharCode)].IsCodeExist(selectedCharCode))
+        if (characterData.OwnedCharacterListData.CharListAsRankDictionary[characterData.GetCharRankByCode(selectedCharCode)].IsCodeExist(selectedCharCode))
         {
             Debug.LogWarning("이미 소유한 캐릭터를 구매하려고 함");
             return;

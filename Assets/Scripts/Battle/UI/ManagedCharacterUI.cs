@@ -34,7 +34,7 @@ public class ManagedCharacterUI : AbstractUI, ILobbyUIState
         float height = 0;
         for (int i = 0; i < ownedCharListUIs.Length; i++)
         {
-            ownedCharListUIs[i].Initialize(characterData, characterData.OwnedcharacterListData.CharListAsRankDictionary[(CharRank)i], this);
+            ownedCharListUIs[i].Initialize(characterData, characterData.OwnedCharacterListData.CharListAsRankDictionary[(CharRank)i], this);
             height += ownedCharListUIs[i].GetUIHeight();
             yield return null;
         }
