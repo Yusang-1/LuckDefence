@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using TMPro;
 
 public class CharacterShopUI : AbstractUI, ILobbyUIState
 {
@@ -12,6 +13,7 @@ public class CharacterShopUI : AbstractUI, ILobbyUIState
     [SerializeField] private CharacterInfoUI selectedCharacterInfoUI;
 
     [SerializeField] private RectTransform contentRect;
+    [SerializeField] private TextMeshProUGUI charPrice;
 
     private int selectedCharCode;
     private Entity selectedEntity;
@@ -24,6 +26,7 @@ public class CharacterShopUI : AbstractUI, ILobbyUIState
             selectedCharCode = value;
             selectedEntity = characterData.CharacterListData.CharListAsRankDictionary[characterData.GetCharRankByCode(selectedCharCode)].EntityAsCodeDict[selectedCharCode];
             selectedCharacterInfoUI.SetInfoUI(selectedEntity);
+            charPrice.text = (selectedEntity.Data as CharacterSO).price.ToString();
         }
     }
 
