@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ManagedCharacterUI : AbstractUI, ILobbyUIState
+public class ManagedCharacterUI : AbstractUI, ILobbyUIState, IUIAnimation
 {
     [SerializeField] private CharacterData characterData;
 
@@ -10,6 +10,10 @@ public class ManagedCharacterUI : AbstractUI, ILobbyUIState
     [SerializeField] private CharacterInfoUI selectedCharacterInfoUI;
 
     [SerializeField] private RectTransform contentRect;
+
+    [SerializeField] private UIAnimation[] uiAnimations;
+    [SerializeField] private float uiOpenTime;
+    private IEnumerator deactiveUICoroutine;
 
     private int selectedCharCode;
     private Entity selectedEntity;
@@ -82,10 +86,59 @@ public class ManagedCharacterUI : AbstractUI, ILobbyUIState
     public void ActiveUI()
     {
         gameObject.SetActive(true);
+        if (deactiveUICoroutine != null)
+        {
+            StopCoroutine(deactiveUICoroutine);
+        }
+
+        ActiveUIAnimation();
     }
 
     public void DeactiveUI()
     {
+        deactiveUICoroutine = DeactiveUIAnimationCoroutine();
+        StartCoroutine(deactiveUICoroutine);
+    }
+
+    public void ActiveUIAnimation()
+    {
+        foreach (var uiAnimation in uiAnimations)
+        {
+            uiAnimation.PlayEnableAnimation(uiOpenTime);
+        }
+    }
+
+    public IEnumerator DeactiveUIAnimationCoroutine()
+    {
+        bool isAnimationsComplete;
+
+        foreach (var uiAnimation in uiAnimations)
+        {
+            uiAnimation.PlayDisableAnimation(uiOpenTime);
+        }
+
+        while (true)
+        {
+            isAnimationsComplete = true;
+
+            foreach (var uiAnimation in uiAnimations)
+            {
+                isAnimationsComplete = isAnimationsComplete && uiAnimation.IsDisableAnimationFinished;
+
+                if (isAnimationsComplete == false)
+                {
+                    break;
+                }
+            }
+
+            if (isAnimationsComplete == true)
+            {
+                break;
+            }
+
+            yield return null;
+        }
+
         gameObject.SetActive(false);
     }
 }
