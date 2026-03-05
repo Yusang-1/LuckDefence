@@ -133,7 +133,7 @@ public class CharacterSpawner : MonoBehaviour
 
     public int CheckSummonableCharacterInRank(CharRank rank)
     {
-        int length = charListData.CharListAsRankDictionary[rank].Entities.Count;
+        int length = charListData.CharListAsRankDictionary[rank].EntityList.Length;
         int code;
         bool isAvailable;
 
@@ -141,7 +141,7 @@ public class CharacterSpawner : MonoBehaviour
         {
             for (int i = 0; i < length; i++)
             {
-                code = charListData.CharListAsRankDictionary[rank].Entities[i].Data.Code;
+                code = charListData.CharListAsRankDictionary[rank].EntityList[i].Data.Code;
                 isAvailable = platform.CheckEntityAvailable(code);
 
                 if (isAvailable && !summonableCharacterCodes.Contains(code))

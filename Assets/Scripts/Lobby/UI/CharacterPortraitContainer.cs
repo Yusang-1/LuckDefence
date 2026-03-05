@@ -11,6 +11,8 @@ public class CharacterPortraitContainer : MonoBehaviour, IPointerClickHandler
     private AbstractUI characterShopUI;
     private int characterCode;
 
+    private bool isInSelectedArea;
+
     public int CharacterCode => characterCode;
 
     //public void Initialize(Entity entity)
@@ -20,22 +22,39 @@ public class CharacterPortraitContainer : MonoBehaviour, IPointerClickHandler
     //    this.entity = entity;
     //}
 
-    public void Initialize(Entity entity, AbstractUI characterShopUI)
+    public void Initialize(Entity entity, AbstractUI characterShopUI, bool isInSelectedArea)
     {
-        characterName.text = entity.Data.EntityName;
-        characterCode = entity.Data.Code;
+        if(entity != null)
+        {
+            characterName.text = entity.Data.EntityName;
+            characterCode = entity.Data.Code;
+        }
         this.characterShopUI = characterShopUI;
-
+        this.isInSelectedArea = isInSelectedArea;
     }
 
     public void SetPortrait(Entity entity)
     {
+        if(entity == null)
+        {
+            characterName.text = "";
+            characterCode = 0;
+            return;
+        }
+
         characterName.text = entity.Data.EntityName;
         characterCode = entity.Data.Code;
     }
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        characterShopUI.PortraitSelected(characterCode);
+        if(isInSelectedArea == true)
+        {
+            characterShopUI.RemovePortrait(characterCode);
+        }
+        else
+        {
+            characterShopUI.PortraitSelected(characterCode);
+        }
     }
 }

@@ -57,6 +57,11 @@ public class CharacterShopUI : AbstractUI, ILobbyUIState, IUIAnimation
     {
         SelectedCharCode = code;
     }
+    
+    public override void RemovePortrait(int code)
+    {
+        return;
+    }
 
     public void OnBuyCharacter()
     {

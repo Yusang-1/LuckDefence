@@ -5,7 +5,7 @@ using System.Linq;
 [CreateAssetMenu(fileName = "SelectedCharListAsRank", menuName = "Scriptable Objects/SelectedCharListAsRank")]
 public class SelectedCharListAsRank : CharListAsRank
 {
-    [SerializeField] private int fullCount;
+    //[SerializeField] private int fullCount;
 
     // 숫자가 높은 것부터 대체
     [SerializeField] private int[] changePriority;
@@ -25,25 +25,32 @@ public class SelectedCharListAsRank : CharListAsRank
             return;
         }
 
+        int listFilled = 0;
+        for(int i = 0; i < entityList.Length; i++)
+        {
+            if (entityList[i] != null)
+            {
+                listFilled++;
+            }
+        }
+
         // 해당 랭크의 티오가 다 찼을 경우 가장 오래전에 추가됐던 캐릭터를 대체
         int index;
-        if(entities.Count == fullCount)
+        if(listFilled == fullCount)
         {
             index = Array.IndexOf<int>(changePriority, changePriority.Max<int>());
 
-            entityAsCodeDict.Remove(codes[index]);
+            entityAsCodeDict.Remove(codeList[index]);
 
-            codes[index] = entity.Data.Code;
-            entities[index] = entity;
+            codeList[index] = entity.Data.Code;
+            entityList[index] = entity;
             entityAsCodeDict.Add(entity.Data.Code, entity);
         }
         else
         {
-            Entities.Add(entity);
-            codes.Add(entity.Data.Code);
-            entityAsCodeDict.Add(entity.Data.Code, entity);
+            base.AddCharacter(entity); //정렬되지 않게
 
-            index = codes.IndexOf(entity.Data.Code);
+            index = Array.IndexOf<int>(codeList, entity.Data.Code);
         }
             
         // 새로 추가된 index의 priority는 1로 나머지 priority는 1을 추가        
@@ -63,11 +70,11 @@ public class SelectedCharListAsRank : CharListAsRank
 
     public bool isSelectedCharacterFull()
     {
-        if (entities.Count == fullCount)
+        if (entityList.Length == fullCount)
         {
             return true;
         }
-        else if (entities.Count > fullCount)
+        else if (entityList.Length > fullCount)
         {
             Debug.LogWarning("배틀 리스트에 캐릭터 초과됨");
             return true;

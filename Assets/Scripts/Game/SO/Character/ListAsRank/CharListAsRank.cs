@@ -1,20 +1,23 @@
 ﻿using UnityEngine;
+using System;
 using System.Collections.Generic;
 
 [CreateAssetMenu(fileName = "CharListAsRank", menuName = "Scriptable Objects/CharListAsRank")]
 public class CharListAsRank : ScriptableObject
 {
     [SerializeField] private CharRank rank;
-    [SerializeField] protected List<Entity> entities;    
 
-    protected List<int> codes;
+    [SerializeField] protected Entity[] entityList;
+    [SerializeField] protected int fullCount;
+
+    [SerializeField] protected int[] codeList;
 
     protected Dictionary<int, Entity> entityAsCodeDict;
     protected bool isDirty;
 
     public CharRank Rank => rank;
-    public List<Entity> Entities => entities;
-    public List<int> Codes => codes;
+    public Entity[] EntityList => entityList;
+    public int[] CodeList => codeList;
     public Dictionary<int, Entity> EntityAsCodeDict => entityAsCodeDict;
 
     public bool IsDirty => isDirty;
@@ -22,14 +25,22 @@ public class CharListAsRank : ScriptableObject
     public virtual void Initialize()
     {
         isDirty = false;
-        codes = new List<int>();
+
+        //entityList = 
+        //codes = new List<int>();
+        codeList = new int[fullCount];
         entityAsCodeDict = new Dictionary<int, Entity>();
 
-        for (int i = 0; i < entities.Count; i++)
+        for (int i = 0; i < entityList.Length; i++)
         {
-            int code = entities[i].Data.Code;
-            codes.Add(code);
-            entityAsCodeDict.Add(codes[i], entities[i]);
+            if (entityList[i] == null)
+            {
+                continue;
+            }
+
+            int code = entityList[i].Data.Code;            
+            codeList[i] = code;
+            entityAsCodeDict.Add(codeList[i], entityList[i]);
         }
     }
 
@@ -41,17 +52,31 @@ public class CharListAsRank : ScriptableObject
             return;
         }
 
-        Entities.Add(entity);
-        //Entities.Sort();
+        int emptyIndex = 0;
+        for(int i = 0; i < codeList.Length; i++)
+        {
+            //비어있는 자리를 찾으면 코드 저장 후 정렬
+            if (codeList[i] == 0)
+            {
+                emptyIndex = i;
+                codeList[i] = entity.Data.Code;
+                Array.Sort<int>(codeList, 0, i + 1);
 
-        codes.Add(entity.Data.Code);
-        codes.Sort();
+                break;
+            }
+        }
 
+        entityList[emptyIndex] = entity;
         entityAsCodeDict.Add(entity.Data.Code, entity);
 
-        for(int i = 0; i < codes.Count; i++)
+        for(int i = 0; i < codeList.Length; i++)
         {
-            entities[i] = entityAsCodeDict[codes[i]];
+            if(codeList[i] == 0)
+            {
+                continue;
+            }
+
+            entityList[i] = entityAsCodeDict[codeList[i]];
         }
 
         isDirty = true;
@@ -63,18 +88,43 @@ public class CharListAsRank : ScriptableObject
         {
             Debug.LogWarning("존재하지 않는 코드를 제거");
             return;
+        }        
+
+        int codeIndex = Array.IndexOf<int>(codeList, code);
+        for (int i = 0; i < codeList.Length; i++)
+        {
+            //채워져있는 마지막 인덱스 (i - 1)을 찾아 지워야할 인덱스 (codeIndex)와 교환 후 삭제, 정렬
+            if (codeList[i] == 0)
+            {
+                if(i - 1 == codeIndex)
+                {
+                    codeList[i - 1] = 0;
+                    entityList[i - 1] = null;
+                    Array.Sort<int>(codeList, 0, i - 1);
+                }
+                else
+                {
+                    codeList[codeIndex] = codeList[i - 1];
+                    codeList[i - 1] = 0;
+                    Array.Sort<int>(codeList, 0, i - 1);
+
+                    entityList[codeIndex] = entityList[i - 1];
+                    entityList[i - 1] = null;
+                }
+                break;
+            }
         }
-
-        Entities.Remove(entityAsCodeDict[code]);
-
-        codes.Remove(code);
-        codes.Sort();
 
         entityAsCodeDict.Remove(code);
 
-        for(int i = 0; i < codes.Count; i++)
+        for(int i = 0; i < codeList.Length; i++)
         {
-            entities[i] = entityAsCodeDict[codes[i]];
+            if(codeList[i] == 0)
+            {
+                continue;
+            }
+
+            entityList[i] = entityAsCodeDict[codeList[i]];
         }
         
         isDirty = true;
@@ -90,3 +140,4 @@ public class CharListAsRank : ScriptableObject
         isDirty = value;
     }
 }
+//codeList와 entityList를 한번에 정렬할 수 있게

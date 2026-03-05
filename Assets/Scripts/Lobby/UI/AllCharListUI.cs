@@ -22,14 +22,14 @@ public class AllCharListUI : MonoBehaviour
         activatedPortraitCount = 0;
 
         this.charList = charList;
-        portraitUIs = new GameObject[charList.Entities.Count];
+        portraitUIs = new GameObject[charList.EntityList.Length];
 
         GameObject uiObject;
-        for (int i = 0; i < charList.Entities.Count; i++)
+        for (int i = 0; i < charList.EntityList.Length; i++)
         {
             uiObject = Instantiate(characterPortraitUI.gameObject, lowerUI);
 
-            uiObject.GetComponent<CharacterPortraitContainer>().Initialize(charList.Entities[i], characterShopUI);
+            uiObject.GetComponent<CharacterPortraitContainer>().Initialize(charList.EntityList[i], characterShopUI, false);
 
             portraitUIs[i] = uiObject;
         }

@@ -13,5 +13,11 @@ MonoBehaviour:
   m_Name: SelectedCharList2Rare
   m_EditorClassIdentifier: 
   rank: 1
-  entities: []
+  entityList:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   fullCount: 5
+  changePriority: 

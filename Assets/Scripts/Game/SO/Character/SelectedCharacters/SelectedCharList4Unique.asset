@@ -13,5 +13,10 @@ MonoBehaviour:
   m_Name: SelectedCharList4Unique
   m_EditorClassIdentifier: 
   rank: 3
-  entities: []
+  entityList:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   fullCount: 4
+  changePriority: 

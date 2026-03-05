@@ -33,7 +33,7 @@ public class ManagedCharacterUI : AbstractUI, ILobbyUIState, IUIAnimation
     {
         gameObject.SetActive(true);
 
-        yield return StartCoroutine(selectedCharactersUI.Initialize(characterData));
+        yield return StartCoroutine(selectedCharactersUI.Initialize(characterData, this));
 
         float height = 0;
         for (int i = 0; i < ownedCharListUIs.Length; i++)
@@ -62,8 +62,13 @@ public class ManagedCharacterUI : AbstractUI, ILobbyUIState, IUIAnimation
     public override void PortraitSelected(int code)
     {
         SelectedCharCode = code;
+    }
 
+    public override void RemovePortrait(int code)
+    {
+        characterData.RemoveSelectedCharacter(characterData.SelectedCharacterListData.CharListAsRankDictionary[characterData.GetCharRankByCode(code)].EntityAsCodeDict[code]);
 
+        UpdateShopUI();
     }
 
     public void OnAddCharacterToBattleList()

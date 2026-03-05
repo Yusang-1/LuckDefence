@@ -15,7 +15,7 @@ public class SelectedCharactersUI : MonoBehaviour
 
     private int selectedCount;    
 
-    public IEnumerator Initialize(CharacterData characterData)
+    public IEnumerator Initialize(CharacterData characterData, ManagedCharacterUI managedCharacterUI)
     {
         this.characterData = characterData;
         portraits = new CharacterPortraitContainer[characterData.AllCount];
@@ -32,6 +32,8 @@ public class SelectedCharactersUI : MonoBehaviour
         {
             go = Instantiate(portrait, myRect);
             portraits[i] = go.GetComponent<CharacterPortraitContainer>();
+            portraits[i].Initialize(null, managedCharacterUI, true);
+
             portraitRect = portraits[i].GetComponent<RectTransform>();
             
             portraitRect.sizeDelta = new Vector3(portraitWidth, portraitWidth, 1);
@@ -80,9 +82,9 @@ public class SelectedCharactersUI : MonoBehaviour
                 continue;
             }
 
-            foreach(var entityAsCode in charListAsRank.Value.EntityAsCodeDict)
+            foreach(var entity in charListAsRank.Value.EntityList)
             {
-                portraits[count].SetPortrait(entityAsCode.Value);
+                portraits[count].SetPortrait(entity);
                 count++;
             }
             charListAsRank.Value.SetDirty(false);
