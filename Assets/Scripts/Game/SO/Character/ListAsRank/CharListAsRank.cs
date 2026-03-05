@@ -5,13 +5,12 @@ using System.Collections.Generic;
 public class CharListAsRank : ScriptableObject
 {
     [SerializeField] private CharRank rank;
-    [SerializeField] private List<Entity> entities;
-    [SerializeField] private int fullCount;
+    [SerializeField] protected List<Entity> entities;    
 
-    private List<int> codes;
+    protected List<int> codes;
 
-    private Dictionary<int, Entity> entityAsCodeDict;
-    private bool isDirty;
+    protected Dictionary<int, Entity> entityAsCodeDict;
+    protected bool isDirty;
 
     public CharRank Rank => rank;
     public List<Entity> Entities => entities;
@@ -20,7 +19,7 @@ public class CharListAsRank : ScriptableObject
 
     public bool IsDirty => isDirty;
 
-    public void Initialize()
+    public virtual void Initialize()
     {
         isDirty = false;
         codes = new List<int>();
@@ -34,7 +33,7 @@ public class CharListAsRank : ScriptableObject
         }
     }
 
-    public void AddCharacter(Entity entity)
+    public virtual void AddCharacter(Entity entity)
     {
         if(IsCodeExist(entity.Data.Code) == true)
         {
@@ -89,22 +88,5 @@ public class CharListAsRank : ScriptableObject
     public void SetDirty(bool value)
     {
         isDirty = value;
-    }
-
-    public bool isSelectedCharacterFull()
-    {
-        if(entities.Count == fullCount)
-        {
-            return true;
-        }
-        else if(entities.Count > fullCount)
-        {
-            Debug.LogWarning("배틀 리스트에 캐릭터 초과됨");
-            return true;
-        }
-        else
-        {
-            return false;
-        }
     }
 }

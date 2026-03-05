@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b85fae618997904bb9b9ca1f9394565, type: 3}
+  m_Script: {fileID: 11500000, guid: f48a4d73f6fd7494f8470e966e78a1e4, type: 3}
   m_Name: SelectedCharList2Rare
   m_EditorClassIdentifier: 
   rank: 1
