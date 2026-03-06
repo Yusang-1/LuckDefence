@@ -76,12 +76,4 @@ public class InputManager : MonoBehaviour
             isHold = false;
         }
     }
-
-    public void TestStart(InputAction.CallbackContext context)
-    {
-        if (context.started)
-        {
-            manager.StartBattle();
-        }
-    }
 }

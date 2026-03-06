@@ -3,10 +3,15 @@ using System.Collections;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField] private HPSpawner hpSpawner;
+    private HPSpawner hpSpawner;
     [SerializeField] private Transform spawnArea;
 
     [SerializeField] private BattleDataSO battleData;
+
+    private void Start()
+    {
+        hpSpawner = FindFirstObjectByType<HPSpawner>();
+    }
 
     public void SpawnEnemy(RoundData roundData)
     {

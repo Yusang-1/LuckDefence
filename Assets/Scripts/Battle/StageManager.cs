@@ -6,6 +6,11 @@ public class StageManager : MonoBehaviour
 
     [SerializeField] private BattleTimerUI timerUI;
 
+    private void Start()
+    {
+        timerUI = FindFirstObjectByType<BattleTimerUI>();
+    }
+
     public void StartNextRound()
     {
         battleData.RoundNum++;
