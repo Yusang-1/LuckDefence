@@ -1,6 +1,7 @@
-﻿using UnityEngine;
-using System;
+﻿using System;
 using System.Linq;
+using UnityEngine;
+using static UnityEngine.EventSystems.EventTrigger;
 
 [CreateAssetMenu(fileName = "SelectedCharListAsRank", menuName = "Scriptable Objects/SelectedCharListAsRank")]
 public class SelectedCharListAsRank : CharListAsRank
@@ -48,7 +49,21 @@ public class SelectedCharListAsRank : CharListAsRank
         }
         else
         {
-            base.AddCharacter(entity); //정렬되지 않게
+            int emptyIndex = 0;
+            for (int i = 0; i < codeList.Length; i++)
+            {
+                //비어있는 자리를 찾으면 코드 저장
+                if (codeList[i] == 0)
+                {
+                    emptyIndex = i;
+                    codeList[i] = entity.Data.Code;
+
+                    break;
+                }
+            }
+
+            entityList[emptyIndex] = entity;
+            entityAsCodeDict.Add(entity.Data.Code, entity);
 
             index = Array.IndexOf<int>(codeList, entity.Data.Code);
         }
@@ -65,6 +80,24 @@ public class SelectedCharListAsRank : CharListAsRank
             changePriority[i]++;
         }
         
+        isDirty = true;
+    }
+
+    public override void RemoveCharacter(int code)
+    {
+        if (IsCodeExist(code) == false)
+        {
+            Debug.LogWarning("존재하지 않는 코드를 제거");
+            return;
+        }        
+
+        int codeIndex = Array.IndexOf<int>(codeList, code);
+        changePriority[codeIndex] = 0;
+
+        entityAsCodeDict.Remove(codeList[codeIndex]);
+        codeList[codeIndex] = 0;
+        entityList[codeIndex] = null;        
+
         isDirty = true;
     }
 

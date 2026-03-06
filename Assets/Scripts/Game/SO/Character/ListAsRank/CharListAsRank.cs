@@ -82,7 +82,7 @@ public class CharListAsRank : ScriptableObject
         isDirty = true;
     }
 
-    public void RemoveCharacter(int code)
+    public virtual void RemoveCharacter(int code)
     {
         if (IsCodeExist(code) == false)
         {
