@@ -9,6 +9,11 @@ public class SelectPlatformUIContainer : MonoBehaviour
 
     public void Start()
     {
+        if(platforms == null)
+        {
+            platforms = FindFirstObjectByType<Platforms>();
+        }
+
         platforms.PlatformSelected += OpenUI;
         platforms.PlatformDataChanged += UpdateUI;
 

@@ -1,9 +1,8 @@
 ﻿using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class GameStartUI : MonoBehaviour
 {
-    [SerializeField] CharacterData characterData;
+    [SerializeField] CharacterData characterData;    
 
     public void OnGameStart()
     {
@@ -12,6 +11,6 @@ public class GameStartUI : MonoBehaviour
             return;
         }
 
-        SceneManager.LoadScene("BattleScene");
+        SceneChanger.LoadSceneAsync("BattleScene");
     }
 }

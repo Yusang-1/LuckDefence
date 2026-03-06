@@ -36,6 +36,8 @@ public class CharacterData : MonoBehaviour
         rankCountByRank.Add(CharRank.epic, epicCount);
         rankCountByRank.Add(CharRank.unique, uniqueCount);
         rankCountByRank.Add(CharRank.legendary, legendaryCount);
+
+        DontDestroyOnLoad(this);
     }
 
     public void AddOwnedCharacter(Entity entity)
@@ -68,6 +70,8 @@ public class CharacterData : MonoBehaviour
     public void RemoveSelectedCharacter(Entity entity)
     {
         selectedCharacterListData.CharListAsRankDictionary[GetCharRankByCode(entity.Data.Code)].RemoveCharacter(entity.Data.Code);
+
+        selectedCharacterListData.IsDirty = true;
     }
 
     public CharRank GetCharRankByCode(int code)
@@ -80,7 +84,7 @@ public class CharacterData : MonoBehaviour
         int count = 0;
         foreach(var item in selectedCharacterListData.CharListAsRankDictionary)
         {
-            if(item.Value.isSelectedCharacterFull() == true)
+            if((item.Value as SelectedCharListAsRank).isSelectedCharacterFull() == true)
             {
                 count++;
             }
