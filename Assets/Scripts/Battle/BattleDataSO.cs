@@ -64,7 +64,6 @@ public class BattleDataSO : ScriptableObject
         this.stageData = stageData;
         currentEnemyCount = 0;
         RoundNum = -1;
-        EnemyList.EnemyDied += OnEnemyDied;
     }
 
     public void OnResetData()

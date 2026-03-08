@@ -1,16 +1,17 @@
 ﻿using UnityEngine;
-using System;
 using System.Collections.Generic;
 
 public class EnemyList : MonoBehaviour
 {
-    public static Action EnemyDied;
-
     public static List<Entity> Enemies = new List<Entity>();
 
+    [SerializeField] private BattleDataSO battleData;
+
+    private static BattleDataSO s_BattleData;
+
     private void Start()
-    {
-        //Enemies = new List<Entity>();
+    {        
+        s_BattleData = battleData;
         Enemies.Clear();
     }
 
@@ -22,7 +23,7 @@ public class EnemyList : MonoBehaviour
     public static void Deactivated(Entity entity)
     {
         Enemies.Remove(entity);
-        EnemyDied?.Invoke();
+        s_BattleData.CurrentEnemyCount--;
     }
 
     public void OnDeactivateAllEnemy()
