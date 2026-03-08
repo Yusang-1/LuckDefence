@@ -89,6 +89,7 @@ public class SelectedCharactersUI : MonoBehaviour
                 if(entity == null)
                 {
                     portraits[count].SetPortrait(entity, null);
+                    count++;
                     continue;
                 }
 

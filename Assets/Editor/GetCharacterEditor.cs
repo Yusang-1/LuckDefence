@@ -66,6 +66,11 @@ public class GetCharacterEditor : EditorWindow
         {
             RemoveAllCharacters();
         }
+
+        if (GUILayout.Button("Select All Character"))
+        {
+            SelectAllCharacters();
+        }
     }
 
     private void AddCharacterToOwned()
@@ -91,6 +96,26 @@ public class GetCharacterEditor : EditorWindow
         foreach (var entity in characterScripts)
         {
             characterData.RemoveOwnedCharacter(entity);
+        }
+    }
+
+    private void SelectAllCharacters()
+    {
+        int count;
+        foreach (var item in characterData.OwnedCharacterListData.CharListAsRankDictionary)
+        {
+            count = 0;
+            foreach (var entity in item.Value.EntityAsCodeDict)
+            {
+                characterData.AddSelectedCharacter(entity.Value);
+
+                count++;
+                if(count == characterData.RankCountByRank[item.Key])
+                {
+                    break;
+                }
+            }
+            
         }
     }
 }

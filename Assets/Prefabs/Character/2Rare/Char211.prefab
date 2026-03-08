@@ -79,7 +79,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 2
   m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
-  m_Color: {r: 1, g: 1, b: 0, a: 1}
+  m_Color: {r: 0.24313726, g: 0.30980393, b: 0.87058824, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -104,8 +104,6 @@ MonoBehaviour:
   data: {fileID: 11400000, guid: 123019858c74ad644bf4ce79259f6781, type: 2}
   mover: {fileID: 1556147872508622036}
   platform: {fileID: 0}
-  TargetSearcher: {fileID: 0}
-  Attacker: {fileID: 0}
 --- !u!114 &1556147872508622036
 MonoBehaviour:
   m_ObjectHideFlags: 0
