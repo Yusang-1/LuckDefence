@@ -69,8 +69,7 @@ public class Enemy : Entity, ISkillusable, IDamagable
         }
 
         EnemyList.Deactivated(this);
-        EnemyDied?.Invoke();
-        Debug.Log(11);
+        EnemyDied?.Invoke();        
         gameObject.SetActive(false);
     }
 
