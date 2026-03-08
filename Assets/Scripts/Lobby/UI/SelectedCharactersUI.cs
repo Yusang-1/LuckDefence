@@ -71,7 +71,7 @@ public class SelectedCharactersUI : MonoBehaviour
         {
             return;
         }
-        Debug.Log(1);
+
         int count = 0;
         int rankCount = 0;
         foreach (var charListAsRank in characterData.SelectedCharacterListData.CharListAsRankDictionary)

@@ -13,7 +13,7 @@ public class Platform : MonoBehaviour, ISelectableObject, IHoldableObject
     [SerializeField] private CharRank rank;
 
     private Entity[] entities;
-    private Entity target;
+    [SerializeField] private Entity target;
     private Vector3 targetLastPosition;
     private const int maxAvailableEntityCount = 3;
     private int index;
@@ -27,9 +27,23 @@ public class Platform : MonoBehaviour, ISelectableObject, IHoldableObject
         get => target;
         set
         {
+            if (target == value)
+            {
+                return;
+            }
+            else if(target != null)
+            {
+                (target as Enemy).EnemyDied -= TargetIsUnavailable;
+            }
+
             target = value;
 
-            foreach(Character character in entities)
+            if(target != null)
+            {
+                (target as Enemy).EnemyDied += TargetIsUnavailable;
+            }
+
+            foreach (Character character in entities)
             {
                 if(character != null)
                 {
@@ -174,6 +188,18 @@ public class Platform : MonoBehaviour, ISelectableObject, IHoldableObject
         }
 
         Target = entity;
+    }
+
+    private void TargetIsUnavailable()
+    {
+        foreach (Character character in entities)
+        {
+            if (character != null)
+            {
+                character.IsAttackable = false;
+            }
+        }
+        Target = null;
     }
 }
 

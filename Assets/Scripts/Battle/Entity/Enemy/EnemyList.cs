@@ -1,8 +1,11 @@
 ﻿using UnityEngine;
+using System;
 using System.Collections.Generic;
 
 public class EnemyList : MonoBehaviour
 {
+    public static Action EnemyDied;
+
     public static List<Entity> Enemies = new List<Entity>();
 
     private void Start()
@@ -19,6 +22,7 @@ public class EnemyList : MonoBehaviour
     public static void Deactivated(Entity entity)
     {
         Enemies.Remove(entity);
+        EnemyDied?.Invoke();
     }
 
     public void OnDeactivateAllEnemy()

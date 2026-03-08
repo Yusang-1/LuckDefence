@@ -64,6 +64,7 @@ public class BattleDataSO : ScriptableObject
         this.stageData = stageData;
         currentEnemyCount = 0;
         RoundNum = -1;
+        EnemyList.EnemyDied += OnEnemyDied;
     }
 
     public void OnResetData()
@@ -71,5 +72,10 @@ public class BattleDataSO : ScriptableObject
         IsGameOver = false;
         currentEnemyCount = 0;
         RoundNum = -1;
+    }
+
+    private void OnEnemyDied()
+    {
+        currentEnemyCount--;
     }
 }

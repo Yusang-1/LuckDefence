@@ -13,7 +13,6 @@ public class Character : Entity, IAttackable, ISkillusable
 
     public Platform platform;
     public CharacterStateMachine stateMachine;
-    public TargetSearcher TargetSearcher;
 
     public bool IsAttackable
     {
@@ -65,7 +64,6 @@ public class Character : Entity, IAttackable, ISkillusable
 
     public void Attack(IDamagable target)
     {
-        //Debug.Log("Attack!");
         target.TakeDamage(Data.AttackPoint);
 
         GetMP(Data.GetMPPoint);
