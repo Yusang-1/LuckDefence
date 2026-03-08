@@ -38,10 +38,8 @@ public class Platforms : MonoBehaviour
 
     public void DataChanged(int index)
     {
-        Debug.Log($"{index}  {selectedPlatformIndex}");
         if (index != selectedPlatformIndex) return;
 
-        Debug.Log(PlatformDataChanged == null);
         PlatformDataChanged?.Invoke(platformList[index]);
     }
 }

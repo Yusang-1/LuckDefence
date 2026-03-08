@@ -22,7 +22,7 @@ public class BattleManager : MonoBehaviour
         battleUIManager = FindFirstObjectByType<BattleUIManager>();
         hpSpawner = FindFirstObjectByType<HPSpawner>();
 
-        Debug.Log("Start BattleManager Start");
+        //Debug.Log("Start BattleManager Start");
         battleData.Initialize(stageData);
         enemySpawner.Initialize(stageData.RoundData);
         hpSpawner.Initialize(stageData);
@@ -63,7 +63,7 @@ public class BattleManager : MonoBehaviour
         yield return characterSpawner.Initialize(charListData);
 
         battleUIManager.EnableBattleUI();
-        Debug.Log("Finish BattleManager Start");
+        //Debug.Log("Finish BattleManager Start");
     }
 
     private void OnDestroy()

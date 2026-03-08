@@ -5,7 +5,7 @@ public class SelectPlatformUIContainer : MonoBehaviour
     [SerializeField] private SelectPlatformUI m_UIRight;
     [SerializeField] private SelectPlatformUI m_UILeft;
 
-    [SerializeField] private Platforms platforms;
+    private Platforms platforms;
 
     public void Start()
     {

@@ -139,7 +139,7 @@ public class Platform : MonoBehaviour, ISelectableObject, IHoldableObject
         
         bool value = CheckIsPromotionable();
 
-        promotion.GetPlatformData(new PlatformData(index, rank), value);
+        //promotion.GetPlatformData(new PlatformData(index, rank), value);
 
         Debug.Log(index);
         platforms.SelectedPlatformIndex = index;

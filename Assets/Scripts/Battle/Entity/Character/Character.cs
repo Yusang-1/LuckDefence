@@ -66,7 +66,7 @@ public class Character : Entity, IAttackable, ISkillusable
 
     public void Attack(IDamagable target)
     {
-        Debug.Log("Attack!");
+        //Debug.Log("Attack!");
         target.TakeDamage(Data.AttackPoint);
 
         GetMP(Data.GetMPPoint);

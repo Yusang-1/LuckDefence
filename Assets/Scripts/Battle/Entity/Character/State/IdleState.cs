@@ -11,7 +11,7 @@ public class IdleState : ICharacterState
 
     public void StateEnter()
     {
-        Debug.Log("Idle State");
+        //Debug.Log("Idle State");
     }
 
     public void StateExit()

@@ -13,7 +13,7 @@ public class AttackState : ICharacterState
 
     public void StateEnter()
     {
-        Debug.Log("Attack State");
+        //Debug.Log("Attack State");
         character.AttackTarget = (character.platform.Target as Enemy).GetComponent<IDamagable>();
     }
 
