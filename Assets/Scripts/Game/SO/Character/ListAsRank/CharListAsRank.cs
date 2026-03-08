@@ -26,8 +26,6 @@ public class CharListAsRank : ScriptableObject
     {
         isDirty = false;
 
-        //entityList = 
-        //codes = new List<int>();
         codeList = new int[fullCount];
         entityAsCodeDict = new Dictionary<int, Entity>();
 
@@ -69,6 +67,7 @@ public class CharListAsRank : ScriptableObject
         entityList[emptyIndex] = entity;
         entityAsCodeDict.Add(entity.Data.Code, entity);
 
+        // codeList에 맞춰 entityList 정렬 추후 더 효율적인 방법으로 정렬법 변경
         for(int i = 0; i < codeList.Length; i++)
         {
             if(codeList[i] == 0)
@@ -140,4 +139,3 @@ public class CharListAsRank : ScriptableObject
         isDirty = value;
     }
 }
-//codeList와 entityList를 한번에 정렬할 수 있게

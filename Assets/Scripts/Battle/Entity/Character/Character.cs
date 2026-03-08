@@ -14,7 +14,6 @@ public class Character : Entity, IAttackable, ISkillusable
     public Platform platform;
     public CharacterStateMachine stateMachine;
     public TargetSearcher TargetSearcher;
-    public Attacker Attacker;
 
     public bool IsAttackable
     {

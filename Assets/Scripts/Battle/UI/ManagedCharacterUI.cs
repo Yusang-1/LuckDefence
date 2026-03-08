@@ -5,12 +5,14 @@ public class ManagedCharacterUI : AbstractUI, ILobbyUIState, IUIAnimation
 {
     [SerializeField] private CharacterData characterData;
 
+    [Header("UIs")]
     [SerializeField] private OwnedCharListUI[] ownedCharListUIs;
     [SerializeField] private SelectedCharactersUI selectedCharactersUI;
     [SerializeField] private CharacterInfoUI selectedCharacterInfoUI;
 
     [SerializeField] private RectTransform contentRect;
 
+    [Header("Animations")]
     [SerializeField] private UIAnimation[] uiAnimations;
     [SerializeField] private float uiOpenTime;
     private IEnumerator deactiveUICoroutine;

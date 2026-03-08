@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using TMPro;
 
 public class AllCharListUI : MonoBehaviour
 {
@@ -6,13 +7,13 @@ public class AllCharListUI : MonoBehaviour
     [SerializeField] private RectTransform upperUI;
     [SerializeField] private RectTransform lowerUI;
     [SerializeField] private RectTransform characterPortraitUI;
+    [SerializeField] private TextMeshProUGUI rankText;
 
     [SerializeField] private float defaultSpacingBetweenUIs;
     [SerializeField] private float paddingHorizontal;
     [SerializeField] private float paddingVertical;
     [SerializeField] private Vector2 anchorTopLeft;
 
-    private CharListAsRank charList;
     private GameObject[] portraitUIs;
 
     private int activatedPortraitCount;
@@ -21,7 +22,6 @@ public class AllCharListUI : MonoBehaviour
     {
         activatedPortraitCount = 0;
 
-        this.charList = charList;
         portraitUIs = new GameObject[charList.EntityList.Length];
 
         GameObject uiObject;
@@ -33,7 +33,7 @@ public class AllCharListUI : MonoBehaviour
 
             portraitUIs[i] = uiObject;
         }
-
+        rankText.text = charList.Rank.ToString();
 
         OpenAllCharacterListUI();
     }
@@ -78,7 +78,7 @@ public class AllCharListUI : MonoBehaviour
 
             pos.x = paddingHorizontal + column * (rect.sizeDelta.x + spacingBetweenUIs) + characterPortraitUI.sizeDelta.x / 2 - myRect.sizeDelta.x / 2;
             pos.y = -paddingVertical - row * (rect.sizeDelta.y + spacingBetweenUIs) - characterPortraitUI.sizeDelta.y / 2;
-            //Debug.Log(pos);
+
             rect.localPosition = pos;
 
             if (activatedPortraitCount % maxColumn == 0)

@@ -8,7 +8,6 @@ public class CharacterShopUI : AbstractUI, ILobbyUIState, IUIAnimation
     [SerializeField] private PlayerResourcesSO playerResourcesData;
 
     [SerializeField] private AllCharListUI[] allCharListUIs;
-    //[SerializeField] private SelectedCharactersUI selectedCharactersUI;
     [SerializeField] private ManagedCharacterUI managedCharListUIs;
     [SerializeField] private CharacterInfoUI selectedCharacterInfoUI;
 

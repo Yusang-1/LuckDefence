@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using TMPro;
+using UnityEngine;
 
 public class OwnedCharListUI : MonoBehaviour
 {
@@ -6,6 +7,7 @@ public class OwnedCharListUI : MonoBehaviour
     [SerializeField] private RectTransform upperUI;
     [SerializeField] private RectTransform lowerUI;
     [SerializeField] private RectTransform characterPortraitUI;
+    [SerializeField] private TextMeshProUGUI rankText;
 
     [SerializeField] private float defaultSpacingBetweenUIs;
     [SerializeField] private float paddingHorizontal;
@@ -34,6 +36,7 @@ public class OwnedCharListUI : MonoBehaviour
 
             portraitContainers[i].gameObject.SetActive(false);
         }
+        rankText.text = charList.Rank.ToString();
 
         OpenAllCharacterListUI();
     }

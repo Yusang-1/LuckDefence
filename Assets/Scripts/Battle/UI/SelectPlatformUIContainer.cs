@@ -61,7 +61,6 @@ public class SelectPlatformUIContainer : MonoBehaviour
 
     public void UpdateUI(Platform platform)
     {
-        Debug.Log(11);
         if(m_UIRight.IsOpen)
         {
             m_UIRight.SetData(platform);
