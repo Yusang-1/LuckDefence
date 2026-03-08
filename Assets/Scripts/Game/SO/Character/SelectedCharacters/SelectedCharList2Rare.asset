@@ -20,4 +20,5 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   fullCount: 5
-  changePriority: 
+  codeList: 0000000000000000000000000000000000000000
+  changePriority: 0000000000000000000000000000000000000000

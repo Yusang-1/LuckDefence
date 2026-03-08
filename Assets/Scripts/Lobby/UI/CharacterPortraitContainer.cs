@@ -11,7 +11,7 @@ public class CharacterPortraitContainer : MonoBehaviour, IPointerClickHandler
     private AbstractUI characterShopUI;
     private int characterCode;
 
-    private bool isInSelectedArea;
+    private bool isInSelectedArea;    
 
     public int CharacterCode => characterCode;
 
@@ -50,7 +50,7 @@ public class CharacterPortraitContainer : MonoBehaviour, IPointerClickHandler
         {
             characterShopUI.RemovePortrait(characterCode);
             //(characterShopUI as ManagedCharacterUI).UpdateShopUI();
-        }
+        }        
         else
         {
             characterShopUI.PortraitSelected(characterCode);

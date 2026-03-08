@@ -59,6 +59,7 @@ public class ManagedCharacterUI : AbstractUI, ILobbyUIState, IUIAnimation
         {
             ownedCharListUIs[i].OpenAllCharacterListUI();
         }
+        UpdateShopUI();
     }
 
     public override void PortraitSelected(int code)
