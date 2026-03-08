@@ -72,4 +72,9 @@ public class BattleDataSO : ScriptableObject
         currentEnemyCount = 0;
         RoundNum = -1;
     }
+
+    private void OnEnemyDied()
+    {
+        currentEnemyCount--;
+    }
 }

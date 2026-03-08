@@ -1,6 +1,6 @@
-﻿using System;
+﻿using UnityEngine;
+using System;
 using System.Linq;
-using UnityEngine;
 
 [CreateAssetMenu(fileName = "SelectedCharListAsRank", menuName = "Scriptable Objects/SelectedCharListAsRank")]
 public class SelectedCharListAsRank : CharListAsRank
@@ -100,18 +100,13 @@ public class SelectedCharListAsRank : CharListAsRank
 
     public bool isSelectedCharacterFull()
     {
-        if (entityList.Length == fullCount)
-        {
-            return true;
-        }
-        else if (entityList.Length > fullCount)
-        {
-            Debug.LogWarning("배틀 리스트에 캐릭터 초과됨");
-            return true;
-        }
-        else
+        if (entityList.Contains(null))
         {
             return false;
+        }       
+        else
+        {
+            return true;
         }
     }
 }

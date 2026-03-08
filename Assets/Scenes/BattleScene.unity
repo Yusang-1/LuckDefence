@@ -160,6 +160,7 @@ MonoBehaviour:
   currentEntityCode: 0
   entityCount: 0
   rank: 0
+  target: {fileID: 0}
 --- !u!114 &22631207
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -493,6 +494,7 @@ MonoBehaviour:
   currentEntityCode: 0
   entityCount: 0
   rank: 0
+  target: {fileID: 0}
 --- !u!114 &57985685
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -694,6 +696,7 @@ MonoBehaviour:
   currentEntityCode: 0
   entityCount: 0
   rank: 0
+  target: {fileID: 0}
 --- !u!1 &86809716
 GameObject:
   m_ObjectHideFlags: 0
@@ -1395,6 +1398,7 @@ MonoBehaviour:
   currentEntityCode: 0
   entityCount: 0
   rank: 0
+  target: {fileID: 0}
 --- !u!1 &224650345
 GameObject:
   m_ObjectHideFlags: 0
@@ -1721,6 +1725,7 @@ MonoBehaviour:
   currentEntityCode: 0
   entityCount: 0
   rank: 0
+  target: {fileID: 0}
 --- !u!114 &283683788
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3146,6 +3151,7 @@ MonoBehaviour:
   currentEntityCode: 0
   entityCount: 0
   rank: 0
+  target: {fileID: 0}
 --- !u!1 &628841823
 GameObject:
   m_ObjectHideFlags: 0
@@ -3368,6 +3374,7 @@ MonoBehaviour:
   currentEntityCode: 0
   entityCount: 0
   rank: 0
+  target: {fileID: 0}
 --- !u!1 &669942237
 GameObject:
   m_ObjectHideFlags: 0
@@ -4258,6 +4265,7 @@ MonoBehaviour:
   currentEntityCode: 0
   entityCount: 0
   rank: 0
+  target: {fileID: 0}
 --- !u!1 &918921484
 GameObject:
   m_ObjectHideFlags: 0
@@ -4491,6 +4499,7 @@ MonoBehaviour:
   currentEntityCode: 0
   entityCount: 0
   rank: 0
+  target: {fileID: 0}
 --- !u!114 &959715224
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4866,6 +4875,7 @@ MonoBehaviour:
   currentEntityCode: 0
   entityCount: 0
   rank: 0
+  target: {fileID: 0}
 --- !u!1 &1049829417
 GameObject:
   m_ObjectHideFlags: 0
@@ -5140,6 +5150,7 @@ MonoBehaviour:
   currentEntityCode: 0
   entityCount: 0
   rank: 0
+  target: {fileID: 0}
 --- !u!1 &1085580281
 GameObject:
   m_ObjectHideFlags: 0
@@ -5327,6 +5338,7 @@ MonoBehaviour:
   currentEntityCode: 0
   entityCount: 0
   rank: 0
+  target: {fileID: 0}
 --- !u!1 &1092063629
 GameObject:
   m_ObjectHideFlags: 0
@@ -5900,6 +5912,7 @@ MonoBehaviour:
   currentEntityCode: 0
   entityCount: 0
   rank: 0
+  target: {fileID: 0}
 --- !u!1 &1321248651
 GameObject:
   m_ObjectHideFlags: 0
@@ -6087,6 +6100,7 @@ MonoBehaviour:
   currentEntityCode: 0
   entityCount: 0
   rank: 0
+  target: {fileID: 0}
 --- !u!1 &1328914122
 GameObject:
   m_ObjectHideFlags: 0
@@ -6427,6 +6441,7 @@ MonoBehaviour:
   currentEntityCode: 0
   entityCount: 0
   rank: 0
+  target: {fileID: 0}
 --- !u!1 &1399749420
 GameObject:
   m_ObjectHideFlags: 0
@@ -6701,6 +6716,7 @@ MonoBehaviour:
   currentEntityCode: 0
   entityCount: 0
   rank: 0
+  target: {fileID: 0}
 --- !u!1 &1449028894
 GameObject:
   m_ObjectHideFlags: 0
@@ -6934,6 +6950,7 @@ MonoBehaviour:
   currentEntityCode: 0
   entityCount: 0
   rank: 0
+  target: {fileID: 0}
 --- !u!1 &1483213224
 GameObject:
   m_ObjectHideFlags: 0
@@ -7461,6 +7478,7 @@ MonoBehaviour:
   currentEntityCode: 0
   entityCount: 0
   rank: 0
+  target: {fileID: 0}
 --- !u!1 &1642509418
 GameObject:
   m_ObjectHideFlags: 0
@@ -7472,7 +7490,6 @@ GameObject:
   - component: {fileID: 1642509420}
   - component: {fileID: 1642509419}
   - component: {fileID: 1642509421}
-  - component: {fileID: 1642509422}
   - component: {fileID: 1642509423}
   m_Layer: 0
   m_Name: Spawner
@@ -7530,20 +7547,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnArea: {fileID: 1578130214}
   battleData: {fileID: 11400000, guid: 26c73e00451e22a42a2d7dc96e9dde98, type: 2}
---- !u!114 &1642509422
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1642509418}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 83773dfdc35cb4c418897e2a8d302ddc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_HPUI: {fileID: 2838596872730185219, guid: af50b989cb12cf64f969ff8ddacee6e4, type: 3}
-  poolTransform: {fileID: 0}
 --- !u!114 &1642509423
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7556,6 +7559,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8c294e26093d514b87ddfcb4e361dbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  battleData: {fileID: 11400000, guid: 26c73e00451e22a42a2d7dc96e9dde98, type: 2}
 --- !u!1 &1669351711
 GameObject:
   m_ObjectHideFlags: 0
@@ -7743,6 +7747,7 @@ MonoBehaviour:
   currentEntityCode: 0
   entityCount: 0
   rank: 0
+  target: {fileID: 0}
 --- !u!1 &1688890996
 GameObject:
   m_ObjectHideFlags: 0
@@ -7930,6 +7935,7 @@ MonoBehaviour:
   currentEntityCode: 0
   entityCount: 0
   rank: 0
+  target: {fileID: 0}
 --- !u!1 &1709519289
 GameObject:
   m_ObjectHideFlags: 0
@@ -8472,6 +8478,7 @@ MonoBehaviour:
   currentEntityCode: 0
   entityCount: 0
   rank: 0
+  target: {fileID: 0}
 --- !u!114 &1940051103
 MonoBehaviour:
   m_ObjectHideFlags: 0

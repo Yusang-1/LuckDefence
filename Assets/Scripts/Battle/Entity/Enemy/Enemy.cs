@@ -5,9 +5,12 @@ public class Enemy : Entity, ISkillusable, IDamagable
 {
     public event Action<int> HPChanged;
     public event Action<int> MPChanged;
+    public event Action EnemyDied;
     
     private int m_CurrentHP;
     private int m_CurrentMP;
+
+    private bool isDied;
 
     public int CurrentHP
     {
@@ -20,6 +23,7 @@ public class Enemy : Entity, ISkillusable, IDamagable
             if(m_CurrentHP <= 0)
             {
                 Die();
+                isDied = true;
             }
         }
     }
@@ -46,6 +50,8 @@ public class Enemy : Entity, ISkillusable, IDamagable
         EnemyList.Activated(this);
 
         CurrentHP = Data.MaxHp;
+
+        isDied = false;
     }
 
     public void TakeDamage(int damage)
@@ -57,8 +63,13 @@ public class Enemy : Entity, ISkillusable, IDamagable
 
     public void Die()
     {
-        EnemyList.Deactivated(this);
+        if(isDied)
+        {
+            return;
+        }
 
+        EnemyList.Deactivated(this);
+        EnemyDied?.Invoke();        
         gameObject.SetActive(false);
     }
 
