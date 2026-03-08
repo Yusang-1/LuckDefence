@@ -28,9 +28,6 @@ public class CharacterSpawner : MonoBehaviour
 
         AbstractFactory factory;
         FactoryChar fc;
-
-        //characterListData.Initialize();
-
         for (int i = 0; i < factories.Length; i++)
         {
             factory = factories[i];
@@ -95,6 +92,7 @@ public class CharacterSpawner : MonoBehaviour
 
     public CharRank CheckSummonableRank()
     {
+        // 플렛폼들을 순회하며 소환 가능한 랭크의 리스트를 만듦
         foreach (Platform platform in platforms.PlatformList)
         {
             for (int i = 0; i < (int)CharRank.legendary; i++)
@@ -111,6 +109,7 @@ public class CharacterSpawner : MonoBehaviour
             }
         }
 
+        // 확률 기반으로 뽑을 랭크 결정
         CharRank rank = CharRank.none;
         float randNum = Random.Range(0, 100);
         float temp = 0;
@@ -139,6 +138,7 @@ public class CharacterSpawner : MonoBehaviour
         int code;
         bool isAvailable;
 
+        // 소환할 수 있는 캐릭터를 판별
         foreach (Platform platform in platforms.PlatformList)
         {
             for (int i = 0; i < length; i++)
@@ -152,6 +152,7 @@ public class CharacterSpawner : MonoBehaviour
                 }
             }
 
+            // 해당 랭크에 모든 캐릭터가 소환 가능하면 탈출
             if (summonableCharacterCodes.Count == length)
             {
                 break;
@@ -167,6 +168,7 @@ public class CharacterSpawner : MonoBehaviour
     {
         bool isAvailable;
 
+        // 해당 캐릭터가 들어갈 수 있는 플렛폼을 판별
         foreach (Platform platform in platforms.PlatformList)
         {
             isAvailable = platform.CheckEntityAvailable(code);
@@ -187,12 +189,6 @@ public class CharacterSpawner : MonoBehaviour
         return platforms.PlatformList[index].GetPosition(rank);
     }
 
-    //public void PromotionEntity(Platform platform) //플렛폼도 인덱스로 할지 고민
-    //{
-    //    platform.ResetPlatform();
-    //    factoryDict[platform.Rank].ActiveEntity(platform);
-    //}
-
     public void PromotionEntity(PlatformData data)
     {
         platforms.PlatformList[data.Index].ResetPlatform();
@@ -203,8 +199,7 @@ public class CharacterSpawner : MonoBehaviour
         Vector3 position = GetSummonPosition(platformIndex, rank);
 
         SummonData summonData = new((int)rank, charCode, platformIndex, position);
-
-        //Debug.Log($"{rank}, {charCode} Summon");
+        
         factoryDict[(CharRank)summonData.CharRank].ActiveEntity(summonData);
     }
 }

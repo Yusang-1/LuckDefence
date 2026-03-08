@@ -3,18 +3,22 @@ using System.Collections;
 
 public class BattleManager : MonoBehaviour
 {
+    [Header("Managers")]
     [SerializeField] private StageManager stageManager;
     private BattleUIManager battleUIManager;
 
+    [Header("Spawners")]
     [SerializeField] private CharacterSpawner characterSpawner;
     [SerializeField] private EnemySpawner enemySpawner;
     private HPSpawner hpSpawner;
 
+    [Header("Datas")]
     [SerializeField] private StageSO stageData;
     [SerializeField] private BattleDataSO battleData;
     [SerializeField] private CharacterListDataSO charListData;
     [SerializeField] private EnemyList enemyList;
 
+    [Space]
     [SerializeField] private Platforms platforms;
 
     public IEnumerator Start()
@@ -22,7 +26,6 @@ public class BattleManager : MonoBehaviour
         battleUIManager = FindFirstObjectByType<BattleUIManager>();
         hpSpawner = FindFirstObjectByType<HPSpawner>();
 
-        //Debug.Log("Start BattleManager Start");
         battleData.Initialize(stageData);
         enemySpawner.Initialize(stageData.RoundData);
         hpSpawner.Initialize(stageData);
@@ -63,7 +66,6 @@ public class BattleManager : MonoBehaviour
         yield return characterSpawner.Initialize(charListData);
 
         battleUIManager.EnableBattleUI();
-        //Debug.Log("Finish BattleManager Start");
     }
 
     private void OnDestroy()
@@ -96,22 +98,10 @@ public class BattleManager : MonoBehaviour
     public void StartBattle()
     {
         stageManager.StartNextRound();
-    }
-    
-    private void CheckEnemyNum()
-    {
-
-    }
-
-    private void ResetStage()
-    {
-        
-    }
+    }    
 
     private void GameOver()
     {
         battleData.IsGameOver = true;
     }
 }
-
-//플렛폼에 프로모션 missing

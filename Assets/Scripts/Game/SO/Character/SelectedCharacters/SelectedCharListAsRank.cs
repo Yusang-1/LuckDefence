@@ -1,13 +1,10 @@
 ﻿using System;
 using System.Linq;
 using UnityEngine;
-using static UnityEngine.EventSystems.EventTrigger;
 
 [CreateAssetMenu(fileName = "SelectedCharListAsRank", menuName = "Scriptable Objects/SelectedCharListAsRank")]
 public class SelectedCharListAsRank : CharListAsRank
 {
-    //[SerializeField] private int fullCount;
-
     // 숫자가 높은 것부터 대체
     [SerializeField] private int[] changePriority;
 

@@ -350,6 +350,7 @@ MonoBehaviour:
   upperUI: {fileID: 1158852708}
   lowerUI: {fileID: 814658354}
   characterPortraitUI: {fileID: 1208159257374797429, guid: 728457a81d041cc4fa3fc3a009cca482, type: 3}
+  rankText: {fileID: 1666061164}
   defaultSpacingBetweenUIs: 4
   paddingHorizontal: 3
   paddingVertical: 3
@@ -2645,13 +2646,18 @@ MonoBehaviour:
   characterListData: {fileID: 11400000, guid: 50c5009c247dbec479691daa339e02c4, type: 2}
   ownedCharacterListData: {fileID: 11400000, guid: 36fc1b429e2f02940ab785ba953ece0d, type: 2}
   selectedCharacterListData: {fileID: 11400000, guid: 166d382c2fce3834f801566890b97e24, type: 2}
-  codeUnit: 100
   commonCount: 6
   rareCount: 5
   epicCount: 4
   uniqueCount: 4
   legendaryCount: 3
   allCount: 22
+  commonColorCode: '#C3C3C3'
+  rareColorCode: '#3E4FDE'
+  epicColorCode: '#9F3EDD'
+  uniqueColorCode: '#DD3E76'
+  legendaryColorCode: '#FFE423'
+  codeUnit: 100
 --- !u!4 &265329638
 Transform:
   m_ObjectHideFlags: 0
@@ -4383,6 +4389,7 @@ MonoBehaviour:
   upperUI: {fileID: 809764049}
   lowerUI: {fileID: 482772961}
   characterPortraitUI: {fileID: 1208159257374797429, guid: 728457a81d041cc4fa3fc3a009cca482, type: 3}
+  rankText: {fileID: 2022844219}
   defaultSpacingBetweenUIs: 4
   paddingHorizontal: 3
   paddingVertical: 3
@@ -4557,6 +4564,7 @@ MonoBehaviour:
   upperUI: {fileID: 1374467448}
   lowerUI: {fileID: 1389562683}
   characterPortraitUI: {fileID: 1208159257374797429, guid: 728457a81d041cc4fa3fc3a009cca482, type: 3}
+  rankText: {fileID: 622087979}
   defaultSpacingBetweenUIs: 4
   paddingHorizontal: 3
   paddingVertical: 3
@@ -4867,6 +4875,7 @@ MonoBehaviour:
   upperUI: {fileID: 764646171}
   lowerUI: {fileID: 1142861040}
   characterPortraitUI: {fileID: 1208159257374797429, guid: 728457a81d041cc4fa3fc3a009cca482, type: 3}
+  rankText: {fileID: 749493577}
   defaultSpacingBetweenUIs: 4
   paddingHorizontal: 3
   paddingVertical: 3
@@ -7002,7 +7011,7 @@ GameObject:
   - component: {fileID: 622087980}
   - component: {fileID: 622087979}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Text_Rank
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8623,6 +8632,7 @@ MonoBehaviour:
   upperUI: {fileID: 267233336}
   lowerUI: {fileID: 327553787}
   characterPortraitUI: {fileID: 1208159257374797429, guid: 728457a81d041cc4fa3fc3a009cca482, type: 3}
+  rankText: {fileID: 1540268533}
   defaultSpacingBetweenUIs: 4
   paddingHorizontal: 3
   paddingVertical: 3
@@ -8639,7 +8649,7 @@ GameObject:
   - component: {fileID: 745878930}
   - component: {fileID: 745878929}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Text_Rank
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8776,7 +8786,7 @@ GameObject:
   - component: {fileID: 749493578}
   - component: {fileID: 749493577}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Text_Rank
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11136,7 +11146,7 @@ GameObject:
   - component: {fileID: 912506109}
   - component: {fileID: 912506108}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Text_Rank
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12346,6 +12356,7 @@ MonoBehaviour:
   upperUI: {fileID: 251994820}
   lowerUI: {fileID: 657601387}
   characterPortraitUI: {fileID: 1208159257374797429, guid: 728457a81d041cc4fa3fc3a009cca482, type: 3}
+  rankText: {fileID: 1367694727}
   defaultSpacingBetweenUIs: 4
   paddingHorizontal: 3
   paddingVertical: 3
@@ -14222,6 +14233,7 @@ MonoBehaviour:
   upperUI: {fileID: 396941976}
   lowerUI: {fileID: 408538276}
   characterPortraitUI: {fileID: 1208159257374797429, guid: 728457a81d041cc4fa3fc3a009cca482, type: 3}
+  rankText: {fileID: 745878929}
   defaultSpacingBetweenUIs: 4
   paddingHorizontal: 3
   paddingVertical: 3
@@ -15326,6 +15338,7 @@ MonoBehaviour:
   upperUI: {fileID: 1078156122}
   lowerUI: {fileID: 45127604}
   characterPortraitUI: {fileID: 1208159257374797429, guid: 728457a81d041cc4fa3fc3a009cca482, type: 3}
+  rankText: {fileID: 1968343361}
   defaultSpacingBetweenUIs: 4
   paddingHorizontal: 3
   paddingVertical: 3
@@ -16369,7 +16382,7 @@ GameObject:
   - component: {fileID: 1345815228}
   - component: {fileID: 1345815227}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Text_Rank
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16879,7 +16892,7 @@ GameObject:
   - component: {fileID: 1367694728}
   - component: {fileID: 1367694727}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Text_Rank
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18573,7 +18586,7 @@ GameObject:
   - component: {fileID: 1540268534}
   - component: {fileID: 1540268533}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Text_Rank
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19028,6 +19041,7 @@ MonoBehaviour:
   upperUI: {fileID: 1028144654}
   lowerUI: {fileID: 921366639}
   characterPortraitUI: {fileID: 1208159257374797429, guid: 728457a81d041cc4fa3fc3a009cca482, type: 3}
+  rankText: {fileID: 1345815227}
   defaultSpacingBetweenUIs: 4
   paddingHorizontal: 3
   paddingVertical: 3
@@ -19371,6 +19385,7 @@ MonoBehaviour:
   upperUI: {fileID: 366128284}
   lowerUI: {fileID: 1909930876}
   characterPortraitUI: {fileID: 1208159257374797429, guid: 728457a81d041cc4fa3fc3a009cca482, type: 3}
+  rankText: {fileID: 912506108}
   defaultSpacingBetweenUIs: 4
   paddingHorizontal: 3
   paddingVertical: 3
@@ -19981,7 +19996,7 @@ GameObject:
   - component: {fileID: 1666061165}
   - component: {fileID: 1666061164}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Text_Rank
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -22822,7 +22837,7 @@ GameObject:
   - component: {fileID: 1968343362}
   - component: {fileID: 1968343361}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Text_Rank
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23353,7 +23368,7 @@ GameObject:
   - component: {fileID: 2022844220}
   - component: {fileID: 2022844219}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Text_Rank
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

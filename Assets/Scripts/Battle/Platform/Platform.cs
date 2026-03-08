@@ -42,7 +42,7 @@ public class Platform : MonoBehaviour, ISelectableObject, IHoldableObject
 
     public void Start()
     {
-        
+        promotion = FindFirstObjectByType<Promotion>();
         entities = new Entity[maxAvailableEntityCount];
         entityCount = 0;
         platformPosData.Initialize();
@@ -54,6 +54,11 @@ public class Platform : MonoBehaviour, ISelectableObject, IHoldableObject
         this.index = index;
     }
 
+    /// <summary>
+    /// 현제 플렛폼에 캐릭터가 얼마나 차있는지 확인후 알맞은 위치 반환
+    /// </summary>
+    /// <param name="rank"></param>
+    /// <returns></returns>
     public Vector3 GetPosition(CharRank rank)
     {
         Vector3 pos = platformPosData.PlatformPosDict[rank].Pos[entityCount] + transform.position;
@@ -135,20 +140,16 @@ public class Platform : MonoBehaviour, ISelectableObject, IHoldableObject
 
     public void Selected()
     {
-        Debug.Log($"Selected : {name}");
-        
         bool value = CheckIsPromotionable();
 
-        //promotion.GetPlatformData(new PlatformData(index, rank), value);
+        promotion.GetPlatformData(new PlatformData(index, rank), value);
 
-        Debug.Log(index);
         platforms.SelectedPlatformIndex = index;
     }
 
     public void SelectedEnd()
     {
-        //IsPromotionable = false;
-        //platforms.SelectedPlatformIndex = -1;
+
     }
 
     public void Holded()

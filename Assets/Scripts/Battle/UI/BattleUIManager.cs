@@ -10,6 +10,7 @@ public class BattleUIManager : MonoBehaviour
     [SerializeField] private StartStageButton startStageButton;
     [SerializeField] private EndStagePanelUI endStagePanelUI;
 
+    [Space]
     [SerializeField] private BattleDataSO battleData;
 
     public BattleTimerUI TimerUI => timerUI;
