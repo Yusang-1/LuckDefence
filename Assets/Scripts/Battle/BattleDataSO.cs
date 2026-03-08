@@ -7,12 +7,17 @@ public class BattleDataSO : ScriptableObject
     public event Action<RoundData> StartNextRound;
     public event Action<int> EnemyCountChanged;
     public event Action EnemyFull;
+    public event Action AllEnemyDied;
 
     [SerializeField] private int roundNum;
 
     [SerializeField] private int currentEnemyCount;
 
     private StageSO stageData;
+
+    public StageSO StageData => stageData;
+
+    public bool IsGameOver;
 
     public int RoundNum
     {
@@ -33,6 +38,11 @@ public class BattleDataSO : ScriptableObject
         get => currentEnemyCount;
         set
         {
+            if (currentEnemyCount > stageData.MaxEnemyCount + 1)
+            {
+                return;
+            }
+
             currentEnemyCount = value;
             EnemyCountChanged?.Invoke(currentEnemyCount);
 
@@ -40,12 +50,25 @@ public class BattleDataSO : ScriptableObject
             {
                 EnemyFull?.Invoke();
             }
+
+            if(roundNum == stageData.RoundCount - 1 && currentEnemyCount == 0)
+            {
+                AllEnemyDied?.Invoke();
+            }
         }
     }
 
     public void Initialize(StageSO stageData)
     {
+        IsGameOver = false;
         this.stageData = stageData;
+        currentEnemyCount = 0;
+        RoundNum = -1;
+    }
+
+    public void OnResetData()
+    {
+        IsGameOver = false;
         currentEnemyCount = 0;
         RoundNum = -1;
     }

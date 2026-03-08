@@ -15,27 +15,35 @@ public class BattleTimerUI : MonoBehaviour
     [SerializeField] private float warningTime;
     [SerializeField] private float maxTime;
 
-    private float m_currentTime;
-
+    private float currentTime;
+    private bool isPlaying;
     private IEnumerator timeCoroutine;
 
     protected float CurrentTime
     {
-        get => m_currentTime;
+        get => currentTime;
         set
         {
-            m_currentTime = Mathf.Clamp(value, 0, maxTime);
-            ChangeText(m_currentTime.ToString("N2"));
+            currentTime = Mathf.Clamp(value, 0, maxTime);
+            ChangeText(currentTime.ToString("N2"));
 
-            if (m_currentTime == 0)
+            if (currentTime == 0 && isPlaying)
             {
                 TimeIsOver?.Invoke();
             }
         }
     }
 
+    public void Initialize()
+    {
+        CurrentTime = 0;
+        timeCoroutine = null;
+    }
+
     public void OnStartTimerAddTime(RoundData data)
     {
+        isPlaying = true;
+
         CurrentTime += data.AdditionalTime;
 
         if(timeCoroutine == null)
@@ -73,5 +81,18 @@ public class BattleTimerUI : MonoBehaviour
     private void ChangeText(string text)
     {
         timerText.text = text;
+    }
+
+    public void OnResetTimer()
+    {
+        isPlaying = false;
+
+        if (timeCoroutine != null)
+        {
+            StopCoroutine(timeCoroutine);
+            timeCoroutine = null;
+        }
+
+        CurrentTime = 0;
     }
 }

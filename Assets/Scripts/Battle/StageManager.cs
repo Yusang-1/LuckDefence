@@ -4,7 +4,7 @@ public class StageManager : MonoBehaviour
 {
     [SerializeField] private BattleDataSO battleData;
 
-    [SerializeField] private BattleTimerUI timerUI;
+    private BattleTimerUI timerUI;
 
     private void Start()
     {
@@ -13,6 +13,11 @@ public class StageManager : MonoBehaviour
 
     public void StartNextRound()
     {
+        if(battleData.RoundNum == battleData.StageData.RoundCount - 1 || battleData.IsGameOver)
+        {
+            return;
+        }
+
         battleData.RoundNum++;
     }
 }

@@ -58,6 +58,6 @@ public class SceneChanger : MonoBehaviour
 
     private static void OnLoadOperationCompleted(AsyncOperation asyncOperation)
     {
-        gameManagerStatic.Initialize();        
+        gameManagerStatic.Initialize();
     }
 }

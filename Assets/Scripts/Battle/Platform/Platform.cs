@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 
-
 public class Platform : MonoBehaviour, ISelectableObject, IHoldableObject
 {
     [SerializeField] private Platforms platforms;
@@ -8,7 +7,6 @@ public class Platform : MonoBehaviour, ISelectableObject, IHoldableObject
     [SerializeField] private PlatformHoldSelector holdSelector;
     [SerializeField] private Promotion promotion;
     [SerializeField] private TargetSearcher targetSearcher;
-    //[SerializeField] private TargetSearcherWithCollision testTargetSearcher;
 
     [SerializeField] private int currentEntityCode;
     [SerializeField] private int entityCount;
@@ -44,12 +42,11 @@ public class Platform : MonoBehaviour, ISelectableObject, IHoldableObject
 
     public void Start()
     {
+        
         entities = new Entity[maxAvailableEntityCount];
         entityCount = 0;
         platformPosData.Initialize();
         rank = CharRank.none;
-
-        //testTargetSearcher = GetComponent<TargetSearcherWithCollision>();
     }
 
     public void GetIndex(int index)
@@ -132,7 +129,6 @@ public class Platform : MonoBehaviour, ISelectableObject, IHoldableObject
         (entity as Character).GetPlatform(this);
 
         targetSearcher.Initialize(entity as Character);
-        //testTargetSearcher.Initialize(entity as Character);
 
         platforms.DataChanged(index);
     }

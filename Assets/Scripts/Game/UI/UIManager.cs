@@ -5,16 +5,30 @@ public class UIManager : MonoBehaviour
 {
     [SerializeField] private LobbyUIManager lobbyUI;
     [SerializeField] private BattleUIManager battleUI;
-    [SerializeField] private LoadingUI loadingUI;
+    [SerializeField] private LoadingUI loadingUI;    
     [SerializeField] private GameObject currentActiveMainUI;
 
     [SerializeField] private GameObject[] MainUIListBySceneIndex;
 
+    private static bool hasInstance = false;
+
+    void Awake()
+    {
+        if (hasInstance)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            hasInstance = true;
+            
+            DontDestroyOnLoad(gameObject);
+        }
+    }
+
     private void Start()
     {
-        DontDestroyOnLoad(this);
-
-        currentActiveMainUI = lobbyUI.gameObject; //임시
+        currentActiveMainUI = lobbyUI.gameObject;
     }
 
     public void ChangeMainUI()

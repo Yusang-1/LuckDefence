@@ -13,6 +13,7 @@ public class EnemyMover : EntityMover
     {
         base.Initialize(entity);
 
+        currentBeaconIndex = 0;
         directionVector = GetDestinationVector(transform.position);
     }
 

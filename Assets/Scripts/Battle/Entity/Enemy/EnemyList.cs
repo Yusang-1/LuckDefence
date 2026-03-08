@@ -8,6 +8,7 @@ public class EnemyList : MonoBehaviour
     private void Start()
     {
         //Enemies = new List<Entity>();
+        Enemies.Clear();
     }
 
     public static void Activated(Entity entity)
@@ -18,5 +19,14 @@ public class EnemyList : MonoBehaviour
     public static void Deactivated(Entity entity)
     {
         Enemies.Remove(entity);
+    }
+
+    public void OnDeactivateAllEnemy()
+    {
+        foreach(var enemy in Enemies)
+        {
+            enemy.gameObject.SetActive(false);
+        }
+        Enemies.Clear();
     }
 }

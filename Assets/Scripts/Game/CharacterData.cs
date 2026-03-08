@@ -24,6 +24,22 @@ public class CharacterData : MonoBehaviour
     public int AllCount => allCount;
     public Dictionary<CharRank, int> RankCountByRank => rankCountByRank;
 
+    private static bool hasInstance = false;
+
+    void Awake()
+    {
+        if (hasInstance)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            hasInstance = true;
+
+            DontDestroyOnLoad(gameObject);
+        }
+    }
+
     private void Start()
     {
         characterListData.Initialize();
@@ -36,8 +52,6 @@ public class CharacterData : MonoBehaviour
         rankCountByRank.Add(CharRank.epic, epicCount);
         rankCountByRank.Add(CharRank.unique, uniqueCount);
         rankCountByRank.Add(CharRank.legendary, legendaryCount);
-
-        DontDestroyOnLoad(this);
     }
 
     public void AddOwnedCharacter(Entity entity)

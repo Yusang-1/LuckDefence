@@ -6118,7 +6118,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   battleData: {fileID: 11400000, guid: 26c73e00451e22a42a2d7dc96e9dde98, type: 2}
-  timerUI: {fileID: 0}
 --- !u!114 &1328914124
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6132,13 +6131,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stageManager: {fileID: 1328914123}
-  battleUIManager: {fileID: 0}
   characterSpawner: {fileID: 1642509419}
   enemySpawner: {fileID: 1642509421}
-  hpSpawner: {fileID: 1642509422}
   stageData: {fileID: 11400000, guid: 1b33c6ca0af4d534797d22b269e1d7c3, type: 2}
   battleData: {fileID: 11400000, guid: 26c73e00451e22a42a2d7dc96e9dde98, type: 2}
   charListData: {fileID: 11400000, guid: 166d382c2fce3834f801566890b97e24, type: 2}
+  enemyList: {fileID: 1642509423}
+  platforms: {fileID: 477850103}
 --- !u!4 &1328914125
 Transform:
   m_ObjectHideFlags: 0
@@ -7529,7 +7528,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73998706dc8944e46897ae6a30cdb662, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hpSpawner: {fileID: 1642509422}
   spawnArea: {fileID: 1578130214}
   battleData: {fileID: 11400000, guid: 26c73e00451e22a42a2d7dc96e9dde98, type: 2}
 --- !u!114 &1642509422

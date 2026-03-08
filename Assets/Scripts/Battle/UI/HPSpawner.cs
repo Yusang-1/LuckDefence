@@ -7,11 +7,6 @@ public class HPSpawner : MonoBehaviour
 
     private HPUI[] hpUIs;
 
-    private void Start()
-    {
-        
-    }
-
     public void Initialize(StageSO stageData)
     {
         GameObject hpUI;
@@ -36,6 +31,15 @@ public class HPSpawner : MonoBehaviour
                 hpUI.matchEntity(entity);
                 break;
             }
+        }
+    }
+
+    public void OnDeactiveAllHP()
+    {
+        foreach(var hp in hpUIs)
+        {
+            hp.ResetUI();
+            hp.gameObject.SetActive(false);
         }
     }
 }

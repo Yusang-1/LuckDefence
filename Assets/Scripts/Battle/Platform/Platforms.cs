@@ -1,5 +1,5 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
+using System;
 
 public class Platforms : MonoBehaviour
 {
@@ -37,7 +37,7 @@ public class Platforms : MonoBehaviour
     }
 
     public void DataChanged(int index)
-    {        
+    {
         Debug.Log($"{index}  {selectedPlatformIndex}");
         if (index != selectedPlatformIndex) return;
 

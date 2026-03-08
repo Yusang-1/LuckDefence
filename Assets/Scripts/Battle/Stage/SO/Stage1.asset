@@ -13,13 +13,25 @@ MonoBehaviour:
   m_Name: Stage1
   m_EditorClassIdentifier: 
   stageNum: 1
-  maxEnemyCount: 100
+  maxEnemyCount: 12
   roundData:
   - enemy: {fileID: 4314358501371899066, guid: a505bf8bbc3a6c547a01a0ea2bec2578, type: 3}
     enemyCount: 10
-    additionalTime: 15
+    additionalTime: 12
     spawnDelay: 0.8
   - enemy: {fileID: 4314358501371899066, guid: fa48974f1ef21874db43885e68d105d3, type: 3}
     enemyCount: 10
-    additionalTime: 15
-    spawnDelay: 0.8
+    additionalTime: 12
+    spawnDelay: 0.6
+  - enemy: {fileID: 4314358501371899066, guid: fa48974f1ef21874db43885e68d105d3, type: 3}
+    enemyCount: 10
+    additionalTime: 14
+    spawnDelay: 0.5
+  - enemy: {fileID: 4314358501371899066, guid: fa48974f1ef21874db43885e68d105d3, type: 3}
+    enemyCount: 10
+    additionalTime: 14
+    spawnDelay: 0.4
+  - enemy: {fileID: 4314358501371899066, guid: fa48974f1ef21874db43885e68d105d3, type: 3}
+    enemyCount: 10
+    additionalTime: 14
+    spawnDelay: 0.3

@@ -2,15 +2,26 @@
 
 public class StartStageButton : MonoBehaviour
 {
-    private void Start()
+    private BattleManager battleManager;
+
+    public void Initialize()
     {
         gameObject.SetActive(true);
     }
 
     public void OnStartStage()
     {
-        FindFirstObjectByType<BattleManager>().StartBattle();
+        if(battleManager == null)
+        {
+            battleManager = FindFirstObjectByType<BattleManager>();
+        }
+        battleManager.StartBattle();
 
         gameObject.SetActive(false);
+    }
+
+    public void OnOpenUI()
+    {
+        gameObject.SetActive(true);
     }
 }

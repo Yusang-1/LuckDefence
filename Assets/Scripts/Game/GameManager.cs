@@ -4,9 +4,22 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] private UIManager uiManager;
 
-    private void Start()
+    public UIManager UIManager => uiManager;
+
+    private static bool hasInstance = false;
+
+    void Awake()
     {
-        DontDestroyOnLoad(this);
+        if (hasInstance)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            hasInstance = true;
+
+            DontDestroyOnLoad(gameObject);
+        }
     }
 
     public void Initialize()

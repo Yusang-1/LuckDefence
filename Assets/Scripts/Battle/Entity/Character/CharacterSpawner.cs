@@ -16,6 +16,8 @@ public class CharacterSpawner : MonoBehaviour
 
     private Dictionary<CharRank, AbstractFactory> factoryDict;
 
+    public Dictionary<CharRank, AbstractFactory> FactoryDict => factoryDict;
+
     public IEnumerator Initialize(CharacterListDataSO characterListData)
     {
         charListData = characterListData;

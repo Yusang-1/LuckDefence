@@ -2,10 +2,8 @@
 
 public class Promotion : MonoBehaviour
 {
-    //public event Action<bool> PromotionableChanged;
-    
-    [SerializeField] private Platforms platforms;
-    [SerializeField] private CharacterSpawner spawner;
+    private Platforms platforms;
+    private CharacterSpawner spawner;
 
     private PlatformData platformData;
     private bool isPromotionable;
@@ -16,8 +14,13 @@ public class Promotion : MonoBehaviour
         set
         {
             isPromotionable = value;
-            //PromotionableChanged?.Invoke(isPromotionable);
         }
+    }
+
+    private void Start()
+    {
+        platforms = FindFirstObjectByType<Platforms>();
+        spawner = FindFirstObjectByType<CharacterSpawner>();
     }
 
     public void GetPlatformData(PlatformData data, bool isPormotionable)

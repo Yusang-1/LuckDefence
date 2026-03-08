@@ -7,7 +7,7 @@ public class PooledEntity
 
     private GameObject[] pooledEntities;
     private int nowPooledCount;
-    private int maxPooledCount;
+    private int maxPooledCount;    
 
     public PooledEntity(GameObject[] gameObjects, int poolNum)
     {
@@ -42,5 +42,13 @@ public class PooledEntity
     public void DeactiveEntity()
     {
 
+    }
+
+    public void DeactiveEntityAll()
+    {
+        foreach(GameObject go in pooledEntities)
+        {
+            go.SetActive(false);
+        }
     }
 }

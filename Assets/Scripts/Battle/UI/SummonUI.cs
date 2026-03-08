@@ -11,6 +11,11 @@ public class SummonUI : MonoBehaviour
         spawner = FindFirstObjectByType<CharacterSpawner>();
     }
 
+    public void Initialize()
+    {
+        spawner = FindFirstObjectByType<CharacterSpawner>();
+    }
+
     public void OnSummon()
     {
         spawner.SpawnEntity();

@@ -11,6 +11,7 @@ public class StageSO : ScriptableObject
     public int StageNum => stageNum;
     public int MaxEnemyCount => maxEnemyCount;
     public RoundData[] RoundData => roundData;
+    public int RoundCount => roundData.Length;
 }
 
 [Serializable]

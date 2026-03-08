@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using static UnityEngine.Rendering.DebugUI;
 
 public class HPUI : MonoBehaviour
 {
@@ -45,12 +46,13 @@ public class HPUI : MonoBehaviour
         }
     }
 
-    private void ResetUI()
+    public void ResetUI()
     {
         damagableEntity.HPChanged -= OnSetUI;
-
         damagableEntity = null;
-
+        entity = null;
         isMatched = false;
+
+        hpTransform.localScale = new Vector3(1, 1, 1);
     }
 }
