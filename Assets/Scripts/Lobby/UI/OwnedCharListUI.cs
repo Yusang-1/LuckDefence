@@ -92,7 +92,6 @@ public class OwnedCharListUI : MonoBehaviour
 
             pos.x = paddingHorizontal + column * (rect.sizeDelta.x + spacingBetweenUIs) + characterPortraitUI.sizeDelta.x / 2 - myRect.sizeDelta.x /2;
             pos.y = -paddingVertical - row * (rect.sizeDelta.y + spacingBetweenUIs) - characterPortraitUI.sizeDelta.y / 2;
-            //Debug.Log(pos);
             rect.localPosition = pos;
 
             if(activatedPortraitCount % maxColumn == 0)
@@ -106,6 +105,11 @@ public class OwnedCharListUI : MonoBehaviour
             }
 
             activatedPortraitCount++;
+        }
+
+        if (column == 0 && row != 0)
+        {
+            row--;
         }
 
         myRect.sizeDelta = new Vector2(myRect.sizeDelta.x, paddingVertical * 2 + (row + 1) * characterPortraitUI.sizeDelta.y + row * spacingBetweenUIs + upperUI.sizeDelta.y);

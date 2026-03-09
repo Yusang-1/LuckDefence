@@ -89,9 +89,14 @@ public class AllCharListUI : MonoBehaviour
             else
             {
                 column++;
-            }
+            }            
 
             activatedPortraitCount++;
+        }
+
+        if (column == 0 && row != 0)
+        {
+            row--;
         }
 
         myRect.sizeDelta = new Vector2(myRect.sizeDelta.x, paddingVertical * 2 + (row + 1) * characterPortraitUI.sizeDelta.y + row * spacingBetweenUIs + upperUI.sizeDelta.y);
