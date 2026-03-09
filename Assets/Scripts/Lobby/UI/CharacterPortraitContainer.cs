@@ -11,7 +11,8 @@ public class CharacterPortraitContainer : MonoBehaviour, IPointerClickHandler
     private AbstractUI characterShopUI;
     private int characterCode;
 
-    private bool isInSelectedArea;    
+    private bool isInSelectedArea;
+    private bool isActivated;
 
     public int CharacterCode => characterCode;
 
@@ -21,6 +22,7 @@ public class CharacterPortraitContainer : MonoBehaviour, IPointerClickHandler
         {
             characterName.text = entity.Data.EntityName;
             characterCode = entity.Data.Code;
+            isActivated = true;
         }
         this.characterShopUI = characterShopUI;
         this.isInSelectedArea = isInSelectedArea;
@@ -33,6 +35,7 @@ public class CharacterPortraitContainer : MonoBehaviour, IPointerClickHandler
             characterName.text = "";
             characterCode = 0;
             characterPortrait.color = Color.white;
+            isActivated = false;
             return;
         }
 
@@ -42,15 +45,19 @@ public class CharacterPortraitContainer : MonoBehaviour, IPointerClickHandler
         Color setColor;
         ColorUtility.TryParseHtmlString(colorCode, out setColor);
         characterPortrait.color = setColor;
+        isActivated = true;
     }
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if(isInSelectedArea == true)
+        if(isInSelectedArea == true && isActivated)
         {
-            characterShopUI.RemovePortrait(characterCode);
-            //(characterShopUI as ManagedCharacterUI).UpdateShopUI();
-        }        
+            characterShopUI.RemovePortrait(characterCode);            
+        }
+        else if(isInSelectedArea == true && isActivated == false)
+        {
+            return;
+        }
         else
         {
             characterShopUI.PortraitSelected(characterCode);
