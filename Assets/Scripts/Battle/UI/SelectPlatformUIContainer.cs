@@ -15,6 +15,7 @@ public class SelectPlatformUIContainer : MonoBehaviour
         }
 
         platforms.PlatformSelected += OpenUI;
+        platforms.NoPlatformSelected += CloseUI;
         platforms.PlatformDataChanged += UpdateUI;
 
         m_UIRight.Initialize();
@@ -24,6 +25,7 @@ public class SelectPlatformUIContainer : MonoBehaviour
     private void OnDestroy()
     {
         platforms.PlatformSelected -= OpenUI;
+        platforms.NoPlatformSelected -= CloseUI;
         platforms.PlatformDataChanged -= UpdateUI;
     }
 
@@ -57,6 +59,20 @@ public class SelectPlatformUIContainer : MonoBehaviour
         }
 
         m_UILeft.OpenUI(platform);
+    }
+
+    private void CloseUI()
+    {
+        Debug.Log(1);
+        if (m_UILeft.IsOpen)
+        {
+            m_UILeft.OnCloseUI();
+        }
+
+        if (m_UIRight.IsOpen)
+        {
+            m_UIRight.OnCloseUI();
+        }
     }
 
     public void UpdateUI(Platform platform)

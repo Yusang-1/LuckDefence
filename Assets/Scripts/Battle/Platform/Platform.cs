@@ -163,7 +163,7 @@ public class Platform : MonoBehaviour, ISelectableObject, IHoldableObject
 
     public void SelectedEnd()
     {
-
+        platforms.SelectedPlatformIndex = -1;
     }
 
     public void Holded()
