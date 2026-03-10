@@ -64,6 +64,7 @@ public class SelectPlatformUI : MonoBehaviour, IUIAnimation
 
     public IEnumerator DeactiveUIAnimationCoroutine()
     {
+        Debug.Log(2);
         uiAnimation.PlayDisableAnimation(uiOpenTime);
 
         while (true)
@@ -75,7 +76,7 @@ public class SelectPlatformUI : MonoBehaviour, IUIAnimation
 
             yield return null;
         }
-
+        Debug.Log(3);
         gameObject.SetActive(false);
     }
 }

@@ -3,10 +3,11 @@ using System;
 
 public class Platforms : MonoBehaviour
 {
-    public event Action<Platform> PlatformSelected;
     public event Action<Platform> PlatformDataChanged;
+    public event Action<Platform> PlatformSelected;
+    public event Action NoPlatformSelected;
 
-    [SerializeField] private Platform[] platformList;
+    [SerializeField] private Platform[] platformList;    
     
     private int selectedPlatformIndex;
 
@@ -17,10 +18,17 @@ public class Platforms : MonoBehaviour
         get => selectedPlatformIndex;
         set
         {
+            Debug.Log($"asdf : {value}");
+            if(selectedPlatformIndex >= 0 && value < 0)
+            {
+                NoPlatformSelected?.Invoke();
+                return;
+            }
+
             selectedPlatformIndex = value;
             
             if(value >= 0 && platformList[value].EntityCount > 0)
-            {                
+            {
                 PlatformSelected?.Invoke(platformList[value]);
             }
         }
