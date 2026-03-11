@@ -154,6 +154,12 @@ public class Platform : MonoBehaviour, ISelectableObject, IHoldableObject
 
     public void Selected()
     {
+        if (entities[0] == null)
+        {
+            platforms.SelectedPlatformIndex = -1;
+            return;
+        }
+
         bool value = CheckIsPromotionable();
 
         promotion.GetPlatformData(new PlatformData(index, rank), value);

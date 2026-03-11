@@ -35,7 +35,7 @@ public class InputManager : MonoBehaviour
             RaycastHit2D hit2D = Physics2D.Raycast(vec, Vector3.forward, float.MaxValue);
 
             if (hit2D && hit2D.collider.gameObject.TryGetComponent<ISelectableObject>(out ISelectableObject selectable))
-            {                
+            {
                 if(m_ISelectable != selectable)
                 {
                     m_ISelectable?.SelectedEnd();
@@ -45,7 +45,10 @@ public class InputManager : MonoBehaviour
             }
             else
             {
+                // 첫 selectedEnd : 다른 selectableObject 선택 대기, 두번째 selectedEnd : selectableObject 선택 안되었음을 알림
                 m_ISelectable?.SelectedEnd();
+                m_ISelectable?.SelectedEnd();
+                m_ISelectable = null;
             }
         }
 

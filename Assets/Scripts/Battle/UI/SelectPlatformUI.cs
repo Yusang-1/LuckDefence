@@ -66,6 +66,8 @@ public class SelectPlatformUI : MonoBehaviour, IUIAnimation
 
     public IEnumerator DeactiveUIAnimationCoroutine()
     {
+        yield return null;
+
         isOpen = false;
         uiAnimation.PlayDisableAnimation(uiOpenTime);
 

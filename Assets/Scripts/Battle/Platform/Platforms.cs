@@ -19,6 +19,12 @@ public class Platforms : MonoBehaviour
         set
         {
             if(selectedPlatformIndex >= 0 && value < 0)
+            {                
+                selectedPlatformIndex = value;
+                return;
+            }
+
+            if(selectedPlatformIndex < 0 && value < 0)
             {
                 NoPlatformSelected?.Invoke();
                 return;
