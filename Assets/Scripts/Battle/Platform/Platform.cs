@@ -168,15 +168,11 @@ public class Platform : MonoBehaviour, ISelectableObject, IHoldableObject
 
     public void Holded()
     {
-        Debug.Log($"Holded : {name}");
-
         holdSelector.Holded(index);
     }
 
     public void HoldReleased()
     {
-        Debug.Log($"HoldReleased : {name}");
-
         holdSelector.Released(index);
     }
 

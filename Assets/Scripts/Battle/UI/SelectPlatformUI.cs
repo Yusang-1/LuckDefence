@@ -59,12 +59,14 @@ public class SelectPlatformUI : MonoBehaviour, IUIAnimation
 
     public void ActiveUIAnimation()
     {
+        isOpen = true;
+
         uiAnimation.PlayEnableAnimation(uiOpenTime);
     }
 
     public IEnumerator DeactiveUIAnimationCoroutine()
     {
-        Debug.Log(2);
+        isOpen = false;
         uiAnimation.PlayDisableAnimation(uiOpenTime);
 
         while (true)
@@ -76,7 +78,7 @@ public class SelectPlatformUI : MonoBehaviour, IUIAnimation
 
             yield return null;
         }
-        Debug.Log(3);
+
         gameObject.SetActive(false);
     }
 }

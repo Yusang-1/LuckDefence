@@ -63,7 +63,6 @@ public class SelectPlatformUIContainer : MonoBehaviour
 
     private void CloseUI()
     {
-        Debug.Log(1);
         if (m_UILeft.IsOpen)
         {
             m_UILeft.OnCloseUI();

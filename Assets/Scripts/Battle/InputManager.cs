@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 public class InputManager : MonoBehaviour
@@ -8,21 +9,43 @@ public class InputManager : MonoBehaviour
     private ISelectableObject m_ISelectable;
     private Vector3 mousePosition;
     private bool isHold;
+    private bool isPointerOverGameObject;
+
+    private void Update()
+    {
+        if (EventSystem.current.IsPointerOverGameObject())
+        {
+            isPointerOverGameObject = true;
+        }
+        else
+        {
+            isPointerOverGameObject = false;
+        }
+    }
 
     public void OnSelect(InputAction.CallbackContext context)
     {
+        if (isPointerOverGameObject) return;
+
         if (context.started)
         {
-            m_ISelectable?.SelectedEnd();
-
             mousePosition = context.ReadValue<Vector2>();
 
             Vector3 vec = Camera.main.ScreenToWorldPoint(new Vector3(mousePosition.x, mousePosition.y, 10));
             RaycastHit2D hit2D = Physics2D.Raycast(vec, Vector3.forward, float.MaxValue);
 
             if (hit2D && hit2D.collider.gameObject.TryGetComponent<ISelectableObject>(out ISelectableObject selectable))
-            {
+            {                
+                if(m_ISelectable != selectable)
+                {
+                    m_ISelectable?.SelectedEnd();
+                }
+
                 m_ISelectable = selectable;
+            }
+            else
+            {
+                m_ISelectable?.SelectedEnd();
             }
         }
 
@@ -48,6 +71,8 @@ public class InputManager : MonoBehaviour
 
     public void OnHold(InputAction.CallbackContext context)
     {
+        if (isPointerOverGameObject) return;
+
         if (context.performed)
         {
             isHold = true;
