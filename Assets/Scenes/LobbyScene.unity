@@ -1512,7 +1512,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   button: {fileID: 178543628}
-  spawner: {fileID: 0}
 --- !u!114 &178543628
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10109,7 +10108,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &823383322
 RectTransform:
   m_ObjectHideFlags: 0
@@ -20857,6 +20856,7 @@ GameObject:
   - component: {fileID: 1774403153}
   - component: {fileID: 1774403155}
   - component: {fileID: 1774403154}
+  - component: {fileID: 1774403156}
   m_Layer: 0
   m_Name: Image_Resources
   m_TagString: Untagged
@@ -20923,6 +20923,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1774403152}
   m_CullTransparentMesh: 1
+--- !u!114 &1774403156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1774403152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d46fa351da1d75419118d4ac4ae277c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coinText: {fileID: 596542075}
+  jewlText: {fileID: 1803751318}
+  battleData: {fileID: 11400000, guid: 26c73e00451e22a42a2d7dc96e9dde98, type: 2}
 --- !u!1 &1787732348
 GameObject:
   m_ObjectHideFlags: 0

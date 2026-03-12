@@ -7,6 +7,7 @@ public class CharacterSpawner : MonoBehaviour
     [SerializeField] private AbstractFactory[] factories;
     [SerializeField] private RankProbabilitySO probabilityData;
     [SerializeField] private Platforms platforms;
+    [SerializeField] private BattleDataSO battleData;
 
     private CharacterListDataSO charListData;
 
@@ -75,6 +76,13 @@ public class CharacterSpawner : MonoBehaviour
 
     public void SpawnEntity()
     {
+        if(battleData.CurrentCoin < battleData.SpawnCost)
+        {
+            return;
+        }
+
+        battleData.CurrentCoin -= battleData.SpawnCost;
+
         CharRank rank = CheckSummonableRank();
         int charCode = CheckSummonableCharacterInRank(rank);
         int platformIndex = CheckAvailablePlatformIndexByCharacter(charCode);

@@ -8,16 +8,44 @@ public class BattleDataSO : ScriptableObject
     public event Action<int> EnemyCountChanged;
     public event Action EnemyFull;
     public event Action AllEnemyDied;
+    public event Action CoinChanged;
+    public event Action NotEnoughCoin;
+    public event Action EnoughCoin;
 
     [SerializeField] private int roundNum;
 
     [SerializeField] private int currentEnemyCount;
 
+    [SerializeField] private int spawnCost;
+
+    private int currentCoin;
+
     private StageSO stageData;
 
     public StageSO StageData => stageData;
 
-    public bool IsGameOver;
+    public int CurrentCoin
+    {
+        get => currentCoin;
+        set
+        {
+            if(value < spawnCost)
+            {
+                NotEnoughCoin?.Invoke();
+            }
+
+            if(currentCoin < spawnCost && value >= spawnCost)
+            {
+                EnoughCoin?.Invoke();
+            }
+
+            currentCoin = Mathf.Clamp(value, 0, value);            
+
+            CoinChanged?.Invoke();
+        }
+    }
+
+    public int SpawnCost => spawnCost;
 
     public int RoundNum
     {
@@ -58,12 +86,12 @@ public class BattleDataSO : ScriptableObject
         }
     }
 
+    public bool IsGameOver;
+
     public void Initialize(StageSO stageData)
     {
-        IsGameOver = false;
         this.stageData = stageData;
-        currentEnemyCount = 0;
-        RoundNum = -1;
+        OnResetData();
     }
 
     public void OnResetData()
@@ -71,6 +99,7 @@ public class BattleDataSO : ScriptableObject
         IsGameOver = false;
         currentEnemyCount = 0;
         RoundNum = -1;
+        CurrentCoin = stageData.InitialCoin;
     }
 
     private void OnEnemyDied()

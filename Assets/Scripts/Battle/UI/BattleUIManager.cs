@@ -23,6 +23,15 @@ public class BattleUIManager : MonoBehaviour
         timerUI.Initialize();
         summonUI.Initialize();
         startStageButton.Initialize();
+
+        battleData.EnoughCoin += summonUI.EnableButton;
+        battleData.NotEnoughCoin += summonUI.DisableButton;
+    }
+
+    private void OnDestroy()
+    {
+        battleData.EnoughCoin -= summonUI.EnableButton;
+        battleData.NotEnoughCoin -= summonUI.DisableButton;
     }
 
     public void EnableBattleUI()

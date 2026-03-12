@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stageNum: 1
   maxEnemyCount: 40
+  initialCoin: 50
   roundData:
   - enemy: {fileID: 4314358501371899066, guid: a505bf8bbc3a6c547a01a0ea2bec2578, type: 3}
     enemyCount: 10

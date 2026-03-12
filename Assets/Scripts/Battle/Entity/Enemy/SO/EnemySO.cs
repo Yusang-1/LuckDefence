@@ -3,7 +3,11 @@
 [CreateAssetMenu(fileName = "EnemySO", menuName = "Scriptable Objects/EnemySO")]
 public class EnemySO : EntitySO
 {
-    public EnemyRank Rank;    
+    [SerializeField] private EnemyRank rank;
+    [SerializeField] private int dropCoin;
+
+    public EnemyRank Rank => rank;
+    public int DropCoin => dropCoin;
 }
 
 public enum EnemyRank
