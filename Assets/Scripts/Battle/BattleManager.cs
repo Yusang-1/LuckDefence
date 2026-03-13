@@ -20,6 +20,7 @@ public class BattleManager : MonoBehaviour
 
     [Space]
     [SerializeField] private Platforms platforms;
+    [SerializeField] private BattleSpeedController speedController;
 
     public IEnumerator Start()
     {

@@ -1,0 +1,47 @@
+﻿using UnityEngine;
+using System;
+
+public class BattleSpeedController : MonoBehaviour
+{
+    public event Action<int> GameSpeedChanged;
+
+    [SerializeField] private int[] possibleGameSpeed;
+
+    private int currentSpeedIndex;
+    private int maxSpeedIndex;
+
+    private int CurrentSpeedIndex
+    {
+        get => currentSpeedIndex;
+        set
+        {
+            currentSpeedIndex = value;
+            GameSpeedChanged?.Invoke(possibleGameSpeed[value]);
+        }
+    }
+
+    private void Start()
+    {
+        Initialize();
+    }
+
+    public void Initialize()
+    {
+        CurrentSpeedIndex = 0;
+        maxSpeedIndex = possibleGameSpeed.Length - 1;
+    }
+
+    public void MakeGameFaster()
+    {
+        if (CurrentSpeedIndex == maxSpeedIndex)
+        {
+            CurrentSpeedIndex = 0;
+        }
+        else
+        {
+            CurrentSpeedIndex++;
+        }
+
+        Time.timeScale = possibleGameSpeed[CurrentSpeedIndex];
+    }
+}
