@@ -24,6 +24,7 @@ public class EnemyList : MonoBehaviour
     {
         Enemies.Remove(entity);
         s_BattleData.CurrentEnemyCount--;
+        s_BattleData.CurrentCoin += (entity.Data as EnemySO).DropCoin;
     }
 
     public void OnDeactivateAllEnemy()

@@ -6,12 +6,14 @@ public class StageSO : ScriptableObject
 {
     [SerializeField] private int stageNum;
     [SerializeField] private int maxEnemyCount;
+    [SerializeField] private int initialCoin;
     [SerializeField] private RoundData[] roundData;
 
     public int StageNum => stageNum;
     public int MaxEnemyCount => maxEnemyCount;
     public RoundData[] RoundData => roundData;
     public int RoundCount => roundData.Length;
+    public int InitialCoin => initialCoin;
 }
 
 [Serializable]

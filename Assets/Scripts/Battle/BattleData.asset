@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: BattleData
   m_EditorClassIdentifier: 
   roundNum: 0
-  limitEnemyCount: 0
-  currentEnemyCount: 0
+  currentEnemyCount: 8
+  spawnCost: 15
+  IsGameOver: 0

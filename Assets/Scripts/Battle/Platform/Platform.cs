@@ -154,6 +154,12 @@ public class Platform : MonoBehaviour, ISelectableObject, IHoldableObject
 
     public void Selected()
     {
+        if (entities[0] == null)
+        {
+            platforms.SelectedPlatformIndex = -1;
+            return;
+        }
+
         bool value = CheckIsPromotionable();
 
         promotion.GetPlatformData(new PlatformData(index, rank), value);
@@ -168,15 +174,11 @@ public class Platform : MonoBehaviour, ISelectableObject, IHoldableObject
 
     public void Holded()
     {
-        Debug.Log($"Holded : {name}");
-
         holdSelector.Holded(index);
     }
 
     public void HoldReleased()
     {
-        Debug.Log($"HoldReleased : {name}");
-
         holdSelector.Released(index);
     }
 

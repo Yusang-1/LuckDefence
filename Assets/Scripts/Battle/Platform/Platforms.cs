@@ -18,8 +18,13 @@ public class Platforms : MonoBehaviour
         get => selectedPlatformIndex;
         set
         {
-            Debug.Log($"asdf : {value}");
             if(selectedPlatformIndex >= 0 && value < 0)
+            {                
+                selectedPlatformIndex = value;
+                return;
+            }
+
+            if(selectedPlatformIndex < 0 && value < 0)
             {
                 NoPlatformSelected?.Invoke();
                 return;
