@@ -19,7 +19,7 @@ MonoBehaviour:
   GetMPPoint: 0
   AttackPoint: 15
   AttackSpeed: 1.2
-  AttackRange: 4
+  AttackRange: 1.13
   MoveSpeed: 2.5
   Prefab: {fileID: 5845215723689456820, guid: 0d95d0d124667634b8675448ac728cff, type: 3}
   Rank: 1

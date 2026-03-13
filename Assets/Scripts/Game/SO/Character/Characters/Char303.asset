@@ -20,7 +20,7 @@ MonoBehaviour:
   AttackPoint: 20
   AttackSpeed: 1.2
   AttackRange: 4
-  MoveSpeed: 2.5
+  MoveSpeed: 1.78
   Prefab: {fileID: 5239946921873514763, guid: 9f01e1c7ea98b514fa1cdfb1e446f0d2, type: 3}
   Rank: 2
   poolNum: 5
