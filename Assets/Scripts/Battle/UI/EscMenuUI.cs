@@ -1,7 +1,10 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class EscMenuUI : MonoBehaviour
 {
+    public event Action RetryStage;
+
     private void Start()
     {
         gameObject.SetActive(false);
@@ -16,9 +19,18 @@ public class EscMenuUI : MonoBehaviour
         Time.timeScale = 1.0f;
     }
 
-    private void OnDestroy()
+    public void OnGoToMainMenu()
     {
         gameObject.SetActive(false);
+
+        SceneChanger.LoadSceneAsync("LobbyScene");
+    }
+
+    public void OnRetryStage()
+    {
+        gameObject.SetActive(false);
+
+        RetryStage?.Invoke();
     }
 
     // 버튼에 할당

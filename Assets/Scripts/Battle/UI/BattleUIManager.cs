@@ -18,6 +18,7 @@ public class BattleUIManager : MonoBehaviour
     public EnemyCountUI EnemyCountUI => enemyCountUI;
     public StartStageButton StartStageButton => startStageButton;
     public EndStagePanelUI EndStagePanelUI => endStagePanelUI;
+    public EscMenuUI EscMenuUI => escMenuUI;
 
     public void Initialize()
     {
@@ -33,6 +34,15 @@ public class BattleUIManager : MonoBehaviour
     {
         battleData.EnoughCoin -= summonUI.EnableButton;
         battleData.NotEnoughCoin -= summonUI.DisableButton;
+    }
+
+    public void ResetBattleUI()
+    {
+        timerUI.OnResetTimer();
+        enemyCountUI.OnReset();
+        startStageButton.OnOpenUI();
+        endStagePanelUI.OnDeactivePanel();
+        escMenuUI.gameObject.SetActive(false);
     }
 
     public void EnableBattleUI()

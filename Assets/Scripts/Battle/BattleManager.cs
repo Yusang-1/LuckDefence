@@ -52,14 +52,9 @@ public class BattleManager : MonoBehaviour
         }
 
         battleUIManager.TimerUI.TimeIsOver += stageManager.StartNextRound;
-        
-        battleUIManager.EndStagePanelUI.RetryStage += enemyList.OnDeactivateAllEnemy;
-        battleUIManager.EndStagePanelUI.RetryStage += hpSpawner.OnDeactiveAllHP;
-        battleUIManager.EndStagePanelUI.RetryStage += battleUIManager.TimerUI.OnResetTimer;
-        battleUIManager.EndStagePanelUI.RetryStage += battleUIManager.EnemyCountUI.OnReset;
-        battleUIManager.EndStagePanelUI.RetryStage += battleUIManager.StartStageButton.OnOpenUI;
-        battleUIManager.EndStagePanelUI.RetryStage += battleUIManager.EndStagePanelUI.OnDeactivePanel;
-        battleUIManager.EndStagePanelUI.RetryStage += battleData.OnResetData;
+
+        battleUIManager.EndStagePanelUI.RetryStage += OnRestartBattle;
+        battleUIManager.EscMenuUI.RetryStage += OnRestartBattle;
 
         yield return null;
 
@@ -86,19 +81,21 @@ public class BattleManager : MonoBehaviour
             battleData.AllEnemyDied -= platform.ResetPlatform;
         }
         battleUIManager.TimerUI.TimeIsOver -= stageManager.StartNextRound;
-        battleUIManager.EndStagePanelUI.RetryStage -= enemyList.OnDeactivateAllEnemy;
-        battleUIManager.EndStagePanelUI.RetryStage -= hpSpawner.OnDeactiveAllHP;
-        battleUIManager.EndStagePanelUI.RetryStage -= battleUIManager.TimerUI.OnResetTimer;
-        battleUIManager.EndStagePanelUI.RetryStage -= battleUIManager.EnemyCountUI.OnReset;
-        battleUIManager.EndStagePanelUI.RetryStage -= battleUIManager.StartStageButton.OnOpenUI;
-        battleUIManager.EndStagePanelUI.RetryStage -= battleUIManager.EndStagePanelUI.OnDeactivePanel;
-        battleUIManager.EndStagePanelUI.RetryStage -= battleData.OnResetData;
+        battleUIManager.EndStagePanelUI.RetryStage -= OnRestartBattle;
     }
 
     public void StartBattle()
     {
         stageManager.StartNextRound();
-    }    
+    }
+
+    public void OnRestartBattle()
+    {
+        enemyList.OnDeactivateAllEnemy();
+        hpSpawner.OnDeactiveAllHP();
+        battleUIManager.ResetBattleUI();
+        battleData.OnResetData();
+    }
 
     private void GameOver()
     {
