@@ -9,6 +9,7 @@ public class BattleUIManager : MonoBehaviour
     [SerializeField] private SummonUI summonUI;
     [SerializeField] private StartStageButton startStageButton;
     [SerializeField] private EndStagePanelUI endStagePanelUI;
+    [SerializeField] private EscMenuUI escMenuUI;
 
     [Space]
     [SerializeField] private BattleDataSO battleData;
