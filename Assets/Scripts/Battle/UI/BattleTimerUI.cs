@@ -34,6 +34,30 @@ public class BattleTimerUI : MonoBehaviour
         }
     }
 
+    private float tempTime;
+    private int timeCount;
+    private void Update()
+    {
+        if (CurrentTime == 0 || isPlaying == false)
+        {
+            return;
+        }
+
+        tempTime += Time.deltaTime;
+
+        if (tempTime >= minTimeUnit)
+        {
+            timeCount = 0;
+            while(tempTime > minTimeUnit)
+            {
+                tempTime -= minTimeUnit;
+                timeCount++;
+            }
+            
+            CurrentTime -= minTimeUnit * timeCount;
+        }
+    }
+
     public void Initialize()
     {
         CurrentTime = 0;
@@ -45,37 +69,6 @@ public class BattleTimerUI : MonoBehaviour
         isPlaying = true;
 
         CurrentTime += data.AdditionalTime;
-
-        if(timeCoroutine == null)
-        {
-            timeCoroutine = TimeUpdate();
-            StartCoroutine(timeCoroutine);
-        }
-    }
-
-    private IEnumerator TimeUpdate()
-    {
-        yield return null;
-        float time = 0;
-
-        while(true)
-        {
-            if(CurrentTime == 0)
-            {
-                yield return null;
-                continue;
-            }
-
-            time += Time.deltaTime;
-
-            if(time >= minTimeUnit)
-            {
-                time -= minTimeUnit;
-                CurrentTime -= minTimeUnit;
-            }
-
-            yield return null;
-        }
     }
 
     private void ChangeText(string text)
