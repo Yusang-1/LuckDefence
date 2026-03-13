@@ -38,10 +38,11 @@ public class HPSpawner : MonoBehaviour
     {
         foreach(var hp in hpUIs)
         {
-            if(hp.gameObject.activeSelf)
+            if(hp.IsMatched)
             {
+                hp.ResetUI();
                 hp.gameObject.SetActive(false);
-            }            
+            }
         }
     }
 }
