@@ -6216,6 +6216,7 @@ GameObject:
   - component: {fileID: 1328914124}
   - component: {fileID: 1328914123}
   - component: {fileID: 1328914126}
+  - component: {fileID: 1328914127}
   m_Layer: 0
   m_Name: BattleManager
   m_TagString: Untagged
@@ -6257,6 +6258,7 @@ MonoBehaviour:
   enemyList: {fileID: 1642509423}
   platforms: {fileID: 477850103}
   speedController: {fileID: 1328914126}
+  battleTimer: {fileID: 1328914127}
 --- !u!4 &1328914125
 Transform:
   m_ObjectHideFlags: 0
@@ -6285,6 +6287,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   possibleGameSpeed: 010000000200000004000000
+--- !u!114 &1328914127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1328914122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 024337638ce2e724ab917283bd647c3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minTimeUnit: 0.01
+  warningTime: 10
 --- !u!1 &1352131258
 GameObject:
   m_ObjectHideFlags: 0

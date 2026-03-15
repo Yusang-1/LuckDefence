@@ -21,6 +21,7 @@ public class BattleManager : MonoBehaviour
     [Space]
     [SerializeField] private Platforms platforms;
     [SerializeField] private BattleSpeedController speedController;
+    [SerializeField] private BattleTimer battleTimer;
 
     public IEnumerator Start()
     {
@@ -28,15 +29,14 @@ public class BattleManager : MonoBehaviour
         hpSpawner = FindFirstObjectByType<HPSpawner>();
 
         battleData.Initialize(stageData);
+        speedController.Initialize();
         enemySpawner.Initialize(stageData.RoundData);
         hpSpawner.Initialize(stageData);
-        battleUIManager.Initialize();
-        battleUIManager.EnemyCountUI.Initialize(stageData.MaxEnemyCount);
+        battleUIManager.Initialize(stageData);
+        battleTimer.Initialize();
 
         battleData.StartNextRound += enemySpawner.SpawnEnemy;
-        battleData.StartNextRound += battleUIManager.TimerUI.OnStartTimerAddTime;
-
-        battleData.EnemyCountChanged += battleUIManager.EnemyCountUI.OnChangeText;
+        battleData.StartNextRound += battleTimer.OnStartTimerAddTime;
 
         battleData.EnemyFull += battleUIManager.EndStagePanelUI.OnShowGameOverPanel;
         battleData.EnemyFull += enemySpawner.OnStopActiveCoroutine;
@@ -52,7 +52,7 @@ public class BattleManager : MonoBehaviour
             battleData.AllEnemyDied += platform.ResetPlatform;
         }
 
-        battleUIManager.TimerUI.TimeIsOver += stageManager.StartNextRound;
+        battleTimer.TimeIsOver += stageManager.StartNextRound;
 
         battleUIManager.EndStagePanelUI.RetryStage += OnRestartBattle;
         battleUIManager.EscMenuUI.RetryStage += OnRestartBattle;
@@ -67,8 +67,7 @@ public class BattleManager : MonoBehaviour
     private void OnDestroy()
     {
         battleData.StartNextRound -= enemySpawner.SpawnEnemy;
-        battleData.StartNextRound -= battleUIManager.TimerUI.OnStartTimerAddTime;
-        battleData.EnemyCountChanged -= battleUIManager.EnemyCountUI.OnChangeText;
+        battleData.StartNextRound -= battleTimer.OnStartTimerAddTime;
         battleData.EnemyFull -= battleUIManager.EndStagePanelUI.OnShowGameOverPanel;
         battleData.EnemyFull -= enemySpawner.OnStopActiveCoroutine;
         foreach (var platform in platforms.PlatformList)
@@ -81,8 +80,9 @@ public class BattleManager : MonoBehaviour
         {
             battleData.AllEnemyDied -= platform.ResetPlatform;
         }
-        battleUIManager.TimerUI.TimeIsOver -= stageManager.StartNextRound;
+        battleTimer.TimeIsOver -= stageManager.StartNextRound;
         battleUIManager.EndStagePanelUI.RetryStage -= OnRestartBattle;
+        battleUIManager.EscMenuUI.RetryStage -= OnRestartBattle;
     }
 
     public void StartBattle()
@@ -93,9 +93,11 @@ public class BattleManager : MonoBehaviour
     public void OnRestartBattle()
     {
         enemyList.OnDeactivateAllEnemy();
+        enemySpawner.ResetSpawner();
         hpSpawner.OnDeactiveAllHP();
-        battleUIManager.ResetBattleUI();
         battleData.OnResetData();
+        speedController.Initialize();
+        battleUIManager.ResetBattleUI();
     }
 
     private void GameOver()

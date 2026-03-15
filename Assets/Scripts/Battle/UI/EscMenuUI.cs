@@ -5,18 +5,34 @@ public class EscMenuUI : MonoBehaviour
 {
     public event Action RetryStage;
 
+    private BattleSpeedController speedController; 
+
     private void Start()
     {
-        gameObject.SetActive(false);
+        if (speedController == null)
+        {
+            speedController = FindFirstObjectByType<BattleSpeedController>();
+        }
     }
+
     private void OnEnable()
     {
-        Time.timeScale = 0;
+        if (speedController == null)
+        {
+            speedController = FindFirstObjectByType<BattleSpeedController>();
+        }
+
+        speedController.ChangeGameSpeed(0);
     }
 
     private void OnDisable()
     {
-        Time.timeScale = 1.0f;
+        if (speedController == null)
+        {
+            speedController = FindFirstObjectByType<BattleSpeedController>();
+        }
+
+        speedController.ResumeGameSpeed();
     }
 
     public void OnGoToMainMenu()

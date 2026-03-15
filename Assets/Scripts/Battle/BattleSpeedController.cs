@@ -3,7 +3,7 @@ using System;
 
 public class BattleSpeedController : MonoBehaviour
 {
-    public event Action<int> GameSpeedChanged;
+    public event Action<float> GameSpeedChanged;
 
     [SerializeField] private int[] possibleGameSpeed;
 
@@ -31,7 +31,7 @@ public class BattleSpeedController : MonoBehaviour
         maxSpeedIndex = possibleGameSpeed.Length - 1;
     }
 
-    public void MakeGameFaster()
+    public void ChangeGameSpeed()
     {
         if (CurrentSpeedIndex == maxSpeedIndex)
         {
@@ -42,6 +42,18 @@ public class BattleSpeedController : MonoBehaviour
             CurrentSpeedIndex++;
         }
 
+        Time.timeScale = possibleGameSpeed[CurrentSpeedIndex];        
+    }
+
+    public void ChangeGameSpeed(float speed)
+    {
+        Time.timeScale = speed;
+        GameSpeedChanged?.Invoke(speed);
+    }
+
+    public void ResumeGameSpeed()
+    {
         Time.timeScale = possibleGameSpeed[CurrentSpeedIndex];
+        GameSpeedChanged?.Invoke(possibleGameSpeed[CurrentSpeedIndex]);
     }
 }

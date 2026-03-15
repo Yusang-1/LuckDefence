@@ -8,7 +8,7 @@ public class BattleDataSO : ScriptableObject
     public event Action<int> EnemyCountChanged;
     public event Action EnemyFull;
     public event Action AllEnemyDied;
-    public event Action CoinChanged;
+    public event Action<int> CoinChanged;
     public event Action NotEnoughCoin;
     public event Action EnoughCoin;
 
@@ -41,7 +41,7 @@ public class BattleDataSO : ScriptableObject
 
             currentCoin = Mathf.Clamp(value, 0, value);            
 
-            CoinChanged?.Invoke();
+            CoinChanged?.Invoke(currentCoin);
         }
     }
 

@@ -1,28 +1,36 @@
 ﻿using UnityEngine;
 using TMPro;
 
-public class EnemyCountUI : MonoBehaviour
+public class EnemyCountUI : UIPresenter
 {
     [SerializeField] private TextMeshProUGUI enemyCountText;
     [SerializeField] private TextMeshProUGUI enemyLimitCountText;
 
+    [SerializeField] private BattleDataSO battleData;
     int limitCount;
+
+    private void OnDestroy()
+    {
+        battleData.EnemyCountChanged -= OnUpdateUI;
+    }
 
     public void Initialize(int limitCount)
     {
+        battleData.EnemyCountChanged += OnUpdateUI;
+
         this.limitCount = limitCount;
         enemyCountText.text = "0";
         enemyLimitCountText.text = limitCount.ToString();
     }
 
-    public void OnChangeText(int count)
+    public override void OnUpdateUI<T>(T item)
     {
-        enemyCountText.text = count.ToString();
+        enemyCountText.text = item.ToString();
     }
 
     public void OnReset()
     {
         enemyCountText.text = "0";
         enemyLimitCountText.text = limitCount.ToString();
-    }
+    }    
 }

@@ -5,6 +5,7 @@ public class BattleUIManager : MonoBehaviour
     [SerializeField] private GameObject battleUI;
     [SerializeField] private GameObject loadingUI;
     [SerializeField] private BattleTimerUI timerUI;
+    [SerializeField] private ResourcesUI resourcesUI;
     [SerializeField] private EnemyCountUI enemyCountUI;
     [SerializeField] private SummonUI summonUI;
     [SerializeField] private StartStageButton startStageButton;
@@ -14,15 +15,16 @@ public class BattleUIManager : MonoBehaviour
     [Space]
     [SerializeField] private BattleDataSO battleData;
 
-    public BattleTimerUI TimerUI => timerUI;
     public EnemyCountUI EnemyCountUI => enemyCountUI;
     public StartStageButton StartStageButton => startStageButton;
     public EndStagePanelUI EndStagePanelUI => endStagePanelUI;
     public EscMenuUI EscMenuUI => escMenuUI;
 
-    public void Initialize()
+    public void Initialize(StageSO stageData)
     {
         timerUI.Initialize();
+        resourcesUI.Initialize();
+        EnemyCountUI.Initialize(stageData.MaxEnemyCount);
         summonUI.Initialize();
         startStageButton.Initialize();
 
@@ -38,11 +40,10 @@ public class BattleUIManager : MonoBehaviour
 
     public void ResetBattleUI()
     {
-        timerUI.OnResetTimer();
         enemyCountUI.OnReset();
-        startStageButton.OnOpenUI();
         endStagePanelUI.OnDeactivePanel();
         escMenuUI.gameObject.SetActive(false);
+        startStageButton.OnOpenUI();
     }
 
     public void EnableBattleUI()

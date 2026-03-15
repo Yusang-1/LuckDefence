@@ -1,91 +1,45 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System;
-using System.Collections;
 using TMPro;
 
-public class BattleTimerUI : MonoBehaviour
-{
-    public event Action TimeIsOver;
-
+public class BattleTimerUI : UIPresenter
+{   
     [SerializeField] private Image timerImage;
     [SerializeField] private TextMeshProUGUI timerText;
+    
+    private BattleTimer timer;
 
-    [SerializeField] private float minTimeUnit;
-    [SerializeField] private float warningTime;
-    [SerializeField] private float maxTime;
-
-    private float currentTime;
-    private bool isPlaying;
-    private IEnumerator timeCoroutine;
-
-    protected float CurrentTime
+    private void Start()
     {
-        get => currentTime;
-        set
+        if (timer == null)
         {
-            currentTime = Mathf.Clamp(value, 0, maxTime);
-            ChangeText(currentTime.ToString("N2"));
-
-            if (currentTime == 0 && isPlaying)
-            {
-                TimeIsOver?.Invoke();
-            }
+            timer = FindAnyObjectByType<BattleTimer>();
         }
-    }
+    }    
 
-    private float tempTime;
-    private int timeCount;
-    private void Update()
+    private void OnDestroy()
     {
-        if (CurrentTime == 0 || isPlaying == false)
-        {
-            return;
-        }
-
-        tempTime += Time.deltaTime;
-
-        if (tempTime >= minTimeUnit)
-        {
-            timeCount = 0;
-            while(tempTime > minTimeUnit)
-            {
-                tempTime -= minTimeUnit;
-                timeCount++;
-            }
-            
-            CurrentTime -= minTimeUnit * timeCount;
-        }
+        timer.TimeChanged -= OnUpdateUI;
     }
 
     public void Initialize()
     {
-        CurrentTime = 0;
-        timeCoroutine = null;
-    }
-
-    public void OnStartTimerAddTime(RoundData data)
-    {
-        isPlaying = true;
-
-        CurrentTime += data.AdditionalTime;
-    }
-
-    private void ChangeText(string text)
-    {
-        timerText.text = text;
-    }
-
-    public void OnResetTimer()
-    {
-        isPlaying = false;
-
-        if (timeCoroutine != null)
+        if(timer == null)
         {
-            StopCoroutine(timeCoroutine);
-            timeCoroutine = null;
+            timer = FindAnyObjectByType<BattleTimer>();
         }
+        timer.TimeChanged += OnUpdateUI;
+    }
 
-        CurrentTime = 0;
+    public override void OnUpdateUI<T>(T item)
+    {
+        ChangeTimerText(item);
+    }
+
+    private void ChangeTimerText<T>(T time) where T : IConvertible
+    {  
+        float floatTime = Convert.ToSingle(time);
+        timerText.text = floatTime.ToString("N2");
     }
 }

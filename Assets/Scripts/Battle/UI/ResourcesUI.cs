@@ -1,26 +1,30 @@
 ﻿using UnityEngine;
 using TMPro;
 
-public class ResourcesUI : MonoBehaviour
+public class ResourcesUI : UIPresenter
 {
     [SerializeField] private TextMeshProUGUI coinText;
     [SerializeField] private TextMeshProUGUI jewlText;
 
     [SerializeField] private BattleDataSO battleData;
 
-    private void Start()
-    {
-        battleData.CoinChanged += UpdateCoinUI;
-        UpdateCoinUI();
-    }
-
     private void OnDestroy()
     {
-        battleData.CoinChanged -= UpdateCoinUI;
+        battleData.CoinChanged -= OnUpdateUI;
     }
 
-    private void UpdateCoinUI()
+    public void Initialize()
     {
-        coinText.text = battleData.CurrentCoin.ToString();
+        battleData.CoinChanged += OnUpdateUI;
+    }
+
+    public override void OnUpdateUI<T>(T item)
+    {
+        UpdateCoinUI(item);
+    }
+
+    private void UpdateCoinUI<T>(T item)
+    {
+        coinText.text = item.ToString();
     }
 }

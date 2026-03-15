@@ -16,10 +16,15 @@ public class SpeedButtonUI : MonoBehaviour
     // 버튼에 할당
     public void OnChangeSpeed()
     {
-        speedController.MakeGameFaster();
+        speedController.ChangeGameSpeed();
     }
 
-    public void OnChangeSpeedValueText(int speedValue)
+    public void PauseGame()
+    {
+        speedController.ChangeGameSpeed(0);
+    }
+
+    public void OnChangeSpeedValueText(float speedValue)
     {
         speedValueText.text = speedValue.ToString();
     }

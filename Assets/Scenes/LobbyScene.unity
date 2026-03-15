@@ -1221,6 +1221,7 @@ MonoBehaviour:
   battleUI: {fileID: 143417583}
   loadingUI: {fileID: 2017007568}
   timerUI: {fileID: 375942883}
+  resourcesUI: {fileID: 1774403156}
   enemyCountUI: {fileID: 1357737559}
   summonUI: {fileID: 178543627}
   startStageButton: {fileID: 1795983701}
@@ -4033,9 +4034,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timerImage: {fileID: 375942884}
   timerText: {fileID: 1370415361}
-  minTimeUnit: 0.01
-  warningTime: 10
-  maxTime: 100
 --- !u!114 &375942884
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17846,6 +17844,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyCountText: {fileID: 548206000}
   enemyLimitCountText: {fileID: 1598148978}
+  battleData: {fileID: 11400000, guid: 26c73e00451e22a42a2d7dc96e9dde98, type: 2}
 --- !u!114 &1357737560
 MonoBehaviour:
   m_ObjectHideFlags: 0
