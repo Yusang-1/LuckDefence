@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using TMPro;
 
-public class SpeedButtonUI : MonoBehaviour
+public class SpeedButtonUI : UIPresenter
 {
     [SerializeField] private TextMeshProUGUI speedValueText;
     
@@ -10,22 +10,27 @@ public class SpeedButtonUI : MonoBehaviour
     private void Start()
     {
         speedController = FindFirstObjectByType<BattleSpeedController>();
-        speedController.GameSpeedChanged += OnChangeSpeedValueText;
+        speedController.GameSpeedChanged += OnUpdateUI;
     }
 
-    // 버튼에 할당
-    public void OnChangeSpeed()
+    private void OnDestroy()
     {
-        speedController.ChangeGameSpeed();
+        speedController.GameSpeedChanged -= OnUpdateUI;
     }
 
-    public void PauseGame()
+    public override void OnUpdateUI<T>(T item)
     {
-        speedController.ChangeGameSpeed(0);
+        ChangeSpeedValueText(item);
     }
 
-    public void OnChangeSpeedValueText(float speedValue)
+    private void ChangeSpeedValueText<T>(T speedValue)
     {
         speedValueText.text = speedValue.ToString();
     }
+
+    // 버튼 할당
+    public void OnChangeSpeed()
+    {
+        speedController.ChangeGameSpeed();
+    }       
 }
